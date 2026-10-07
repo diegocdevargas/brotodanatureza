@@ -1,0 +1,108 @@
+@use "abstracts" as *;
+
+// Dashboard (prefix db-): metric cards and chart cards in the template's card language.
+// Builds on catalog.scss + journal.scss, which the dashboard page also imports.
+
+.db-sec {
+  padding: 96px 48px;
+
+  @include below(tablet) {
+    padding: 80px 40px;
+  }
+
+  @include below(phone) {
+    padding: 56px 20px;
+  }
+
+  &--mint {
+    border-radius: 16px;
+    background: var(--mint);
+  }
+}
+
+.db-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+
+  @include below(tablet) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include below(phone) {
+    gap: 12px;
+  }
+}
+
+.db-metric {
+  @include stack(10px);
+  position: relative;
+  padding: 28px;
+  border-radius: 24px;
+  overflow: clip;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--ink-10);
+
+  @include below(phone) {
+    padding: 20px;
+  }
+
+  &__icon {
+    @include circle(44px);
+    margin-bottom: 14px;
+    background: var(--forest-12);
+    color: var(--forest);
+  }
+
+  &--dark {
+    background: var(--ink-bg);
+    box-shadow: none;
+
+    .db-metric__icon {
+      background: var(--lime);
+      color: var(--on-lime);
+    }
+
+    &::after {
+      @include lime-glow(16%);
+      content: "";
+      position: absolute;
+      bottom: -220px;
+      left: -120px;
+      width: 360px;
+      height: 360px;
+    }
+  }
+}
+
+.db-charts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+
+  @include below(phone) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.db-chart {
+  @include stack(20px);
+  min-width: 0;
+  padding: 28px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--ink-10);
+
+  @include below(phone) {
+    padding: 20px;
+  }
+
+  &__head {
+    @include stack(6px);
+  }
+
+  // Recharts writes the legend color inline, so this needs !important.
+  .recharts-legend-item-text {
+    color: var(--ink-70) !important;
+  }
+}

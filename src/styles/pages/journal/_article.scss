@@ -1,0 +1,211 @@
+@use "../../abstracts" as *;
+
+// /blog/[slug]: header, body, author card, previous / next.
+
+.jo-ahead {
+  @include stack(36px);
+  align-items: center;
+  padding: 116px 48px 0;
+  background: var(--cream);
+
+  @include below(tablet) {
+    padding: 112px 32px 0;
+  }
+
+  @include below(phone) {
+    padding: 92px 20px 0;
+  }
+
+  &__c {
+    @include stack(22px);
+    align-items: center;
+    width: 100%;
+    max-width: 760px;
+    text-align: center;
+  }
+
+  &__ex {
+    max-width: 620px;
+  }
+
+  &__cover {
+    width: 100%;
+    max-width: 1080px;
+    height: 500px;
+    border-radius: 32px;
+    overflow: hidden;
+
+    @include below(tablet) {
+      height: 420px;
+    }
+
+    @include below(phone) {
+      height: 240px;
+      border-radius: 24px;
+    }
+
+    img,
+    > .pl-ph {
+      width: 100%;
+      height: 100%;
+    }
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  &__spacer {
+    width: 100%;
+    height: 72px;
+
+    @include below(tablet) {
+      height: 56px;
+    }
+
+    @include below(phone) {
+      height: 48px;
+    }
+  }
+}
+
+.jo-crumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  a:hover {
+    color: var(--ink);
+  }
+}
+
+.jo-abody {
+  display: flex;
+  justify-content: center;
+  padding: 0 48px 96px;
+  background: var(--surface);
+
+  @include below(tablet) {
+    padding: 0 32px 80px;
+  }
+
+  @include below(phone) {
+    padding: 0 20px 56px;
+  }
+
+  &__c {
+    @include stack(40px);
+    width: 100%;
+    max-width: 700px;
+    padding-top: 72px;
+
+    @include below(phone) {
+      gap: 32px;
+      padding-top: 48px;
+    }
+  }
+}
+
+.jo-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  border-radius: 22px;
+  background: var(--cream);
+
+  &__av {
+    @include circle(52px);
+    flex: none;
+    background: var(--lime);
+    color: var(--on-lime);
+  }
+
+  &__copy {
+    @include stack(4px);
+  }
+
+  &__name {
+    margin: 0;
+    font-size: rem(18px);
+    line-height: 1.35;
+    font-weight: 600;
+
+    @include below(phone) {
+      font-size: rem(16px);
+    }
+  }
+}
+
+// "Continue lendo" band.
+.jo-more {
+  padding: 96px 48px;
+  background: var(--mint);
+
+  @include below(tablet) {
+    padding: 80px 32px;
+  }
+
+  @include below(phone) {
+    padding: 56px 20px;
+  }
+
+  .jo-c {
+    gap: 32px;
+  }
+}
+
+.jo-all-link {
+  transition: opacity 0.3s var(--ease);
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.jo-pn {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+
+  @include below(phone) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  > * {
+    min-width: 0;
+  }
+}
+
+.jo-nb {
+  @include stack;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--surface);
+
+  &__cover {
+    position: relative;
+    flex: none;
+    height: 190px;
+
+    img,
+    > .pl-ph {
+      position: absolute;
+      inset: 0;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__copy {
+    @include stack(8px);
+    padding: 24px;
+  }
+}

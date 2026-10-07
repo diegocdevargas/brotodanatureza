@@ -1,0 +1,115 @@
+@use "../abstracts" as *;
+
+// Rich HTML coming from WordPress (post and plant bodies).
+.wp-content {
+  color: var(--ink-70);
+  font-size: rem(17px);
+  line-height: 1.7;
+
+  @include below(phone) {
+    font-size: rem(16px);
+  }
+
+  > * + * {
+    margin-top: 20px;
+  }
+
+  :is(h2, h3, h4) {
+    margin-top: 44px;
+    color: var(--ink);
+    font-family: var(--serif);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+  }
+
+  h2 {
+    font-size: rem(40px);
+
+    @include below(phone) {
+      font-size: rem(28px);
+    }
+  }
+
+  h3 {
+    font-size: rem(32px);
+
+    @include below(phone) {
+      font-size: rem(24px);
+    }
+  }
+
+  h4 {
+    font-size: rem(25px);
+  }
+
+  a {
+    color: var(--forest);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  :is(ul, ol) {
+    padding-left: 22px;
+  }
+
+  ul { list-style: disc; }
+  ol { list-style: decimal; }
+
+  li + li {
+    margin-top: 8px;
+  }
+
+  li::marker {
+    color: var(--forest);
+  }
+
+  blockquote {
+    margin: 32px 0;
+    padding: 24px 28px;
+    border-radius: 20px;
+    background: var(--mint);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: rem(25px);
+    line-height: 1.25;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  img {
+    height: auto;
+    border-radius: 20px;
+  }
+
+  figure {
+    margin: 32px 0;
+  }
+
+  figcaption {
+    margin-top: 10px;
+    color: var(--ink-55);
+    font-size: rem(13px);
+  }
+
+  code {
+    padding: 0.1em 0.35em;
+    border-radius: 6px;
+    background: var(--mint);
+    font-family: var(--mono);
+    font-size: 0.9em;
+  }
+
+  hr {
+    height: 1px;
+    margin: 40px 0;
+    border: 0;
+    background: var(--ink-10);
+  }
+}

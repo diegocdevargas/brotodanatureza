@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Template source kept for reference while migrating
+    "_incoming/**",
   ]),
 ]);
 

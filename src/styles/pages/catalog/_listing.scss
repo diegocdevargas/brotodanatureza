@@ -1,0 +1,312 @@
+@use "../../abstracts" as *;
+
+// Enciclopédia index: section shells, featured plant, plant grid.
+
+.ca-sec {
+  width: 100%;
+  background: var(--cream);
+
+  &__wrap {
+    width: 100%;
+    max-width: 1080px;
+    margin-inline: auto;
+  }
+
+  &--featured {
+    padding: 96px 48px 40px;
+
+    @include below(tablet) {
+      padding-inline: 40px;
+    }
+
+    @include below(phone) {
+      padding: 56px 20px 24px;
+    }
+  }
+
+  &--all {
+    padding: 56px 48px 96px;
+
+    @include below(tablet) {
+      padding-inline: 40px;
+    }
+
+    @include below(phone) {
+      padding: 32px 20px 64px;
+    }
+  }
+}
+
+.ca-stack36 {
+  @include stack(36px);
+}
+
+// Section title row: title left, note or link right.
+.ca-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+
+  @include below(phone) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    :is(.ca-sec--all, .ca-other) & {
+      gap: 10px;
+    }
+  }
+
+  &__note {
+    max-width: 300px;
+    text-align: right;
+
+    .ca-sec--all & {
+      max-width: 320px;
+    }
+
+    @include below(phone) {
+      text-align: left;
+
+      &,
+      .ca-sec--all & {
+        max-width: none;
+      }
+    }
+  }
+
+  &__link {
+    color: var(--forest);
+    font-size: rem(15px);
+    line-height: 1.2;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+}
+
+// Featured plant: image left, copy right.
+.ca-feat {
+  display: flex;
+  align-items: center;
+  min-height: 460px;
+  border-radius: 32px;
+  overflow: hidden;
+  background: var(--surface);
+
+  @include below(phone) {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+  }
+
+  &__img {
+    position: relative;
+    flex: none;
+    align-self: stretch;
+    width: 520px;
+
+    @include below(tablet) {
+      width: 46%;
+    }
+
+    @include below(phone) {
+      width: 100%;
+      height: 240px;
+    }
+
+    img,
+    > .pl-ph {
+      position: absolute;
+      inset: 0;
+    }
+  }
+
+  &__copy {
+    @include stack(18px);
+    flex: 1;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 0;
+    padding: 48px;
+
+    @include below(tablet) {
+      padding: 40px;
+    }
+
+    @include below(phone) {
+      gap: 14px;
+      padding: 24px;
+    }
+  }
+
+  &__tag {
+    padding: 8px 14px;
+    border-radius: $pill;
+    background: var(--lime-16);
+    font-size: rem(12px);
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  &__p {
+    max-width: 420px;
+  }
+
+  &__meta,
+  &__btns {
+    display: flex;
+    align-items: center;
+  }
+
+  &__meta {
+    gap: 20px;
+  }
+
+  &__btns {
+    gap: 12px;
+  }
+
+  &__div {
+    width: 1px;
+    height: 20px;
+    background: var(--ink-10);
+  }
+
+  &__chip {
+    color: var(--forest);
+    font-size: rem(15px);
+    line-height: 1.2;
+    font-weight: 600;
+  }
+}
+
+// Plant cards grid.
+.ca-sgrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+
+  @include below(tablet) {
+    gap: 20px;
+  }
+
+  @include below(phone) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  // 3-up list of plants (<ul>).
+  &--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+
+    @include below(tablet) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    @include below(phone) {
+      grid-template-columns: 1fr;
+    }
+
+    > li {
+      display: flex;
+    }
+
+    .ca-scard {
+      width: 100%;
+      transition:
+        translate 0.35s var(--ease-spring),
+        box-shadow 0.35s;
+
+      &:hover {
+        box-shadow: 0 24px 48px var(--shadow);
+        translate: 0 -6px;
+      }
+    }
+
+    .ca-scard__img {
+      height: 220px;
+      overflow: hidden;
+
+      img {
+        transition: transform 0.6s var(--ease);
+      }
+    }
+
+    .ca-scard:hover .ca-scard__img img {
+      transform: scale(1.04);
+    }
+
+    .ca-scard__copy {
+      flex: 1;
+      padding: 24px;
+    }
+
+    .ca-scard__foot {
+      gap: 12px;
+      margin-top: auto;
+    }
+
+    .ca-kicker {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+
+.ca-scard {
+  @include stack;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+
+  &__img {
+    position: relative;
+    height: 260px;
+
+    @include below(tablet) {
+      height: 220px;
+    }
+
+    @include below(phone) {
+      height: 200px;
+    }
+
+    > .pl-ph {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__copy {
+    @include stack(12px);
+    padding: 28px;
+
+    @include below(phone) {
+      padding: 22px;
+    }
+  }
+
+  &__sep {
+    height: 1px;
+    background: var(--ink-10);
+  }
+
+  &__foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__view {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: rem(12px);
+    line-height: 1.2;
+    font-weight: 600;
+  }
+}

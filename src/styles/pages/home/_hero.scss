@@ -1,0 +1,268 @@
+@use "../../abstracts" as *;
+
+.ho-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 840px;
+  padding: 104px 36px 36px;
+  color: var(--white);
+
+  @include below(tablet) {
+    padding: 104px 32px 32px;
+  }
+
+  @include below(phone) {
+    height: 763px;
+    padding: 88px 20px 36px;
+  }
+
+  h1 {
+    max-width: 620px;
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 100% 50%;
+
+    @include below(phone) {
+      object-position: 70% 50%;
+    }
+  }
+
+  &__shade {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    &--l {
+      background: linear-gradient(
+        90deg,
+        rgb(7 24 15 / 85%) 0%,
+        rgb(7 24 15 / 55%) 38%,
+        rgb(7 24 15 / 0%) 68%
+      );
+    }
+
+    &--v {
+      background: linear-gradient(
+        rgb(7 24 15 / 40%) 0%,
+        rgb(7 24 15 / 0%) 20%,
+        rgb(7 24 15 / 0%) 58%,
+        rgb(7 24 15 / 75%) 100%
+      );
+    }
+  }
+
+  &__content {
+    @include stack(74px);
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    max-width: 1176px;
+    height: 700px;
+
+    @include below(phone) {
+      justify-content: flex-start;
+      height: auto;
+    }
+  }
+
+  &__intro {
+    @include stack(28px);
+    align-items: flex-start;
+
+    @include below(phone) {
+      padding-top: 40px;
+    }
+  }
+
+  &__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 14px 5px 5px;
+    border-radius: $pill;
+    background: var(--white-16);
+    box-shadow: inset 0 0 0 1px var(--white-16);
+    color: var(--white-55);
+    font-size: rem(13px);
+    line-height: 1.5;
+    white-space: pre;
+    backdrop-filter: blur(12px);
+
+    @include below(phone) {
+      gap: 16px;
+      width: 100%;
+    }
+  }
+
+  &__badge {
+    @include circle(24px);
+    background: var(--lime);
+    color: var(--on-lime);
+  }
+
+  &__lede {
+    max-width: 470px;
+    color: var(--white-75);
+    font-size: rem(17px);
+    line-height: 1.6;
+
+    @include below(phone) {
+      font-size: rem(16px);
+    }
+  }
+
+  &__btns {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .btn--ghost {
+      height: 58px;
+    }
+
+    @include below(phone) {
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+
+      .btn--ghost {
+        justify-content: center;
+      }
+    }
+  }
+
+  &__proof {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  &__stats {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    @include below(phone) {
+      flex-wrap: wrap;
+      gap: 18px 28px;
+    }
+  }
+
+  &__stat {
+    @include stack(8px);
+
+    span {
+      color: var(--white-55);
+      font-size: rem(13px);
+      line-height: 1.5;
+    }
+  }
+
+  &__div {
+    width: 1px;
+    height: 52px;
+    background: var(--white-16);
+
+    @include below(phone) {
+      display: none;
+    }
+  }
+}
+
+// "Featured plant" glass card in the hero corner.
+.ho-snap {
+  @include stack(18px);
+  width: 330px;
+  padding: 20px;
+  border-radius: 22px;
+  overflow: clip;
+  background: rgb(10 30 20 / 38%);
+  box-shadow: inset 0 0 0 1px var(--white-16);
+  color: var(--white);
+  backdrop-filter: blur(24px);
+  transition:
+    background-color 0.35s,
+    translate 0.35s var(--ease-spring);
+
+  &:hover {
+    background: rgb(10 30 20 / 52%);
+    translate: 0 -4px;
+  }
+
+  @include below(phone) {
+    display: none;
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__tg {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__icon {
+    @include circle(34px);
+    background: var(--lime);
+    color: var(--on-lime);
+  }
+
+  &__titles {
+    @include stack(3px);
+  }
+
+  &__titles span,
+  &__muted {
+    color: var(--white-55);
+    font-size: rem(13px);
+    line-height: 1.5;
+  }
+
+  &__status {
+    padding: 6px 10px;
+    border-radius: $pill;
+    background: var(--lime-16);
+    box-shadow: inset 0 0 0 1px var(--lime-16);
+    font-size: rem(12px);
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  &__val {
+    @include stack(8px);
+  }
+
+  &__name {
+    font-family: var(--serif);
+    font-size: rem(40px);
+    line-height: 1;
+    letter-spacing: -0.01em;
+
+    @include below(phone) {
+      font-size: rem(32px);
+    }
+  }
+
+  &__sep {
+    height: 1px;
+    background: var(--white-16);
+  }
+
+  &__foot {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--white-55);
+  }
+}

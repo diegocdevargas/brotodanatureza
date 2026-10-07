@@ -1,0 +1,144 @@
+@use "../../abstracts" as *;
+
+.ho-blog {
+  @include stack(56px);
+  padding: 120px 36px 128px;
+
+  @include below(tablet) {
+    padding-inline: 24px;
+  }
+
+  @include below(phone) {
+    padding: 64px 20px;
+  }
+
+  &__grid {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+
+    @include below(tablet) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    @include below(phone) {
+      gap: 28px;
+    }
+  }
+
+  &__feat {
+    flex: none;
+    width: 591px;
+
+    @include below(tablet) {
+      width: 100%;
+    }
+  }
+
+  &__list {
+    @include stack(20px);
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+// Featured post (dark card).
+.ho-feat {
+  @include stack;
+  padding: 12px;
+  border-radius: var(--radius);
+  overflow: clip;
+  background: var(--ink-bg);
+  color: var(--white);
+
+  &:hover {
+    translate: 0 -4px;
+  }
+
+  &__cover {
+    width: 100%;
+    height: 336px;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+
+  &__copy {
+    @include stack(16px);
+    align-items: flex-start;
+    padding: 24px 20px 20px;
+  }
+
+  .ho-cat {
+    background: var(--lime-16);
+  }
+
+  &__read {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: rem(15px);
+    line-height: 1.2;
+    font-weight: 600;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+// Post list rows.
+.ho-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px;
+  border-radius: 24px;
+  overflow: clip;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--ink-10);
+
+  &:hover {
+    translate: 0 -4px;
+  }
+
+  @include below(phone) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+  }
+
+  &__cover {
+    flex: none;
+    width: 168px;
+    height: 168px;
+    border-radius: 16px;
+    object-fit: cover;
+
+    @include below(phone) {
+      width: 100%;
+      height: 190px;
+    }
+  }
+
+  &__copy {
+    @include stack(10px);
+    flex: 1;
+    align-items: flex-start;
+    min-width: 0;
+    padding-right: 12px;
+
+    @include below(phone) {
+      padding: 0 8px 8px;
+    }
+  }
+
+  .ho-meta {
+    gap: 10px;
+  }
+
+  .ho-cat {
+    background: var(--forest-12);
+  }
+}

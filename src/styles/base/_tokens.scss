@@ -1,0 +1,68 @@
+// Design tokens — visual language adapted from the Lubrix template (cream + deep green + lime).
+// Text and background roles are split so dark mode only swaps base colors:
+//   --ink      text color              --ink-bg   dark surfaces (footer, buttons, cards)
+//   --white    text on dark surfaces   --surface  light cards
+//   --on-lime  text on lime fills
+// Alpha variants are derived with color-mix(), so a theme only redefines the base colors.
+
+:root {
+  color-scheme: light;
+
+  // Base colors
+  --ink: #0e2419;
+  --ink-bg: #0e2419;
+  --on-lime: #0e2419;
+  --forest: #3f6b45;
+  --lime: #d8f28a;
+  --cream: #f3f1e8;
+  --paper: #f8f9f3;
+  --card: #f6f3ee;
+  --mint: #e4ebda;
+  --surface: #fff;
+  --white: #fff;
+  --deep: #060e0a;
+  --warn-bg: #f6ead6;
+  --warn-ink: #6b4310;
+  --shadow: rgb(14 36 25 / 10%);
+
+  // Derived alphas
+  --ink-70: color-mix(in srgb, var(--ink) 70%, transparent);
+  --ink-55: color-mix(in srgb, var(--ink) 55%, transparent);
+  --ink-12: color-mix(in srgb, var(--ink) 12%, transparent);
+  --ink-10: color-mix(in srgb, var(--ink) 10%, transparent);
+  --hover: color-mix(in srgb, var(--ink) 6%, transparent);
+  --forest-12: color-mix(in srgb, var(--forest) 12%, transparent);
+  --lime-16: color-mix(in srgb, var(--lime) 16%, transparent);
+  --white-75: color-mix(in srgb, var(--white) 75%, transparent);
+  --white-55: color-mix(in srgb, var(--white) 55%, transparent);
+  --white-16: color-mix(in srgb, var(--white) 16%, transparent);
+
+  // Type
+  --serif: var(--font-serif), "Instrument Serif", Georgia, serif;
+  --sans: var(--font-geist-sans), "Geist", Inter, system-ui, sans-serif;
+  --mono: var(--font-geist-mono), "Geist Mono", ui-monospace, monospace;
+
+  // Motion & shape
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.3, 1.3, 0.5, 1);
+  --radius: 28px;
+}
+
+// next-themes toggles `.dark` on <html>.
+:root.dark {
+  color-scheme: dark;
+
+  --ink: #e8efe4;
+  --ink-bg: #16301f;
+  --forest: #9fd3a3;
+  --cream: #0a120d;
+  --paper: #121d16;
+  --card: #15221a;
+  --mint: #0f1a13;
+  --surface: #162219;
+  --deep: #040906;
+  --warn-bg: #2a2113;
+  --warn-ink: #f0d3a2;
+  --shadow: rgb(0 0 0 / 40%);
+  --hover: color-mix(in srgb, var(--ink) 8%, transparent);
+}

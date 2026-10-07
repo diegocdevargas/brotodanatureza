@@ -1,0 +1,150 @@
+@use "../abstracts" as *;
+
+// Full-screen phone / tablet menu (dialog).
+.mmenu {
+  @include stack(8px);
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  padding: 8px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--deep);
+  color: var(--white);
+
+  @include below(tablet) {
+    padding: 12px;
+  }
+
+  @include below(phone) {
+    padding: 8px;
+  }
+
+  // Shared look of the three dark cards.
+  &__card,
+  &__contact,
+  &__booking {
+    padding: 18px;
+    border-radius: 24px;
+    background: var(--ink-bg);
+  }
+
+  &__card {
+    @include stack(14px);
+  }
+
+  &__contact,
+  &__booking {
+    @include stack(12px);
+  }
+
+  &__card,
+  &__row {
+    @include below(tablet) {
+      width: 100%;
+      max-width: 760px;
+      margin-inline: auto;
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__top .mono,
+  &__contact .mono {
+    color: var(--white-55);
+  }
+
+  &__close {
+    @include circle(38px);
+    background: rgb(255 255 255 / 8%);
+    color: var(--white);
+  }
+
+  &__links {
+    padding-top: 6px;
+  }
+
+  &__big {
+    display: block;
+    font-size: rem(32px);
+    line-height: 1.1;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+
+    &:hover {
+      color: var(--lime);
+    }
+  }
+
+  &__services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 22px;
+    padding: 8px 0 14px 2px;
+
+    a {
+      color: var(--white-55);
+      font-size: rem(12px);
+      line-height: 1.17;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  &__status {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    b {
+      font-size: rem(15px);
+      line-height: 1.2;
+      font-weight: 600;
+    }
+  }
+
+  &__bars {
+    display: flex;
+    gap: 5px;
+
+    i {
+      width: 3px;
+      height: 34px;
+      border-radius: 4px;
+      background: var(--lime);
+
+      + i {
+        background: rgb(216 242 138 / 45%);
+      }
+    }
+  }
+
+  &__book {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__arrow {
+    @include circle(32px);
+    background: rgb(216 242 138 / 14%);
+    color: var(--lime);
+  }
+
+  &__copy {
+    padding-top: 4px;
+    color: var(--white-55);
+    text-align: center;
+  }
+}

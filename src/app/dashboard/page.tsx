@@ -1,8 +1,15 @@
-import Link from 'next/link'
+import '@/styles/catalog.scss'
+import '@/styles/journal.scss'
+import '@/styles/dashboard.scss'
+import type { Metadata } from 'next'
+import { PlantIcon, ArticleIcon, SquaresFourIcon, ScrollIcon } from '@phosphor-icons/react/dist/ssr'
 import { getDashboardStats, getPlants, getPosts } from '@/lib/wordpress'
 import DashboardCharts from '@/components/DashboardCharts'
+import { CaHero, CaHead, PlantGrid } from '@/components/catalog/parts'
+import { ArticleCard } from '@/components/journal/parts'
+import { Reveal } from '@/components/motion'
 
-export const metadata = { title: 'Dashboard | O Broto da Natureza' }
+export const metadata: Metadata = { title: 'Dashboard' }
 export const revalidate = 3600
 
 export default async function DashboardPage() {
@@ -12,128 +19,54 @@ export default async function DashboardPage() {
     getPosts(1, 3),
   ])
 
+  const metrics = [
+    { icon: <PlantIcon size={22} aria-hidden />, label: 'Plantas cadastradas', value: stats.totalPlants },
+    { icon: <ArticleIcon size={22} aria-hidden />, label: 'Artigos publicados', value: stats.totalPosts },
+    { icon: <SquaresFourIcon size={22} aria-hidden />, label: 'Categorias', value: Object.keys(stats.categories).length },
+    { icon: <ScrollIcon size={22} aria-hidden />, label: 'Fontes consultadas', value: '40+' },
+  ]
+
   return (
-    <main className="max-w-7xl mx-auto px-6 py-12">
+    <main className="page-main">
+      <CaHero eyebrow="Visão geral" line1="O herbário," line2="em números."
+        copy="Acompanhe o crescimento da enciclopédia: plantas cadastradas, artigos publicados e como o acervo se distribui entre as categorias." />
 
-      <div className="mb-10">
-        <p className="font-mono-dm text-xs tracking-[3px] uppercase mb-2" style={{ color: 'var(--accent)' }}>
-          Visão geral
-        </p>
-        <h1 className="font-display text-4xl" style={{ color: 'var(--text)' }}>Dashboard</h1>
-      </div>
-
-      {/* Metrics */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-        <MetricCard label="Plantas cadastradas"  value={stats.totalPlants}                    icon="🌿" />
-        <MetricCard label="Artigos publicados"   value={stats.totalPosts}                     icon="📖" />
-        <MetricCard label="Categorias"           value={Object.keys(stats.categories).length} icon="🗂️" />
-        <MetricCard label="Fontes consultadas"   value="40+"                                  icon="📜" />
-      </div>
-
-      <DashboardCharts categories={stats.categories} />
-
-      {/* Recent plants */}
-      <section className="mt-14">
-        <div className="flex items-end justify-between mb-6">
-          <div>
-            <p className="font-mono-dm text-xs tracking-[3px] uppercase mb-1" style={{ color: 'var(--accent)' }}>
-              Enciclopédia
-            </p>
-            <h2 className="font-display text-xl" style={{ color: 'var(--text)' }}>
-              Adicionadas recentemente
-            </h2>
-          </div>
-          <Link href="/plantas" className="text-sm transition-colors hidden sm:block" style={{ color: 'var(--text-muted)' }}>
-            Ver todas →
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-          {recentPlants.map((plant) => (
-            <Link
-              key={plant.id}
-              href={`/plantas/${plant.slug}`}
-              className="group rounded-xl p-3 text-center transition-all duration-200"
-              style={{ background: 'var(--surface)', border: '1px solid var(--border)' }}
-            >
-              <div className="mb-2">
-                <svg width="24" height="28" viewBox="0 0 24 28" fill="none" aria-hidden="true" className="mx-auto opacity-30 group-hover:opacity-60 transition-opacity">
-                  <path d="M12 26 C12 20 6 16 4 10 C2 4 8 2 12 6 C16 2 22 4 20 10 C18 16 12 20 12 26Z"
-                    stroke="var(--accent)" strokeWidth="1" fill="none" strokeLinecap="round" />
-                  <path d="M12 26 L12 14" stroke="var(--text-muted)" strokeWidth="0.7" strokeLinecap="round" strokeDasharray="1 2" />
-                </svg>
-              </div>
-              <p className="text-xs font-medium leading-tight line-clamp-2 transition-colors" style={{ color: 'var(--text)' }}>
-                {plant.title.rendered}
-              </p>
-              {plant.acf?.category && (
-                <span className="text-[10px] mt-1 inline-block" style={{ color: 'var(--text-muted)' }}>
-                  {plant.acf.category}
-                </span>
-              )}
-            </Link>
-          ))}
+      <section className="ca-sec db-sec" aria-label="Indicadores">
+        <div className="ca-sec__wrap ca-stack36">
+          <ul className="db-metrics">
+            {metrics.map((m, i) => (
+              <Reveal as="li" key={m.label} y={20} delay={i * 0.06} className={`db-metric${i === 0 ? ' db-metric--dark on-dark' : ''}`}>
+                <span className="db-metric__icon">{m.icon}</span>
+                <p className="stat">{m.value}</p>
+                <p className="t-13 soft">{m.label}</p>
+              </Reveal>
+            ))}
+          </ul>
+          <Reveal y={28} delay={0.1}>
+            <DashboardCharts categories={stats.categories} />
+          </Reveal>
         </div>
       </section>
 
-      {/* Recent posts */}
-      {recentPosts.length > 0 && (
-        <section className="mt-12 pt-10" style={{ borderTop: '1px solid var(--border)' }}>
-          <div className="flex items-end justify-between mb-6">
-            <div>
-              <p className="font-mono-dm text-xs tracking-[3px] uppercase mb-1" style={{ color: 'var(--herb)' }}>
-                Blog
-              </p>
-              <h2 className="font-display text-xl" style={{ color: 'var(--text)' }}>Últimos artigos</h2>
-            </div>
-            <Link href="/blog" className="text-sm transition-colors hidden sm:block" style={{ color: 'var(--text-muted)' }}>
-              Ver todos →
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {recentPosts.map((post) => (
-              <Link
-                key={post.id}
-                href={`/blog/${post.slug}`}
-                className="group rounded-xl p-5 transition-all duration-200"
-                style={{ background: 'var(--surface)', border: '1px solid var(--border)' }}
-              >
-                <p className="font-display text-sm mb-2 line-clamp-2 leading-snug transition-colors" style={{ color: 'var(--text)' }}>
-                  {post.title.rendered}
-                </p>
-                <p
-                  className="text-xs line-clamp-2 leading-relaxed mb-3"
-                  style={{ color: 'var(--text-muted)' }}
-                  dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
-                />
-                <span className="text-xs font-mono-dm" style={{ color: 'var(--accent)' }}>
-                  ler artigo →
-                </span>
-              </Link>
-            ))}
+      {recentPlants.length > 0 && (
+        <section className="ca-sec db-sec db-sec--mint" aria-labelledby="db-plantas">
+          <div className="ca-sec__wrap ca-stack36">
+            <Reveal y={28}><CaHead id="db-plantas" title="Adicionadas recentemente" link={{ label: 'Ver todas', href: '/plantas' }} /></Reveal>
+            <Reveal y={28} delay={0.08} amount={0.05}><PlantGrid plants={recentPlants} /></Reveal>
           </div>
         </section>
       )}
 
+      {recentPosts.length > 0 && (
+        <section className="ca-sec db-sec" aria-labelledby="db-artigos">
+          <div className="ca-sec__wrap ca-stack36">
+            <Reveal y={28}><CaHead id="db-artigos" title="Últimos artigos" link={{ label: 'Ver todos', href: '/blog' }} /></Reveal>
+            <Reveal y={28} delay={0.08} amount={0.05}>
+              <ul className="jo-grid">{recentPosts.map((p) => <li key={p.id}><ArticleCard post={p} /></li>)}</ul>
+            </Reveal>
+          </div>
+        </section>
+      )}
     </main>
-  )
-}
-
-function MetricCard({ label, value, icon, suffix }: {
-  label: string; value: number | string; icon: string; suffix?: string
-}) {
-  return (
-    <div
-      className="rounded-2xl p-5 transition-colors duration-200"
-      style={{ background: 'var(--surface)', border: '1px solid var(--border)' }}
-    >
-      <div className="text-xl mb-3 opacity-70">{icon}</div>
-      <div className="font-display text-2xl" style={{ color: 'var(--text)' }}>
-        {value}
-        {suffix && <span className="text-base" style={{ color: 'var(--text-muted)' }}>{suffix}</span>}
-      </div>
-      <div className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>{label}</div>
-    </div>
   )
 }

@@ -1,0 +1,9 @@
+// Home page bundle (imported by app/page.tsx). Prefix: ho-.
+@use "pages/home/common";
+@use "pages/home/hero";
+@use "pages/home/about";
+@use "pages/home/reveal";
+@use "pages/home/plants";
+@use "pages/home/why";
+@use "pages/home/how";
+@use "pages/home/blog";

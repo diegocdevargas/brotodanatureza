@@ -1,0 +1,50 @@
+@use "../abstracts" as *;
+
+:focus-visible {
+  outline: 2px solid var(--forest);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+// Visible on keyboard focus only.
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 2147483001; // above the intro loader
+  padding: 12px 18px;
+  border-radius: $pill;
+  background: var(--lime);
+  color: var(--on-lime);
+  font-size: rem(14px);
+  font-weight: 600;
+  transform: translateY(-200%);
+  transition: transform 0.2s var(--ease);
+
+  &:focus {
+    transform: none;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

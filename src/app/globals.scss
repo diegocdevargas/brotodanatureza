@@ -1,0 +1,16 @@
+// Global stylesheet (imported once by app/layout.tsx).
+// Page-specific bundles live in src/styles/{home,catalog,journal,dashboard}.scss
+// and are imported by the route that needs them.
+//
+// Architecture (src/styles):
+//   abstracts/   breakpoints, functions, mixins — no CSS output
+//   base/        tokens, reset, typography, accessibility
+//   components/  buttons, eyebrow, surfaces, WordPress content
+//   layout/      page column, nav, mobile menu, footer, loader
+//   shared/      sections reused across pages (FAQ, CTA card)
+//   pages/       one folder per route bundle
+
+@use "../styles/base";
+@use "../styles/components";
+@use "../styles/layout";
+@use "../styles/shared";

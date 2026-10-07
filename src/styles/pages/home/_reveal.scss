@@ -1,0 +1,80 @@
+@use "../../abstracts" as *;
+
+// Scroll-driven brand reveal: a 400vh track with a sticky viewport-sized stage.
+// Heights stay in `vh` on purpose — BrandReveal.tsx maps scroll progress against them,
+// and `dvh` would make the track resize while the mobile toolbar shows/hides.
+.ho-reveal {
+  position: relative;
+  width: 100%;
+  height: 400vh;
+
+  &__stick {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: rgb(169 184 174);
+    isolation: isolate;
+  }
+
+  &__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    transform-origin: 50% 50%;
+  }
+
+  &__svg {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__copy {
+    @include stack(20px);
+    position: absolute;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    background: radial-gradient(70% 62% at 50% 50%, rgb(8 14 10 / 62%) 0%, rgb(8 14 10 / 8%) 100%);
+    text-align: center;
+    pointer-events: none;
+
+    h2 {
+      max-width: 900px;
+      color: var(--white);
+      font-family: var(--serif);
+      font-size: clamp(2.75rem, 7vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+    }
+
+    em {
+      color: var(--lime);
+      font-style: italic;
+    }
+
+    p {
+      max-width: 440px;
+      color: rgb(255 255 255 / 78%);
+      font-size: rem(16px);
+      line-height: 1.55;
+    }
+  }
+
+  &__eyebrow {
+    color: var(--lime);
+    font-size: rem(12px);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,33 @@
+@use "../abstracts" as *;
+
+// Pill label with a leading dot. `.dark` (or any `.on-dark` ancestor) flips it for dark surfaces.
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  padding: 7px 13px 7px 9px;
+  border: 1px solid var(--ink-10);
+  border-radius: $pill;
+  font-size: rem(12px);
+  line-height: 1.2;
+  font-weight: 600;
+
+  &::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--forest);
+  }
+
+  .on-dark &,
+  &.dark {
+    border-color: var(--white-16);
+    color: var(--white);
+
+    &::before {
+      background: var(--lime);
+    }
+  }
+}

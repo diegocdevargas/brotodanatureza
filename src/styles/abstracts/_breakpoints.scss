@@ -1,0 +1,20 @@
+@use "sass:map";
+
+// Template breakpoints: desktop >= 1200px, tablet 810–1199px, phone < 810px.
+$breakpoints: (
+  tablet: 1200px,
+  phone: 810px,
+);
+
+/// Wraps @content in a media query for viewports narrower than `$name`.
+/// Uses Media Queries Level 4 range syntax (no more `max-width: 1199.98px` hacks).
+/// @param {String} $name - a key of `$breakpoints`
+@mixin below($name) {
+  @if not map.has-key($breakpoints, $name) {
+    @error "Unknown breakpoint `#{$name}`. Expected one of: #{map.keys($breakpoints)}.";
+  }
+
+  @media (width < #{map.get($breakpoints, $name)}) {
+    @content;
+  }
+}

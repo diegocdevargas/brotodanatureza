@@ -1,0 +1,481 @@
+@use "../../abstracts" as *;
+
+// Plant detail page (/plantas/[slug]): hero, body + sticky side card, previous / next.
+
+// ---------- Hero ----------
+.ca-dhero {
+  width: 100%;
+  padding: 116px 48px 80px;
+  background: var(--cream);
+
+  @include below(tablet) {
+    padding-inline: 40px;
+  }
+
+  @include below(phone) {
+    padding: 92px 20px 56px;
+  }
+
+  &__wrap {
+    @include stack(32px);
+    max-width: 1080px;
+    margin-inline: auto;
+  }
+
+  &__row {
+    display: flex;
+    align-items: flex-start;
+    gap: 56px;
+
+    @include below(tablet) {
+      gap: 40px;
+    }
+
+    @include below(phone) {
+      flex-direction: column;
+      gap: 28px;
+    }
+  }
+
+  &__copy {
+    @include stack(22px);
+    flex: none;
+    align-items: flex-start;
+    width: 544px;
+
+    @include below(tablet) {
+      flex: 1;
+      width: auto;
+      min-width: 0;
+    }
+
+    @include below(phone) {
+      width: 100%;
+    }
+  }
+
+  &__p {
+    max-width: 520px;
+  }
+
+  &__btns {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 10px;
+
+    @include below(phone) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  }
+
+  &__img {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    max-width: 480px;
+    height: 540px;
+    margin-left: auto;
+    border-radius: 32px;
+    overflow: hidden;
+
+    @include below(tablet) {
+      height: 480px;
+    }
+
+    @include below(phone) {
+      flex: none;
+      width: 100%;
+      max-width: none;
+      height: 280px;
+      margin: 0;
+    }
+
+    > .pl-ph {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.ca-crumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-55);
+  font-size: rem(12px);
+  line-height: 1.2;
+  font-weight: 600;
+
+  a {
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--ink);
+    }
+  }
+
+  &__cur {
+    color: var(--ink);
+  }
+}
+
+// Category chip (links to the filtered index).
+.ca-dchip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 13px;
+  border: 1px solid var(--ink-10);
+  border-radius: $pill;
+  background: var(--forest-12);
+  font-size: rem(12px);
+  line-height: 1.2;
+  font-weight: 600;
+  transition: background-color 0.3s var(--ease);
+
+  &:hover {
+    background: var(--hover);
+  }
+
+  svg {
+    color: var(--forest);
+  }
+}
+
+.ca-dmeta {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding-top: 2px;
+
+  @include below(phone) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  &__fact {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink-70);
+    font-size: rem(13px);
+    line-height: 1.5;
+    white-space: nowrap;
+
+    svg {
+      color: var(--ink-55);
+    }
+  }
+}
+
+// ---------- Body ----------
+.ca-dbody {
+  width: 100%;
+  padding: 96px 48px;
+  background: var(--surface);
+
+  @include below(tablet) {
+    padding-inline: 40px;
+  }
+
+  @include below(phone) {
+    padding: 56px 20px;
+  }
+
+  &__wrap {
+    display: flex;
+    align-items: flex-start;
+    gap: 64px;
+    max-width: 1080px;
+    margin-inline: auto;
+
+    @include below(tablet) {
+      gap: 40px;
+    }
+
+    @include below(phone) {
+      flex-direction: column;
+      gap: 36px;
+    }
+  }
+
+  &__main {
+    @include stack(44px);
+    flex: none;
+    width: 676px;
+
+    @include below(tablet) {
+      flex: 1;
+      width: auto;
+      min-width: 0;
+    }
+
+    @include below(phone) {
+      width: 100%;
+    }
+  }
+}
+
+// Content block with an icon heading (uses, preparation, …).
+.ca-block {
+  @include stack(18px);
+  scroll-margin-top: 110px;
+
+  &__head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  &__icon {
+    @include circle(44px);
+    flex: none;
+    background: var(--forest-12);
+    color: var(--forest);
+  }
+
+  .ca-lede {
+    white-space: pre-line;
+  }
+}
+
+// Contraindications callout.
+.ca-warn {
+  @include stack(14px);
+  padding: 28px;
+  border-radius: 24px;
+  background: var(--warn-bg);
+  color: var(--warn-ink);
+
+  @include below(phone) {
+    padding: 22px;
+  }
+
+  .ca-block__icon {
+    background: rgb(160 98 20 / 14%);
+    color: var(--warn-ink);
+  }
+
+  .ca-lede {
+    color: var(--warn-ink);
+  }
+}
+
+.ca-incs {
+  @include stack(22px);
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 328px);
+    gap: 12px 20px;
+
+    @include below(tablet) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include below(phone) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 50px;
+    padding: 14px 18px;
+    border-radius: 16px;
+    background: var(--cream);
+    font-size: rem(13px);
+    line-height: 1.5;
+  }
+}
+
+// Sticky summary card.
+.ca-side {
+  @include stack(20px);
+  position: sticky;
+  top: 96px;
+  flex: none;
+  align-items: flex-start;
+  width: 340px;
+  margin-left: auto;
+  padding: 32px;
+  border-radius: var(--radius);
+  background: var(--cream);
+
+  @include below(tablet) {
+    width: 300px;
+    padding: 28px;
+  }
+
+  @include below(phone) {
+    position: relative;
+    top: auto;
+    width: 100%;
+    margin: 0;
+    padding: 24px;
+
+    .ca-h60 {
+      font-size: rem(30px);
+    }
+  }
+
+  .ca-h40 {
+    overflow-wrap: anywhere;
+  }
+
+  .ca-sci {
+    font-size: rem(19px);
+  }
+
+  &__note {
+    color: var(--ink-55);
+  }
+
+  &__sep {
+    width: 100%;
+    height: 1px;
+    background: var(--ink-10);
+  }
+
+  &__rows {
+    @include stack(14px);
+    width: 100%;
+    margin: 0;
+  }
+
+  &__row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: rem(13px);
+    line-height: 1.5;
+
+    dt {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--ink-55);
+      white-space: nowrap;
+    }
+
+    dd {
+      max-width: 170px;
+      margin: 0;
+      text-align: right;
+
+      .ca-detail--service & {
+        max-width: 160px;
+      }
+
+      @include below(phone) {
+        max-width: 150px;
+
+        .ca-detail--service & {
+          max-width: 140px;
+        }
+      }
+    }
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 50px;
+    border-radius: $pill;
+    background: var(--ink-bg);
+    color: var(--white);
+    font-size: rem(15px);
+    line-height: 1.2;
+    font-weight: 600;
+
+    svg {
+      transition: transform 0.4s var(--ease);
+    }
+
+    &:hover svg {
+      transform: rotate(45deg);
+    }
+  }
+}
+
+// ---------- Previous / next ----------
+.ca-other {
+  width: 100%;
+  padding: 96px 48px;
+  background: var(--mint);
+
+  @include below(tablet) {
+    padding-inline: 40px;
+  }
+
+  @include below(phone) {
+    padding: 56px 20px;
+  }
+
+  &__wrap {
+    @include stack(36px);
+    max-width: 1080px;
+    margin-inline: auto;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+
+    @include below(phone) {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+}
+
+.ca-ocard {
+  @include stack;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--surface);
+
+  &__img {
+    height: 190px;
+
+    > img,
+    > .pl-ph {
+      width: 100%;
+      height: 100%;
+    }
+
+    > img {
+      object-fit: cover;
+    }
+  }
+
+  &__copy {
+    @include stack(8px);
+    padding: 24px;
+  }
+
+  &__arrow {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+// The "service" detail variant rounds its bands.
+.ca-detail--service {
+  .ca-dbody,
+  .ca-other {
+    border-radius: 16px;
+  }
+}

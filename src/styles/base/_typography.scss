@@ -1,0 +1,83 @@
+@use "sass:map";
+@use "../abstracts" as *;
+
+// Serif display scale: .d-96 … .d-25. Desktop size, then tablet / phone step-downs.
+$display-scale: (
+  96: (size: 96px, lh: 0.95, ls: -0.02em, tablet: 72px, phone: 48px),
+  78: (size: 78px, lh: 0.96, ls: -0.02em, tablet: 64px, phone: 46px),
+  60: (size: 60px, lh: 1, ls: -0.02em, tablet: 52px, phone: 40px),
+  48: (size: 48px, lh: 1.05, ls: -0.02em, tablet: 42px, phone: 36px),
+  40: (size: 40px, lh: 1.05, ls: -0.015em, tablet: 34px, phone: 30px),
+  32: (size: 32px, lh: 1.05, ls: -0.015em, phone: 28px),
+  25: (size: 25px, lh: 1.1, ls: -0.01em),
+);
+
+// Sans text scale: .t-17 … .t-12b (the "b" variants are semibold labels).
+$text-scale: (
+  17: (size: 17px, lh: 1.6),
+  16: (size: 16px, lh: 1.55),
+  15: (size: 15px, lh: 1.55),
+  15b: (size: 15px, lh: 1.2, weight: 600),
+  13: (size: 13px, lh: 1.5),
+  12b: (size: 12px, lh: 1.2, weight: 600),
+);
+
+.serif {
+  font-family: var(--serif);
+  font-weight: 400;
+}
+
+@each $name, $t in $display-scale {
+  .d-#{$name} {
+    @include display(
+      map.get($t, size),
+      map.get($t, lh),
+      map.get($t, ls),
+      $tablet: map.get($t, tablet),
+      $phone: map.get($t, phone)
+    );
+  }
+}
+
+.stat {
+  @include display(48px, 0.9, -0.02em, $phone: 40px);
+}
+
+@each $name, $t in $text-scale {
+  .t-#{$name} {
+    font-size: rem(map.get($t, size));
+    line-height: map.get($t, lh);
+    font-weight: map.get($t, weight);
+  }
+}
+
+.caps {
+  font-size: rem(12px);
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.mono {
+  font-family: var(--mono);
+  font-size: rem(11px);
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+// Color helpers
+.muted { color: var(--ink-55); }
+.soft { color: var(--ink-70); }
+.accent { color: var(--forest); }
+.lime { color: var(--lime); }
+.italic { font-style: italic; }
+
+.on-dark {
+  color: var(--white);
+
+  .muted { color: var(--white-55); }
+  .soft { color: var(--white-75); }
+}

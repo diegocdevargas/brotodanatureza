@@ -1,0 +1,200 @@
+@use "../abstracts" as *;
+
+.footer {
+  @include stack(56px);
+  position: relative;
+  padding: 72px 48px 32px;
+  border-radius: var(--radius);
+  overflow: clip;
+  background: var(--ink-bg);
+
+  @include below(tablet) {
+    padding: 64px 32px 28px;
+  }
+
+  @include below(phone) {
+    padding: 40px 20px 18px;
+  }
+
+  .caps {
+    text-transform: none;
+
+    @include below(phone) {
+      font-size: rem(11px);
+    }
+  }
+
+  &__glow {
+    @include lime-glow(16%);
+    position: absolute;
+    top: -320px;
+    right: -232px;
+    width: 760px;
+    height: 760px;
+  }
+
+  // Closing call to action
+  &__cta {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+
+    @include below(tablet) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    @include below(phone) {
+      gap: 22px;
+
+      h2 {
+        font-size: rem(30px);
+        line-height: 1;
+        letter-spacing: -0.02em;
+      }
+    }
+  }
+
+  &__cta-copy {
+    @include stack(20px);
+    max-width: 640px;
+  }
+
+  &__cta-btns {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    @include below(phone) {
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+
+      .btn { justify-content: flex-start; }
+      .btn--ghost { justify-content: center; }
+    }
+  }
+
+  &__sep {
+    width: 100%;
+    height: 1px;
+    background: var(--white-16);
+  }
+
+  // Link columns
+  &__cols {
+    display: flex;
+    gap: 48px;
+
+    @include below(tablet) {
+      flex-wrap: wrap;
+      row-gap: 40px;
+    }
+
+    @include below(phone) {
+      flex-direction: column;
+      gap: 22px;
+    }
+  }
+
+  &__brand {
+    @include stack(20px);
+    flex: none;
+    width: 322px;
+
+    @include below(tablet) {
+      width: 100%;
+    }
+
+    p {
+      max-width: 300px;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--white);
+  }
+
+  &__col {
+    @include stack(18px);
+    flex: 1;
+
+    @include below(tablet) {
+      flex: 1 1 calc(25% - 48px);
+      min-width: 150px;
+    }
+
+    @include below(phone) {
+      flex: none;
+      width: 100%;
+    }
+
+    ul {
+      @include stack(12px);
+    }
+
+    li,
+    a {
+      color: var(--white-75);
+      font-size: rem(15px);
+      line-height: 1.55;
+    }
+
+    a {
+      display: inline-block;
+      padding: 3px 0;
+      line-height: 17px;
+      transition: opacity 0.3s;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  // Wordmark + legal row
+  &__word {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  &__bottom {
+    @include stack(20px);
+  }
+
+  &__legal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    @include below(phone) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+    }
+
+    > div {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+
+      @include below(phone) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px 20px;
+      }
+    }
+
+    a:hover {
+      opacity: 0.6;
+    }
+  }
+}

@@ -1,0 +1,87 @@
+@use "sass:math";
+@use "breakpoints" as *;
+
+// Compile-time helpers only: nothing in this folder emits CSS on its own.
+
+$pill: 100px;
+
+/// px -> rem, so text honours the reader's browser font-size setting.
+@function rem($px) {
+  @return math.div($px, 16px) * 1rem;
+}
+
+/// Serif display type, optionally stepping down at the tablet / phone breakpoints.
+@mixin display($size, $line-height, $tracking, $tablet: null, $phone: null) {
+  font-family: var(--serif);
+  font-size: rem($size);
+  line-height: $line-height;
+  letter-spacing: $tracking;
+
+  @if $tablet {
+    @include below(tablet) {
+      font-size: rem($tablet);
+    }
+  }
+
+  @if $phone {
+    @include below(phone) {
+      font-size: rem($phone);
+    }
+  }
+}
+
+/// Vertical flex stack.
+@mixin stack($gap: null) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+/// Round icon holder with centred content.
+@mixin circle($size) {
+  display: grid;
+  place-items: center;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
+
+/// Clamp text to `$lines` lines with an ellipsis.
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  line-clamp: $lines;
+  overflow: hidden;
+}
+
+/// 1px border drawn as an overlay (Framer style), so it takes no layout space
+/// and sits above full-bleed images.
+@mixin hairline($color: var(--ink-10)) {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border: 1px solid $color;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+}
+
+/// Soft lime radial glow used behind dark cards.
+@mixin lime-glow($alpha) {
+  background: radial-gradient(50% 50%, rgb(216 242 138 / #{$alpha}) 0%, rgb(216 242 138 / 0%) 100%);
+  pointer-events: none;
+}
+
+/// Small uppercase label used by nav links and menu shortcuts.
+@mixin caps-link($size: 13px) {
+  font-size: rem($size);
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

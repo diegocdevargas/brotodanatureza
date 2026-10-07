@@ -1,14 +1,20 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Geist, Geist_Mono, Instrument_Serif } from 'next/font/google'
 import { ThemeProvider } from '@/components/ThemeProvider'
-import Header from '@/components/Header'
-import RootFooter from '@/components/RootFooter'
-import './globals.css'
+import Nav from '@/components/Nav'
+import Footer from '@/components/Footer'
+import Loader, { LOADER_SCRIPT } from '@/components/Loader'
+import './globals.scss'
 
-const inter = Inter({ subsets: ['latin'] })
+const sans = Geist({ subsets: ['latin'], variable: '--font-geist-sans', display: 'swap' })
+const mono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono', display: 'swap' })
+const serif = Instrument_Serif({ subsets: ['latin'], weight: '400', style: ['normal', 'italic'], variable: '--font-serif', display: 'swap' })
 
 export const metadata: Metadata = {
-  title: 'O Broto da Natureza',
+  title: {
+    default: 'O Broto da Natureza — Enciclopédia de plantas medicinais',
+    template: '%s | O Broto da Natureza',
+  },
   description: 'Portal de plantas medicinais com enciclopédia, artigos e pesquisa. Baseado em fontes históricas e científicas.',
   openGraph: {
     title: 'O Broto da Natureza',
@@ -21,8 +27,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased`} suppressHydrationWarning>
+    <html lang="pt-BR" className={`${sans.variable} ${mono.variable} ${serif.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: LOADER_SCRIPT }} />
+      </head>
+      <body suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -30,13 +39,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           disableTransitionOnChange={false}
           storageKey="broto-theme"
         >
-          <Header />
-
-          <div className="min-h-screen">
+          <a href="#conteudo" className="skip-link">Pular para o conteúdo</a>
+          <Loader />
+          <Nav />
+          <div className="page" id="conteudo">
             {children}
+            <Footer />
           </div>
-
-          <RootFooter />
         </ThemeProvider>
       </body>
     </html>

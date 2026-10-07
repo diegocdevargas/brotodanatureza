@@ -1,0 +1,184 @@
+@use "../../abstracts" as *;
+
+// Small reusable bits of the catalog pages.
+
+.ca-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 15px;
+  border: 1px solid var(--white-16);
+  border-radius: $pill;
+  color: var(--white);
+  font-size: rem(12px);
+  line-height: 1.2;
+  font-weight: 600;
+
+  &::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--lime);
+  }
+}
+
+// Frosted chip pinned to an image corner.
+.ca-chip {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  padding: 8px 14px;
+  border-radius: $pill;
+  background: rgb(255 255 255 / 88%);
+  color: var(--ink);
+  font-size: rem(12px);
+  line-height: 1.2;
+  font-weight: 600;
+  backdrop-filter: blur(12px);
+
+  &--date {
+    top: 20px;
+    right: auto;
+    left: 20px;
+    background: rgb(255 255 255 / 90%);
+  }
+}
+
+// Round arrow; rotates when its card is hovered.
+.ca-rarrow {
+  display: grid;
+  place-items: center;
+  flex: none;
+  border-radius: 50%;
+  background: var(--forest-12);
+  color: var(--ink);
+
+  svg {
+    transition: transform 0.4s var(--ease);
+  }
+
+  :is(.ca-scard, .ca-ocard):hover & svg {
+    transform: rotate(45deg);
+  }
+}
+
+.ca-tick {
+  @include circle(22px);
+  flex: none;
+  background: var(--lime);
+  color: var(--on-lime);
+}
+
+// Outline pill link.
+.ca-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: 0 25px;
+  border: 1px solid var(--ink);
+  border-radius: $pill;
+  color: var(--ink);
+  font-size: rem(15px);
+  line-height: 1.2;
+  font-weight: 600;
+  white-space: nowrap;
+
+  &--glass {
+    border-color: rgb(255 255 255 / 34%);
+    background: rgb(255 255 255 / 10%);
+    color: var(--white);
+    backdrop-filter: blur(12px);
+  }
+
+  &--sm {
+    height: 42px;
+    padding: 0 21px;
+  }
+}
+
+// Larger variant of the shared .btn.
+.ca-btn64 {
+  gap: 12px;
+  height: 64px;
+  padding: 14px 14px 14px 26px;
+
+  .btn__arrow {
+    width: 36px;
+    height: 36px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+// Dark button used inside cards (not a link itself; the whole card is).
+.ca-darkbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 58px;
+  padding: 12px 12px 12px 24px;
+  border-radius: $pill;
+  background: var(--ink-bg);
+  color: var(--white);
+  font-size: rem(15px);
+  line-height: 1.2;
+  font-weight: 600;
+  white-space: nowrap;
+
+  &__arrow {
+    @include circle(34px);
+    background: var(--lime);
+    color: var(--on-lime);
+
+    svg {
+      width: 15px;
+      height: 15px;
+      transition: transform 0.4s var(--ease);
+
+      .ca-feat:hover & {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+
+// Card images cover their frame (photo or placeholder).
+:is(.ca-feat, .ca-scard, .ca-ocard, .ca-dhero__img) img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// Bordered cards: 1px overlay border (see the hairline mixin).
+.ca-feat,
+.ca-scard,
+.ca-side,
+.ca-ocard {
+  @include hairline;
+}
+
+.ca-incl__card {
+  @include hairline(var(--white-16));
+}
+
+// Empty search results.
+.ca-empty {
+  @include stack(14px);
+  align-items: center;
+  padding: 64px 32px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--ink-10);
+  color: var(--forest);
+  text-align: center;
+
+  p {
+    max-width: 420px;
+    color: var(--ink-70);
+  }
+}

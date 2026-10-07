@@ -40,6 +40,19 @@ export interface Post {
       source_url: string
       alt_text: string
     }>
+    author?: Array<{ name: string }>
+    'wp:term'?: Array<Array<{ name: string; taxonomy: string }>>
+  }
+}
+
+/** Cover image, author and first category of an embedded post. */
+export function postMeta(post: Post) {
+  const media = post._embedded?.['wp:featuredmedia']?.[0]
+  const category = post._embedded?.['wp:term']?.flat().find((t) => t.taxonomy === 'category')?.name
+  return {
+    image: media?.source_url,
+    author: post._embedded?.author?.[0]?.name,
+    category: category && category !== 'Uncategorized' && category !== 'Sem categoria' ? category : undefined,
   }
 }
 

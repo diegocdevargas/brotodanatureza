@@ -1,0 +1,118 @@
+@use "../abstracts" as *;
+
+// Hover fills from the template (Framer whileHover values).
+$lime-hover: rgb(231 250 176);
+$dark-hover: rgb(29 59 42);
+
+// Pill button with a round arrow badge: <a class="btn btn--lime"><span class="btn__arrow">…
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  height: 56px;
+  padding: 8px 8px 8px 26px;
+  border-radius: $pill;
+  font-size: rem(15px);
+  line-height: 1.2;
+  font-weight: 600;
+  white-space: nowrap;
+  transition:
+    background-color 0.3s var(--ease),
+    color 0.3s var(--ease);
+
+  @include below(phone) {
+    height: 52px;
+  }
+
+  &__arrow {
+    @include circle(40px);
+    flex: none;
+    transition: transform 0.4s var(--ease);
+
+    svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.4s var(--ease);
+    }
+  }
+
+  &:hover &__arrow svg {
+    transform: rotate(45deg);
+  }
+
+  // Variants
+  &--lime {
+    background: var(--lime);
+    color: var(--on-lime);
+
+    &:hover { background: $lime-hover; }
+
+    .btn__arrow {
+      background: #0e2419; // stays dark in both themes
+      color: var(--lime);
+    }
+  }
+
+  &--dark {
+    padding-left: 24px;
+    background: var(--ink-bg);
+    color: var(--white);
+
+    &:hover { background: $dark-hover; }
+
+    .btn__arrow {
+      background: var(--lime);
+      color: var(--on-lime);
+    }
+  }
+
+  &--ghost {
+    padding: 0 26px;
+    border: 1px solid var(--white-16);
+    background: var(--white-16);
+    color: var(--white);
+    backdrop-filter: blur(12px);
+
+    &:hover { background: rgb(255 255 255 / 22%); }
+  }
+
+  &--ghost-ink {
+    padding: 0 26px;
+    border: 1px solid var(--ink-10);
+    background: transparent;
+    color: var(--ink);
+  }
+
+  // Sizes
+  &--small {
+    gap: 12px;
+    height: 46px;
+    padding: 6px 6px 6px 20px;
+    font-size: rem(13px);
+
+    .btn__arrow {
+      width: 34px;
+      height: 34px;
+    }
+  }
+}
+
+// Standalone round arrow; rotates when its link is hovered.
+.round {
+  @include circle(40px);
+  flex: none;
+  background: var(--ink-bg);
+  color: var(--lime);
+  transition:
+    transform 0.4s var(--ease),
+    background-color 0.3s;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  a:hover & {
+    transform: rotate(45deg);
+  }
+}

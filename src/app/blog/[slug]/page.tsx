@@ -1,86 +1,107 @@
+import '@/styles/journal.scss'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getPost, sanitizeHtml } from '@/lib/wordpress'
+import { PenNibIcon } from '@phosphor-icons/react/dist/ssr'
+import { getPost, getPosts, postMeta, sanitizeHtml } from '@/lib/wordpress'
+import { decodeEntities, plainText, summary } from '@/lib/format'
+import { disclaimer } from '@/lib/site'
+import { Reveal } from '@/components/motion'
+import { PlantImage } from '@/components/ui'
+import { Meta, NeighbourCard } from '@/components/journal/parts'
+import CtaCard from '@/components/shared/CtaCard'
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export const revalidate = 3600
+
+type Params = { params: Promise<{ slug: string }> }
+
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params
   const post = await getPost(slug)
   if (!post) return {}
-  return { title: `${post.title.rendered} | O Broto da Natureza` }
+  const title = decodeEntities(post.title.rendered)
+  const description = summary(post.excerpt.rendered, 155)
+  const { image } = postMeta(post)
+  return {
+    title,
+    description,
+    openGraph: { title, description, type: 'article', publishedTime: post.date, images: image ? [image] : undefined },
+  }
 }
 
-export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function PostPage({ params }: Params) {
   const { slug } = await params
-  const post = await getPost(slug)
+  const [post, recent] = await Promise.all([getPost(slug), getPosts(1, 20)])
   if (!post) notFound()
 
-  const image = post._embedded?.['wp:featuredmedia']?.[0]?.source_url
-  const date  = new Intl.DateTimeFormat('pt-BR', {
-    day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC',
-  }).format(new Date(post.date))
+  const { image, author, category } = postMeta(post)
+  const title = decodeEntities(post.title.rendered)
+  const i = recent.findIndex((p) => p.slug === post.slug)
+  const newer = i > 0 ? recent[i - 1] : undefined
+  const older = i >= 0 && i < recent.length - 1 ? recent[i + 1] : undefined
 
   return (
-    <main className="max-w-2xl mx-auto px-6 py-12">
+    <main className="page-main">
+      <article style={{ display: 'contents' }}>
+        <section className="jo-ahead">
+          <div className="jo-ahead__c">
+            <Reveal y={28}>
+              <nav aria-label="Trilha de navegação" className="jo-crumb t-12b">
+                <Link href="/blog" className="muted">Blog</Link>
+                {category && <><span className="muted" aria-hidden>/</span><span className="accent">{category}</span></>}
+              </nav>
+            </Reveal>
+            <Reveal as="h1" y={28} delay={0.06} className="jo-h78 jo-ahead__title">{title}</Reveal>
+            {post.excerpt?.rendered && (
+              <Reveal as="p" y={24} delay={0.14} className="jo-lead soft jo-ahead__ex">{plainText(post.excerpt.rendered)}</Reveal>
+            )}
+            <Reveal y={20} delay={0.2}>
+              <Meta post={post} withAuthor className="jo-meta--center jo-meta--stack" />
+            </Reveal>
+          </div>
+          {image && <Reveal y={26} delay={0.26} className="jo-ahead__cover"><PlantImage src={image} alt="" /></Reveal>}
+          <div className="jo-ahead__spacer" />
+        </section>
 
-      {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-xs font-mono-dm mb-10" style={{ color: 'var(--text-faint)' }}>
-        <Link href="/" className="transition-colors" style={{ color: 'var(--text-muted)' }}>Início</Link>
-        <span>/</span>
-        <Link href="/blog" className="transition-colors" style={{ color: 'var(--text-muted)' }}>Blog</Link>
-        <span>/</span>
-        <span className="line-clamp-1" style={{ color: 'var(--text)' }}>{post.title.rendered}</span>
-      </nav>
+        <section className="jo-abody">
+          <div className="jo-abody__c">
+            <Reveal y={28} amount={0.05}>
+              <div className="wp-content" dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content.rendered) }} />
+            </Reveal>
+            {author && (
+              <Reveal y={24} delay={0.08} className="jo-author">
+                <span className="jo-author__av"><PenNibIcon size={22} aria-hidden /></span>
+                <div className="jo-author__copy">
+                  <p className="jo-author__name">{author}</p>
+                  <p className="t-13 muted">Autor no Broto da Natureza</p>
+                </div>
+              </Reveal>
+            )}
+            <p className="t-13 muted jo-disclaimer">{disclaimer}</p>
+          </div>
+        </section>
+      </article>
 
-      {/* Header */}
-      <header className="mb-8">
-        <p className="font-mono-dm text-[10px] tracking-[2px] uppercase mb-4" style={{ color: 'var(--text-faint)' }}>
-          {date}
-        </p>
-        <h1
-          className="font-display text-3xl sm:text-4xl leading-tight mb-4"
-          style={{ color: 'var(--text)' }}
-          dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-        />
-        {/* Botanical divider */}
-        <div className="flex items-center gap-3 mt-6">
-          <div className="h-px flex-1" style={{ background: 'linear-gradient(to right, var(--accent-border), transparent)' }} />
-          <svg width="12" height="14" viewBox="0 0 12 14" fill="none" aria-hidden="true">
-            <path d="M6 13 C6 10 3 8 2 5 C1 2 4 1 6 3 C8 1 11 2 10 5 C9 8 6 10 6 13Z"
-              stroke="var(--accent)" strokeWidth="0.8" fill="none" strokeLinecap="round" />
-          </svg>
-          <div className="h-px flex-1" style={{ background: 'linear-gradient(to left, var(--accent-border), transparent)' }} />
-        </div>
-      </header>
-
-      {/* Featured image */}
-      {image && (
-        <div
-          className="w-full h-56 rounded-2xl bg-cover bg-center mb-10"
-          style={{ backgroundImage: `url(${image})`, opacity: 0.85 }}
-        />
+      {(newer || older) && (
+        <section className="jo-sec jo-more" aria-labelledby="continue">
+          <div className="jo-c">
+            <Reveal y={28} className="jo-head jo-head--more">
+              <h2 id="continue" className="jo-h40">Continue lendo</h2>
+              <Link href="/blog" className="t-15b accent jo-all-link">Todos os artigos</Link>
+            </Reveal>
+            <div className="jo-pn">
+              {older && <Reveal y={28}><NeighbourCard post={older} label="Artigo anterior" /></Reveal>}
+              {newer && <Reveal y={28} delay={older ? 0.06 : 0}><NeighbourCard post={newer} label="Próximo artigo" /></Reveal>}
+            </div>
+          </div>
+        </section>
       )}
 
-      {/* Article */}
-      <article
-        className="prose-themed prose prose-sm max-w-none"
-        dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content.rendered) }}
-      />
-
-      {/* Disclaimer */}
-      <div className="mt-12 pt-6" style={{ borderTop: '1px solid var(--border)' }}>
-        <p className="text-xs" style={{ color: 'var(--text-faint)' }}>
-          As informações deste artigo têm caráter educativo e não substituem orientação médica.
-        </p>
+      <div className="jo-cta jo-cta--tight jo-cta--mint" style={{ display: 'contents' }}>
+        <CtaCard band="mint" pad="" title="Conheça as plantas citadas"
+          copy="Usos, partes utilizadas, modo de preparo e contraindicações — tudo reunido na ficha de cada planta."
+          primary={{ label: 'Abrir a enciclopédia', href: '/plantas' }} />
       </div>
-
-      <Link
-        href="/blog"
-        className="inline-block mt-6 text-sm font-mono-dm transition-colors"
-        style={{ color: 'var(--accent)' }}
-      >
-        ← Voltar para o blog
-      </Link>
-
     </main>
   )
 }

@@ -1,0 +1,184 @@
+@use "../../abstracts" as *;
+
+// /blog index: featured post + grid of cards.
+
+.jo-featured {
+  padding: 96px 48px 48px;
+
+  @include below(tablet) {
+    padding: 80px 32px 40px;
+  }
+
+  @include below(phone) {
+    padding: 56px 20px 24px;
+  }
+
+  .jo-c {
+    gap: 28px;
+  }
+}
+
+.jo-feat {
+  display: flex;
+  align-items: center;
+  height: 420px;
+  border-radius: 32px;
+  overflow: hidden;
+  background: var(--surface);
+
+  @include below(phone) {
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+  }
+
+  &__cover {
+    flex: none;
+    width: 50%;
+    height: 100%;
+
+    @include below(phone) {
+      width: 100%;
+      height: 220px;
+    }
+
+    img,
+    > .pl-ph {
+      width: 100%;
+      height: 100%;
+    }
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  &__copy {
+    @include stack(16px);
+    align-items: flex-start;
+    justify-content: center;
+    width: 50%;
+    padding: 44px;
+
+    @include below(tablet) {
+      padding: 32px;
+    }
+
+    @include below(phone) {
+      gap: 12px;
+      width: 100%;
+      padding: 24px;
+    }
+  }
+
+  &__title,
+  &__ex {
+    max-width: 420px;
+  }
+}
+
+// "Ler artigo" button inside the featured card.
+.btn.jo-readbtn {
+  gap: 12px;
+  height: 58px;
+  padding: 12px 12px 12px 24px;
+}
+
+.jo-readbtn .btn__arrow {
+  width: 34px;
+  height: 34px;
+
+  svg {
+    width: 15px;
+    height: 15px;
+
+    .jo-feat:hover & {
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.jo-all {
+  padding: 40px 48px 96px;
+
+  @include below(tablet) {
+    padding: 32px 32px 80px;
+  }
+
+  @include below(phone) {
+    padding: 24px 20px 64px;
+  }
+
+  .jo-c {
+    gap: 32px;
+  }
+}
+
+.jo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  align-items: start;
+  gap: 28px;
+
+  @include below(tablet) {
+    gap: 20px;
+  }
+
+  @include below(phone) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  > li {
+    display: flex;
+  }
+
+  .jo-card {
+    width: 100%;
+  }
+}
+
+.jo-card {
+  @include stack;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--surface);
+
+  &__cover {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    height: 210px;
+    padding: 16px;
+
+    img,
+    > .pl-ph {
+      position: absolute;
+      inset: 0;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__copy {
+    @include stack(10px);
+    padding: 24px;
+
+    h5 {
+      min-height: 55px;
+
+      @include below(phone) {
+        min-height: 0;
+      }
+    }
+  }
+
+  &__ex {
+    min-height: 58.5px;
+  }
+}

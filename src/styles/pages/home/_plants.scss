@@ -1,0 +1,73 @@
+@use "../../abstracts" as *;
+
+// "Plants by category" grid (template's services section, prefix ho-svc).
+.ho-svc {
+  padding: 112px 48px 120px;
+  background: var(--mint);
+
+  @include below(tablet) {
+    padding-inline: 32px;
+  }
+
+  @include below(phone) {
+    padding: 64px 20px;
+  }
+
+  &__in {
+    @include stack(56px);
+
+    @include below(phone) {
+      gap: 36px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    @include below(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include below(phone) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    @include stack;
+    justify-content: space-between;
+    height: 340px;
+    padding: 28px;
+    border: 1px solid var(--ink-10);
+    border-radius: 24px;
+    overflow: clip;
+    background: var(--card);
+
+    &:hover {
+      background: var(--surface);
+      box-shadow: 0 24px 48px var(--shadow);
+      translate: 0 -6px;
+    }
+  }
+
+  &__top {
+    @include stack(22px);
+  }
+
+  &__row,
+  &__price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__copy {
+    @include stack(10px);
+  }
+
+  &__bottom {
+    @include stack(18px);
+  }
+}

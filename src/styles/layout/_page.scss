@@ -1,0 +1,35 @@
+@use "../abstracts" as *;
+
+// The page is a 12px padded column of rounded sections with 12px gaps.
+.page {
+  @include stack(12px);
+  align-items: center;
+  min-height: 100dvh;
+  padding: 12px;
+  overflow: clip;
+
+  > *,
+  > main > * {
+    width: 100%;
+  }
+}
+
+// Each page's <main> repeats the column. It must be a real box (not display: contents):
+// Next.js scrolls to the first element of a new page on navigation and skips boxless
+// elements, which made it scroll to the footer.
+.page-main {
+  @include stack(12px);
+  align-items: center;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1176px;
+  margin-inline: auto;
+}
+
+.inner {
+  width: 100%;
+  max-width: 1104px;
+  margin-inline: auto;
+}

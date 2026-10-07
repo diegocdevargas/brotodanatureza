@@ -1,0 +1,118 @@
+@use "../abstracts" as *;
+
+// Intro loader. Colors are fixed (not themed): it always renders on the brand green.
+$loader-bg: #0e2419;
+$loader-text: #f3f1e8;
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: $loader-bg;
+
+  // Set by an inline <head> script once the loader has played this session.
+  .loader-seen & {
+    display: none;
+  }
+
+  &__glow {
+    position: absolute;
+    top: calc(50% - 170px);
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(50% 50% at 50% 50%, rgb(216 242 138 / 14%) 0%, rgb(216 242 138 / 0%) 70%);
+    pointer-events: none;
+    transition:
+      left 0.2s linear,
+      opacity 0.5s ease;
+  }
+
+  &__box {
+    @include stack(14px);
+    position: relative;
+    width: min(320px, 78vw);
+  }
+
+  &__row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    &--small {
+      align-items: center;
+      gap: 12px;
+      height: 18px;
+    }
+  }
+
+  &__word {
+    color: $loader-text;
+    font-family: var(--serif);
+    font-size: rem(26px);
+    line-height: 1;
+    letter-spacing: -0.01em;
+
+    sup {
+      margin-left: 2px;
+      color: var(--lime);
+      font-size: rem(11px);
+    }
+  }
+
+  &__pct,
+  &__label {
+    color: rgb(243 241 232 / 50%);
+    font-family: var(--mono);
+    font-size: rem(11px);
+    letter-spacing: 0.04em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__label {
+    font-size: rem(10px);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  &__track {
+    position: relative;
+    height: 2px;
+    border-radius: 2px;
+    background: rgb(255 255 255 / 10%);
+  }
+
+  &__bar {
+    position: absolute;
+    inset: 0 auto 0 0;
+    border-radius: 2px;
+    background: var(--lime);
+    box-shadow: 0 0 12px rgb(216 242 138 / 60%);
+    transition: width 0.12s linear;
+  }
+
+  &__names {
+    position: relative;
+    flex: 1;
+    height: 18px;
+    overflow: hidden;
+
+    span {
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: $loader-text;
+      font-size: rem(13px);
+      line-height: 18px;
+      white-space: nowrap;
+      transition:
+        opacity 0.5s ease,
+        transform 0.6s cubic-bezier(0.76, 0, 0.24, 1),
+        filter 0.5s ease;
+    }
+  }
+}

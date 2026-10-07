@@ -1,0 +1,127 @@
+@use "../../abstracts" as *;
+
+// Full-width bands: dark "included" grid, centred CTA, CtaCard wrappers.
+
+.ca-incl {
+  width: 100%;
+  padding: 96px 48px;
+  background: var(--ink-bg);
+
+  @include below(tablet) {
+    padding-inline: 40px;
+  }
+
+  @include below(phone) {
+    padding: 64px 20px;
+  }
+
+  &--round {
+    border-radius: 16px;
+  }
+
+  &__wrap {
+    @include stack(40px);
+    max-width: 1080px;
+    margin-inline: auto;
+  }
+
+  &__title {
+    max-width: 520px;
+    color: var(--white);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
+    align-items: start;
+    gap: 28px;
+
+    @include below(tablet) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    @include below(phone) {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  &__card {
+    @include stack(14px);
+    align-items: flex-start;
+    padding: 26px;
+    border-radius: 22px;
+    background: rgb(255 255 255 / 5%);
+
+    .ca-h6 {
+      color: var(--white);
+    }
+  }
+
+  &__icon {
+    @include circle(44px);
+    background: var(--lime-16);
+    color: var(--lime);
+  }
+}
+
+.ca-ccta {
+  @include stack(18px);
+  align-items: center;
+  width: 100%;
+  padding: 96px 48px;
+  background: var(--cream);
+  text-align: center;
+
+  @include below(tablet) {
+    padding-inline: 40px;
+  }
+
+  @include below(phone) {
+    padding: 64px 20px;
+  }
+
+  .ca-h60,
+  &__p {
+    max-width: 680px;
+  }
+
+  &__btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding-top: 14px;
+
+    @include below(phone) {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+}
+
+// Per-page tweaks to the shared <CtaCard>.
+.ca-ctawrap {
+  width: 100%;
+
+  &--service {
+    .ctacard { padding: 48px; }
+    .ctacard__copy { gap: 10px; }
+  }
+
+  // Must come after the modifier rules above (same specificity).
+  @include below(phone) {
+    // CtaCard sets its band padding inline, hence !important.
+    &--service .ctaband { padding: 64px 20px 56px !important; }
+    &--service .ctacard__btns { width: auto; }
+
+    .ctacard {
+      gap: 24px;
+      padding: 32px;
+
+      h2 { font-size: rem(26px); }
+    }
+  }
+}

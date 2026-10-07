@@ -1,0 +1,136 @@
+@use "../../abstracts" as *;
+
+// Building blocks shared by every home section (`.ho` is on each section root).
+
+.ho {
+  // Phone type is tighter on the home page than the global scale.
+  @include below(phone) {
+    .d-78 { font-size: rem(40px); line-height: 0.96; }
+    .d-60 { font-size: rem(30px); line-height: 1; }
+    .d-40 { font-size: rem(26px); line-height: 1.05; }
+    .d-32 { font-size: rem(22px); line-height: 1.05; }
+    .d-25 { font-size: rem(20px); line-height: 1.1; }
+    .stat { font-size: rem(30px); line-height: 0.9; }
+
+    // Card titles in the plant grid and blog list.
+    .ho-h16 {
+      font-size: rem(16px);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+    }
+  }
+}
+
+.ho-narrow {
+  width: 100%;
+  max-width: 1176px;
+  margin-inline: auto;
+}
+
+.ho-in {
+  width: 100%;
+  max-width: 1104px;
+  margin-inline: auto;
+}
+
+.ho-bleed {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: clip;
+}
+
+.ho-label {
+  font-size: rem(12px);
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+
+  @include below(phone) {
+    font-size: rem(11px);
+  }
+}
+
+.ho-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: $pill;
+  box-shadow: inset 0 0 0 1px var(--ink-10);
+  font-size: rem(12px);
+  line-height: 1.2;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+// Springy lift on hover; each card sets its own `translate` in :hover.
+.ho-lift {
+  transition:
+    translate 0.35s var(--ease-spring),
+    background-color 0.35s,
+    box-shadow 0.35s;
+}
+
+.ho-clamp { @include line-clamp(2); }
+.ho-clamp3 { @include line-clamp(3); }
+
+.ho-sep {
+  height: 1px;
+  background: var(--ink-10);
+}
+
+.ho-ic52 {
+  @include circle(52px);
+  flex: none;
+  background: var(--forest-12);
+  color: var(--ink);
+}
+
+// Section header: title block left, aside right.
+.ho-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+
+  @include below(phone) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+  }
+
+  &__title {
+    @include stack(22px);
+    align-items: flex-start;
+    max-width: 640px;
+  }
+
+  &__aside {
+    @include stack(24px);
+    flex: none;
+    align-items: flex-start;
+    width: 360px;
+
+    @include below(tablet) {
+      width: 320px;
+    }
+
+    @include below(phone) {
+      width: 100%;
+    }
+  }
+}
+
+// Post meta row (category chip + date / reading time).
+.ho-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ho-cat {
+  padding: 6px 10px;
+  border-radius: $pill;
+  font-size: rem(12px);
+  line-height: 1.2;
+  font-weight: 600;
+}

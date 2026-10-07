@@ -1,0 +1,52 @@
+@use "../../abstracts" as *;
+
+.ca-h78 { @include display(78px, 0.96, -0.02em, $tablet: 64px, $phone: 40px); }
+.ca-h60 { @include display(60px, 1, -0.02em, $tablet: 48px, $phone: 30px); }
+.ca-h40 { @include display(40px, 1.05, -0.015em, $tablet: 34px, $phone: 26px); }
+.ca-h32 { @include display(32px, 1.05, -0.015em, $phone: 22px); }
+.ca-h25 { @include display(25px, 1.1, -0.01em, $phone: 20px); }
+
+.ca-h6 {
+  font-size: rem(18px);
+  line-height: 1.35;
+  font-weight: 600;
+
+  @include below(phone) {
+    font-size: rem(16px);
+  }
+}
+
+.ca-lede {
+  font-size: rem(17px);
+  line-height: 1.6;
+
+  @include below(phone) {
+    font-size: rem(16px);
+  }
+}
+
+.ca-kicker {
+  color: var(--forest);
+  font-size: rem(12px);
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+// Scientific (Latin) plant name.
+.ca-sci {
+  color: var(--forest);
+  font-family: var(--serif);
+  font-size: rem(25px);
+  font-style: italic;
+  line-height: 1.1;
+
+  &--sm {
+    font-size: rem(19px);
+  }
+
+  @include below(phone) {
+    font-size: rem(20px);
+  }
+}
+
+.ca-clamp { @include line-clamp(3); }

@@ -1,0 +1,246 @@
+@use "../abstracts" as *;
+
+// Floating pill nav + desktop mega menu.
+.nav {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(1300px, calc(100% - 24px));
+  padding: 10px 10px 10px 20px;
+  border: 1px solid rgb(255 255 255 / 32%);
+  border-radius: $pill;
+  background: var(--paper);
+  box-shadow: 0 8px 26px rgb(14 36 25 / 6%);
+  backdrop-filter: blur(34px);
+  translate: -50% 0;
+
+  @include below(tablet) {
+    width: min(786px, calc(100% - 24px));
+    padding: 10px 10px 10px 18px;
+  }
+
+  @include below(phone) {
+    width: min(366px, calc(100% - 24px));
+    padding: 8px 8px 8px 14px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__word {
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: rem(25px);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+
+    @include below(tablet) {
+      display: none;
+    }
+  }
+
+  &__link {
+    @include caps-link;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border-radius: $pill;
+    color: var(--ink);
+    transition: background-color 0.3s var(--ease);
+
+    &:hover,
+    &.is-open,
+    &.is-active {
+      background: var(--hover);
+    }
+  }
+
+  &__caret {
+    transition: transform 0.3s var(--ease);
+
+    .is-open & {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__book {
+    @include caps-link;
+    padding: 12px 20px;
+    border: 1px solid var(--ink);
+    border-radius: $pill;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background: var(--hover);
+    }
+
+    @include below(phone) {
+      display: none;
+    }
+  }
+
+  &__theme {
+    @include circle(46px);
+    border: 1px solid var(--ink-10);
+    color: var(--ink);
+    transition: background-color 0.3s var(--ease);
+
+    &:hover {
+      background: var(--hover);
+    }
+
+    @include below(phone) {
+      width: 42px;
+      height: 42px;
+    }
+  }
+
+  &__burger {
+    @include circle(46px);
+    display: none;
+    border: 1px solid var(--ink);
+
+    @include below(tablet) {
+      display: grid;
+    }
+  }
+
+  &__mega-wrap {
+    position: relative;
+  }
+}
+
+.logo-mark {
+  display: grid;
+  place-items: center;
+  flex: none;
+  border-radius: 50%;
+  background: var(--lime);
+  color: var(--on-lime);
+}
+
+.mega {
+  position: absolute;
+  top: calc(100% + 15px);
+  left: -329px;
+  display: flex;
+  gap: 16px;
+  width: 780px;
+  padding: 18px;
+  border-radius: 26px;
+  background: var(--surface);
+  box-shadow: 0 24px 60px rgb(14 36 25 / 16%);
+
+  // Invisible bridge so the pointer can travel from the link to the panel.
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -20px 0 auto;
+    height: 20px;
+  }
+
+  &__panel {
+    @include stack(10px);
+    flex: 1;
+    padding: 6px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 8px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 16px;
+    transition: background-color 0.3s var(--ease);
+
+    &:hover {
+      background: var(--hover);
+    }
+
+    span {
+      @include stack(2px);
+    }
+
+    b {
+      font-size: rem(15px);
+      line-height: 1.2;
+      font-weight: 600;
+    }
+
+    small {
+      color: var(--ink-55);
+      font-size: rem(13px);
+      line-height: 1.5;
+    }
+  }
+
+  &__icon {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: var(--forest-12);
+    color: var(--forest);
+  }
+
+  &__feature {
+    @include stack(18px);
+    align-self: flex-start;
+    width: 230px;
+    padding: 22px;
+    border-radius: 20px;
+    background: var(--ink-bg);
+    color: var(--white);
+
+    > div:first-child {
+      @include stack(10px);
+    }
+  }
+
+  &__feature-links {
+    @include stack(10px);
+
+    a {
+      @include caps-link;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    svg {
+      color: var(--lime);
+    }
+  }
+}

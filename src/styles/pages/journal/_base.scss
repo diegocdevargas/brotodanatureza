@@ -1,0 +1,327 @@
+@use "../../abstracts" as *;
+
+// Type, hero, pills and meta shared by the blog index and article pages.
+
+.jo-h78 { @include display(78px, 0.96, -0.02em, $tablet: 64px, $phone: 40px); }
+.jo-h40 { @include display(40px, 1.05, -0.015em, $tablet: 34px, $phone: 26px); }
+.jo-h32 { @include display(32px, 1.05, -0.015em, $tablet: 28px, $phone: 22px); }
+.jo-h25 { @include display(25px, 1.1, -0.01em, $phone: 20px); }
+
+.jo-lead {
+  font-size: rem(17px);
+  line-height: 1.6;
+
+  @include below(phone) {
+    font-size: rem(16px);
+  }
+}
+
+.jo-clamp { @include line-clamp(3); }
+
+// ---------- Dark hero ----------
+.jo-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 128px 48px 80px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--ink-bg);
+  color: var(--white);
+
+  @include below(tablet) {
+    padding: 120px 32px 72px;
+  }
+
+  @include below(phone) {
+    padding: 96px 20px 56px;
+  }
+
+  // Live eyebrow pill is 30px tall.
+  .eyebrow {
+    padding: 7px 15px;
+  }
+
+  &--blog {
+    justify-content: center;
+    min-height: 640px;
+    padding: 120px 48px 96px;
+
+    @include below(tablet) {
+      min-height: 560px;
+      padding: 112px 32px 80px;
+    }
+
+    @include below(phone) {
+      min-height: 500px;
+      padding: 92px 20px 64px;
+    }
+  }
+
+  &__media {
+    position: absolute;
+    inset: 0;
+    background: var(--ink-bg);
+
+    img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__tint {
+    position: absolute;
+    inset: 0;
+    background: rgb(18 48 31);
+    mix-blend-mode: multiply;
+    opacity: 0.55;
+  }
+
+  &__shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      rgb(6 18 12 / 57.6%) 0%,
+      rgb(6 18 12 / 22.4%) 38%,
+      rgb(6 18 12 / 54.5%) 100%
+    );
+  }
+
+  &__inner {
+    @include stack(22px);
+    position: relative;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1080px;
+
+    @include below(phone) {
+      padding-top: 20px;
+    }
+
+    .jo-hero--blog & {
+      gap: 24px;
+
+      @include below(phone) {
+        padding-top: 0;
+      }
+    }
+  }
+
+  &__title {
+    max-width: 760px;
+  }
+
+  &__copy {
+    max-width: 560px;
+    color: var(--white-75);
+
+    .jo-hero--blog & {
+      max-width: 540px;
+    }
+  }
+}
+
+// ---------- Sections ----------
+// Fill the page column even when wrapped (e.g. inside a <Reveal>).
+.jo-hero,
+.jo-sec,
+.jo-ahead,
+.jo-abody {
+  width: 100%;
+}
+
+.jo-sec {
+  display: flex;
+  justify-content: center;
+  background: var(--cream);
+}
+
+.jo-c {
+  @include stack;
+  width: 100%;
+  max-width: 1080px;
+}
+
+.jo-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+
+  .muted {
+    text-align: right;
+
+    @include below(phone) {
+      text-align: left;
+    }
+  }
+
+  @include below(phone) {
+    &--stack,
+    &--more {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &--stack { gap: 8px; }
+    &--more { gap: 10px; }
+  }
+}
+
+// Bordered cards: 1px overlay border.
+.jo-feat,
+.jo-card,
+.jo-nb,
+.jo-author {
+  @include hairline;
+}
+
+// Springy lift for post cards.
+.jo-card,
+.jo-feat,
+.jo-nb {
+  transition:
+    translate 0.35s var(--ease-spring),
+    box-shadow 0.35s;
+
+  &:hover {
+    box-shadow: 0 24px 48px var(--shadow);
+    translate: 0 -4px;
+  }
+}
+
+// ---------- Pills, meta ----------
+.jo-pill {
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  padding: 7px 14px;
+  border-radius: $pill;
+  color: var(--ink);
+  font-size: rem(12px);
+  line-height: 1.2;
+  font-weight: 600;
+  white-space: nowrap;
+
+  &--lime {
+    background: var(--lime-16);
+  }
+
+  // Sits on photos: fixed dark text in both themes.
+  &--glass {
+    position: relative;
+    padding: 7px 13px;
+    background: rgb(255 255 255 / 90%);
+    color: #0e2419;
+    backdrop-filter: blur(12px);
+  }
+}
+
+.jo-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding-top: 4px;
+  color: var(--ink-55);
+  font-size: rem(13px);
+  line-height: 1.5;
+
+  &__author {
+    color: var(--ink);
+    font-size: rem(12px);
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  &--stack {
+    gap: 16px;
+
+    @include below(phone) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+
+      .jo-dot {
+        display: none;
+      }
+    }
+  }
+
+  &--center {
+    justify-content: center;
+
+    @include below(phone) {
+      align-items: center;
+    }
+  }
+}
+
+.jo-dot {
+  flex: none;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--ink-10);
+}
+
+// ---------- CtaCard overrides ----------
+.jo-cta {
+  .ctaband {
+    padding: 0 48px 96px;
+
+    @include below(tablet) {
+      padding: 0 32px 80px;
+    }
+  }
+
+  .btn--cta {
+    height: 64px;
+    padding: 14px 14px 14px 26px;
+  }
+
+  &--tight {
+    .ctacard { padding: 48px; }
+    .ctacard__copy { gap: 10px; }
+  }
+
+  // Must come after the --tight rules above (same specificity).
+  @include below(phone) {
+    .ctaband { padding: 0 20px 64px; }
+    &--mint .ctaband { padding-bottom: 56px; }
+
+    .ctacard {
+      gap: 24px;
+      padding: 32px;
+      border-radius: 32px;
+
+      h2 {
+        font-size: rem(26px);
+        line-height: 1.05;
+      }
+    }
+
+    &--tight.jo-cta--cream .ctacard { gap: 22px; }
+    .ctacard__btns .btn { justify-content: center; }
+  }
+}
+
+.jo-empty {
+  @include stack(12px);
+  align-items: center;
+  padding: 64px 32px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  text-align: center;
+}
+
+.jo-disclaimer {
+  padding: 20px 24px;
+  border-radius: 18px;
+  background: var(--cream);
+}
