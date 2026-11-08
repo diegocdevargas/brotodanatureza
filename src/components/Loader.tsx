@@ -1,17 +1,15 @@
 "use client";
 // Site loader: wordmark + percent counter, a lime progress bar with glow, plant categories cycling with blur,
 // then the panel slides up. 2.6s ease-out cubic, leaves after 280ms with transform 0.9s cubic-bezier(0.76, 0, 0.24, 1).
-// Shown once per browser session: LOADER_SCRIPT (inlined in <head> by the layout) hides it before first paint
+// Shown once per browser session: LOADER_SCRIPT (lib/loader.ts, inlined in <head> by the layout) hides it before first paint
 // on later visits, so there is no flash.
 import { useEffect, useRef, useState } from "react";
 import { categories } from "@/lib/site";
+import { LOADER_KEY } from "@/lib/loader";
 
 const DURATION = 2600;
 const EASE = "cubic-bezier(0.76, 0, 0.24, 1)";
-const KEY = "broto-loader-seen";
 const NAMES = categories.map((c) => c.name);
-
-export const LOADER_SCRIPT = `try{if(sessionStorage.getItem("${KEY}"))document.documentElement.classList.add("loader-seen")}catch(e){}`;
 
 export default function Loader() {
   const [pct, setPct] = useState(0);
@@ -23,8 +21,8 @@ export default function Loader() {
     const timers: ReturnType<typeof setTimeout>[] = [];
     let seen = false;
     try {
-      seen = !!sessionStorage.getItem(KEY);
-      sessionStorage.setItem(KEY, "1");
+      seen = !!sessionStorage.getItem(LOADER_KEY);
+      sessionStorage.setItem(LOADER_KEY, "1");
     } catch {}
     if (seen) {
       timers.push(setTimeout(() => setPhase("done"), 0));
@@ -60,7 +58,7 @@ export default function Loader() {
       <div className="loader__glow" style={{ left: `calc(50% - 370px + ${(pct / 100) * 320}px)`, opacity: leaving ? 0 : 1 }} />
       <div className="loader__box" style={{ opacity: leaving ? 0 : 1, transform: leaving ? "translate3d(0,-14px,0)" : "none", transition: `opacity .45s ease, transform .6s ${EASE}` }}>
         <div className="loader__row">
-          <span className="loader__word">O Broto da Natureza</span>
+          <span className="loader__word">Broto da Natureza</span>
           <span className="loader__pct">{String(pct).padStart(3, "0")}%</span>
         </div>
         <div className="loader__track"><div className="loader__bar" style={{ width: `${pct}%` }} /></div>

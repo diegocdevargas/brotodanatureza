@@ -11,14 +11,14 @@ import { Reveal } from "../motion";
 
 export type Fact = { icon: React.ReactNode; label: string };
 
-export function CaHero({ eyebrow, line1, line2, copy, facts, children }: {
-  eyebrow: string; line1: string; line2: string; copy: string; facts?: Fact[]; children?: React.ReactNode;
+export function CaHero({ eyebrow, line1, line2, copy, facts, children, image }: {
+  eyebrow: string; line1: string; line2: string; copy: string; facts?: Fact[]; children?: React.ReactNode; image?: string;
 }) {
   return (
-    <section className="ca-hero ca-hero--left ca-hero--image on-dark">
+    <section className={`ca-hero ca-hero--left ca-hero--image on-dark${image ? " ca-hero--fade" : ""}`}>
       <div className="ca-hero__media" aria-hidden>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/media/forest.jpg" alt="" />
+        <img src={image ?? "/media/forest.jpg"} alt="" />
         <div className="ca-hero__tint" />
         <div className="ca-hero__shade" />
       </div>

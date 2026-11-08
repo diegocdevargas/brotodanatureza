@@ -22,7 +22,7 @@ export default function Footer() {
       <div className="footer__sep" />
       <div className="footer__cols">
         <div className="footer__brand">
-          <Link href="/" className="footer__logo"><LogoMark /><span className="d-32">O Broto da Natureza</span></Link>
+          <Link href="/" className="footer__logo"><LogoMark /><span className="d-32">Broto da Natureza</span></Link>
           <p className="t-15 soft">Um arquivo vivo de conhecimento sobre plantas medicinais, reunido com cuidado e baseado em fontes históricas e científicas.</p>
         </div>
         <nav className="footer__col" aria-label="Categorias">
@@ -40,19 +40,10 @@ export default function Footer() {
           <p className="t-15 soft">{disclaimer}</p>
         </div>
       </div>
-      <svg className="footer__word" viewBox="0 0 30.5 14" aria-hidden>
-        <defs>
-          <linearGradient id="broto-word" x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0" stopColor="#d8f28a" stopOpacity="0.95" />
-            <stop offset="1" stopColor="#d8f28a" stopOpacity="0.1" />
-          </linearGradient>
-        </defs>
-        <text x="15.25" y="12.25" textAnchor="middle" fontFamily="var(--serif)" fontSize="16.28" letterSpacing="-0.49" fill="url(#broto-word)">Broto</text>
-      </svg>
       <div className="footer__bottom">
         <div className="footer__sep" />
         <div className="footer__legal">
-          <p className="t-13 muted">© <CurrentYear /> O Broto da Natureza — fins educativos.</p>
+          <p className="t-13 muted">© <CurrentYear /> Broto da Natureza — fins educativos.</p>
           <p className="t-13 muted">feito com cuidado</p>
         </div>
       </div>

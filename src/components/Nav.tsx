@@ -36,14 +36,14 @@ export default function Nav() {
   return (
     <>
       <nav className="nav" aria-label="Principal">
-        <Link href="/" className="nav__logo" aria-label="O Broto da Natureza — página inicial" onClick={closeAll}>
+        <Link href="/" className="nav__logo" aria-label="Broto da Natureza — página inicial" onClick={closeAll}>
           <LogoMark />
-          <span className="nav__word">O Broto</span>
+          <span className="nav__word">Broto</span>
         </Link>
         <div className="nav__links">
           {navLinks.map((l) =>
             l.mega ? (
-              <div key={l.label} className="nav__mega-wrap" onMouseEnter={open} onMouseLeave={close}
+              <div key={l.label} className={`nav__mega-wrap${mega ? " is-open" : ""}`} onMouseEnter={open} onMouseLeave={close}
                 onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget)) setMega(false); }}>
                 <Link href={l.href} className={`nav__link${mega ? " is-open" : ""}${isActive(l.href) ? " is-active" : ""}`}
                   aria-expanded={mega} aria-haspopup="true" onFocus={open} onClick={closeAll}>
@@ -51,7 +51,7 @@ export default function Nav() {
                 </Link>
                 <AnimatePresence>
                   {mega && (
-                    <motion.div className="mega" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
+                    <motion.div className="mega" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8, pointerEvents: "none" }}
                       transition={{ duration: 0.3, ease }} onMouseEnter={open} onMouseLeave={close}>
                       <div className="mega__panel">
                         <p className="mono muted">Categorias</p>
@@ -124,7 +124,7 @@ export default function Nav() {
                 <Link href="/plantas" className="mmenu__book" onClick={closeAll}><span className="mono">Pesquisar planta</span><span className="mmenu__arrow"><Arrow size={14} /></span></Link>
               </div>
             </motion.div>
-            <p className="mmenu__copy t-13">© <CurrentYear /> O Broto da Natureza</p>
+            <p className="mmenu__copy t-13">© <CurrentYear /> Broto da Natureza</p>
           </motion.div>
         )}
       </AnimatePresence>

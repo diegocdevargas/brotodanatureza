@@ -28,7 +28,7 @@ export default async function DashboardPage() {
 
   return (
     <main className="page-main">
-      <CaHero eyebrow="Visão geral" line1="O herbário," line2="em números."
+      <CaHero image="https://images.unsplash.com/photo-1624041755997-393bd6b31f05?auto=format&fit=crop&w=2400&q=75" /* Chamomile (camomila) — Yaroslava Stupnytska */ eyebrow="Visão geral" line1="O herbário," line2="em números."
         copy="Acompanhe o crescimento da enciclopédia: plantas cadastradas, artigos publicados e como o acervo se distribui entre as categorias." />
 
       <section className="ca-sec db-sec" aria-label="Indicadores">

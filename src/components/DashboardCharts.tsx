@@ -4,7 +4,7 @@ import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Rectangle,
   PieChart, Pie, Legend, type BarShapeProps,
 } from 'recharts'
-import { useTheme } from 'next-themes'
+import { useTheme } from '@/components/ThemeProvider'
 
 // Forest → lime ramp from the site palette (ordered by value, largest first).
 const COLORS = ['#3f6b45', '#5b8a55', '#7aa865', '#9cc377', '#bcdb85', '#d8f28a', '#2c4f33', '#1d3b2a']

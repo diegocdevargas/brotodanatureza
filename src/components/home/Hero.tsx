@@ -16,7 +16,7 @@ export default function Hero({ stats, featured }: {
   return (
     <section className="ho ho-bleed ho-hero">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="ho-hero__bg" src="/media/hero.jpg" alt="" fetchPriority="high" />
+      <img className="ho-hero__bg" src="https://images.unsplash.com/photo-1695639639805-6a6b628f5d41?auto=format&fit=crop&w=2400&q=75" alt="" fetchPriority="high" />
       <div className="ho-hero__shade ho-hero__shade--l" />
       <div className="ho-hero__shade ho-hero__shade--v" />
       <div className="ho-hero__content">

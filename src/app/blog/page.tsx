@@ -19,7 +19,7 @@ export default async function BlogPage() {
 
   return (
     <main className="page-main">
-      <JoHero eyebrow="Blog" line1="Histórias e saberes" line2="do mundo verde."
+      <JoHero image="https://images.unsplash.com/photo-1682418948083-0c2b615875df?auto=format&fit=crop&w=2400&q=75" /* Bunches of lavender — Unsplash */ eyebrow="Blog" line1="Histórias e saberes" line2="do mundo verde."
         copy="Artigos sobre plantas medicinais, saúde natural e fitoterapia — da história de cada erva ao que a pesquisa descobriu sobre ela." />
 
       {featured ? (

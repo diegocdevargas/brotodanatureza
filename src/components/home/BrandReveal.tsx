@@ -1,6 +1,6 @@
 "use client";
 // Brand Reveal: scroll-linked wordmark mask over a photo.
-// Section is 400vh; a 100vh sticky frame holds the photo, a plate (#0F1511) with the BROTO wordmark cut out
+// Section is 400vh; a 100vh frame (pinned by GSAP ScrollTrigger, snapping to start / copy / last) holds the photo, a plate (#0F1511) with the BROTO wordmark cut out
 // of it as an SVG mask, an accent line and the copy. The zoom dives through the stem of the T.
 // Progress p = scrolled / (section height - viewport):
 //   a (zoom)      = p < .66 ? ease(p in .08–.42) : 1 - ease(p in .66–.94)     (ease = cosine in-out)
@@ -10,8 +10,9 @@
 //   copy opacity  = (p in .47–.53) - (p in .56–.61), y = 24 * (1 - in) - 24 * out
 //   video scale   = 1.15 - .15 * a, accent line opacity = 1 - clamp(5a)
 import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
+import { gsap, ScrollTrigger } from "@/lib/gsap";
 
-const IMAGE = "/media/forest.jpg";
+const IMAGE = "https://images.unsplash.com/photo-1695729812323-b0d9e3f2f97e?auto=format&fit=crop&w=2400&q=75"; // Inside the Mata Atlântica, Praia do Sono (RJ) — Caio Arbulu
 // B R O T O drawn on a 100-unit grid (32-unit stems, 60-unit gaps); the zoom anchor is the centre of the T stem.
 const WORD_W = 1142, WORD_H = 100, ANCHOR_X = 812, ANCHOR_Y = 60, STEM = 16;
 const O = (x: number) =>
@@ -24,6 +25,8 @@ const LETTERS: { d: string; evenOdd?: boolean }[] = [
   { d: "M722 0H902V20H828V100H796V20H722Z" },
   { d: O(962), evenOdd: true },
 ];
+// Scroll-progress stops the reveal snaps to: start, copy fully shown, last.
+const SNAPS = [0, 0.545, 1];
 const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
 const range = (v: number, a: number, b: number) => clamp01((v - a) / (b - a));
 const ease = (v: number) => 0.5 - Math.cos(Math.PI * v) / 2;
@@ -73,34 +76,41 @@ export default function BrandReveal() {
     return () => ro.disconnect();
   }, []);
 
-  // Scroll-linked update (same loop as the original: rAF-throttled scroll + resize listeners)
+  // Scroll-linked update: ONE GSAP ScrollTrigger pins the stage and maps the 400vh track to progress p (0–1).
+  // With motion allowed it snaps to three states: start (wordmark), copy shown, last (wordmark again).
   useIso(() => {
     const section = sectionRef.current, stick = stickRef.current;
-    if (!section || !stick) return;
-    let raf = 0, stickyBroken = false;
-    const update = () => {
-      raf = 0;
-      const r = section.getBoundingClientRect(), vh = window.innerHeight;
-      const len = Math.max(1, r.height - vh);
-      const scrolled = Math.min(Math.max(-r.top, 0), len);
-      const p = scrolled / len;
-      // Fallback from the original: if sticky is not holding the frame, translate it manually
-      if (!stickyBroken && r.top < -4 && r.bottom > vh + 4 && Math.abs(stick.getBoundingClientRect().top) > 4) stickyBroken = true;
-      stick.style.transform = stickyBroken ? `translate3d(0, ${scrolled}px, 0)` : "";
-      const W = stick.clientWidth, H = stick.clientHeight;
+    const group = groupRef.current, plate = plateRef.current, line = lineRef.current, copy = copyRef.current, image = imageRef.current;
+    if (!section || !stick || !group || !plate || !line || !copy || !image) return;
+    const setLine = gsap.quickSetter(line, "opacity");
+    const setCopyOpacity = gsap.quickSetter(copy, "opacity");
+    const setCopyY = gsap.quickSetter(copy, "y", "px");
+    const setImage = gsap.quickSetter(image, "scale");
+    let W = stick.clientWidth, H = stick.clientHeight;
+    const render = (p: number) => {
       const f = frame(p, W, H, W < 810 ? 0.86 : 0.68, 0.6);
-      groupRef.current?.setAttribute("transform", f.group);
-      plateRef.current?.setAttribute("opacity", String(f.plate));
-      if (lineRef.current) lineRef.current.style.opacity = String(f.line);
-      if (copyRef.current) { copyRef.current.style.opacity = String(f.copyOpacity); copyRef.current.style.transform = `translate3d(0, ${f.copyY}px, 0)`; }
-      if (imageRef.current) imageRef.current.style.transform = `scale(${f.videoScale})`;
+      group.setAttribute("transform", f.group);
+      plate.setAttribute("opacity", String(f.plate));
+      setLine(f.line);
+      setCopyOpacity(f.copyOpacity);
+      setCopyY(f.copyY);
+      setImage(f.videoScale);
     };
-    const onScroll = () => { if (!raf) raf = requestAnimationFrame(update); };
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", onScroll); if (raf) cancelAnimationFrame(raf); };
-  }, [size.w, size.h]);
+    const mm = gsap.matchMedia();
+    mm.add({ motion: "(prefers-reduced-motion: no-preference)", reduced: "(prefers-reduced-motion: reduce)" }, (ctx) => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top top",
+        end: "bottom bottom",
+        pin: stick,
+        pinSpacing: false,
+        snap: ctx.conditions?.motion ? { snapTo: SNAPS, duration: { min: 0.3, max: 0.8 }, delay: 0.1, ease: "power2.inOut" } : undefined,
+        onUpdate: (self) => render(self.progress),
+        onRefresh: (self) => { W = stick.clientWidth; H = stick.clientHeight; render(self.progress); },
+      });
+    });
+    return () => mm.revert();
+  }, []);
 
   const { w: W, h: H } = size;
   const f0 = frame(0, W, H, W < 810 ? 0.86 : 0.68, 0.6);

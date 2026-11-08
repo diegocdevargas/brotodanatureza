@@ -59,16 +59,20 @@
   }
 
   &__content {
-    @include stack(74px);
+    // Intro sits 1rem below the top of the content box. The gap shrinks from 74px by the distance the intro moved
+    // (27px) so the stats row and the featured card stay exactly where they were.
+    @include stack(47px);
     position: relative;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
     max-width: 1176px;
     height: 700px;
+    padding-top: 1rem;
 
     @include below(phone) {
-      justify-content: flex-start;
       height: auto;
+      padding-top: 0;
+      gap: 74px;
     }
   }
 

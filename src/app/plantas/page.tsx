@@ -53,6 +53,7 @@ export default async function PlantasPage({ searchParams }: Props) {
   return (
     <main className="page-main">
       <CaHero
+        image="https://images.unsplash.com/photo-1761464644390-3e8615093ce7?auto=format&fit=crop&w=2400&q=75" // Rosemary (alecrim) — Susana Bartolome
         eyebrow="Enciclopédia"
         line1="Plantas medicinais,"
         line2="do campo à sua saúde."

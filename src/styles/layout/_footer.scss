@@ -157,14 +157,7 @@
     }
   }
 
-  // Wordmark + legal row
-  &__word {
-    display: block;
-    width: 100%;
-    height: auto;
-    overflow: visible;
-  }
-
+  // Legal row
   &__bottom {
     @include stack(20px);
   }

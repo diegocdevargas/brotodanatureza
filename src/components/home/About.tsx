@@ -24,7 +24,7 @@ export default function About({ stats, storyImage }: { stats: { value: number; l
       <div className="ho-about__body">
         <Reveal className="ho-doc" delay={0.1} y={32}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/media/forest.jpg" alt="Floresta coberta por névoa" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1702816242990-1f8661a11f8e?auto=format&fit=crop&w=1600&q=75" alt="Folhas de uma planta medicinal em close" loading="lazy" />
           <div className="ho-doc__badge">
             <span className="ho-doc__icon"><ScrollIcon size={20} aria-hidden /></span>
             <div className="ho-doc__copy">

@@ -26,6 +26,11 @@
     }
   }
 
+  // Photo dissolves into the page background so the next section starts seamlessly
+  &--fade {
+    mask-image: linear-gradient(180deg, #000 0%, #000 82%, transparent 100%);
+  }
+
   &__media {
     position: absolute;
     inset: 0;

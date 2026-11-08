@@ -8,14 +8,14 @@ import { Reveal } from "../motion";
 export const postHref = (p: Post) => `/blog/${p.slug}`;
 
 /** Dark rounded hero. Appear: eyebrow 0, title .08, copy .16 (tween .9s, y 28). */
-export function JoHero({ eyebrow, line1, line2, copy, variant = "blog" }: {
-  eyebrow: string; line1: string; line2: string; copy: string; variant?: "blog" | "doc";
+export function JoHero({ eyebrow, line1, line2, copy, variant = "blog", image }: {
+  eyebrow: string; line1: string; line2: string; copy: string; variant?: "blog" | "doc"; image?: string;
 }) {
   return (
-    <section className={`jo-hero jo-hero--${variant}`}>
+    <section className={`jo-hero jo-hero--${variant}${image ? " jo-hero--fade" : ""}`}>
       <div className="jo-hero__media" aria-hidden>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/media/forest.jpg" alt="" />
+        <img src={image ?? "/media/forest.jpg"} alt="" />
         <div className="jo-hero__tint" />
         <div className="jo-hero__shade" />
       </div>

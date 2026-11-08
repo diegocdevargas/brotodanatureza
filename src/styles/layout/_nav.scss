@@ -1,5 +1,11 @@
 @use "../abstracts" as *;
 
+// Mega menu offsets are measured from the Enciclopédia link (the positioned wrap), which
+// sits 17.5px above the nav's bottom edge (6.5px centring + 10px padding + 1px border).
+// $mega-gap is the visible space between the nav pill and the panel.
+$mega-drop: 17.5px;
+$mega-gap: 15px;
+
 // Floating pill nav + desktop mega menu.
 .nav {
   position: fixed;
@@ -127,6 +133,17 @@
 
   &__mega-wrap {
     position: relative;
+
+    // Invisible bridge from the link down to the panel, only as wide as the link and
+    // only while open, so it never covers the neighbouring links or the nav padding.
+    &.is-open::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      right: 0;
+      left: 0;
+      height: $mega-drop + $mega-gap + 2px;
+    }
   }
 }
 
@@ -141,7 +158,7 @@
 
 .mega {
   position: absolute;
-  top: calc(100% + 15px);
+  top: calc(100% + #{$mega-drop + $mega-gap});
   left: -329px;
   display: flex;
   gap: 16px;
@@ -150,14 +167,6 @@
   border-radius: 26px;
   background: var(--surface);
   box-shadow: 0 24px 60px rgb(14 36 25 / 16%);
-
-  // Invisible bridge so the pointer can travel from the link to the panel.
-  &::before {
-    content: "";
-    position: absolute;
-    inset: -20px 0 auto;
-    height: 20px;
-  }
 
   &__panel {
     @include stack(10px);
@@ -173,7 +182,9 @@
 
   &__item {
     display: flex;
-    align-items: center;
+    // Top-aligned so icons and titles line up across the two columns
+    // even when one description wraps to two lines
+    align-items: flex-start;
     gap: 12px;
     padding: 10px;
     border-radius: 16px;
@@ -183,7 +194,9 @@
       background: var(--hover);
     }
 
-    span {
+    // Text column only: a bare `span` also matched .mega__icon and turned its
+    // centring grid into a column flex, pushing the icon to the top-left
+    > span:not(.mega__icon) {
       @include stack(2px);
     }
 

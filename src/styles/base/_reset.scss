@@ -59,9 +59,7 @@
   html {
     scrollbar-color: var(--ink-10) var(--cream);
 
-    @media (prefers-reduced-motion: no-preference) {
-      scroll-behavior: smooth;
-    }
+    // No `scroll-behavior: smooth`: GSAP ScrollSmoother / ScrollTrigger snap drive the scroll and would fight it.
   }
 
   body {

@@ -1,5 +1,5 @@
 import '@/styles/home.scss'
-import { getDashboardStats, getPlants, getPosts } from '@/lib/wordpress'
+import { getDashboardStats, getPlant, getPlants, getPosts } from '@/lib/wordpress'
 import Hero from '@/components/home/Hero'
 import About from '@/components/home/About'
 import BrandReveal from '@/components/home/BrandReveal'
@@ -12,10 +12,11 @@ import Faq from '@/components/shared/Faq'
 export const revalidate = 3600
 
 export default async function HomePage() {
-  const [plants, posts, stats] = await Promise.all([
-    getPlants({ perPage: 7 }),
+  const [plants, posts, stats, alecrim] = await Promise.all([
+    getPlants({ perPage: 8 }),
     getPosts(1, 4),
     getDashboardStats(),
+    getPlant('alecrim'),
   ])
 
   const numbers = [
@@ -23,7 +24,9 @@ export default async function HomePage() {
     { value: Object.keys(stats.categories).length, label: 'Categorias' },
     { value: stats.totalPosts, label: 'Artigos publicados' },
   ]
-  const [featured, ...rest] = plants
+  // Alecrim is the featured plant; the grid shows the others.
+  const featured = alecrim ?? plants[0]
+  const rest = plants.filter((p) => p.slug !== featured?.slug)
   const storyImage = plants.find((p) => p.acf?.illustrative_image)?.acf.illustrative_image
 
   return (
