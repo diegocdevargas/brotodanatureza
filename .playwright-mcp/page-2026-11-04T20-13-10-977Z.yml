@@ -1,0 +1,162 @@
+- generic [active] [ref=f6e1]:
+  - link "Pular para o conteúdo" [ref=f6e2] [cursor=pointer]:
+    - /url: "#conteudo"
+  - navigation "Principal" [ref=f6e3]:
+    - link "Broto da Natureza — página inicial" [ref=f6e4] [cursor=pointer]:
+      - /url: /
+      - generic [ref=f6e9]: Broto
+    - generic [ref=f6e10]:
+      - link "Início" [ref=f6e11] [cursor=pointer]:
+        - /url: /
+      - link "Enciclopédia" [ref=f6e13] [cursor=pointer]:
+        - /url: /plantas
+      - link "Blog" [ref=f6e16] [cursor=pointer]:
+        - /url: /blog
+      - link "Dashboard" [ref=f6e17] [cursor=pointer]:
+        - /url: /dashboard
+    - generic [ref=f6e18]:
+      - link "Pesquisar planta" [ref=f6e19] [cursor=pointer]:
+        - /url: /plantas
+      - button "Ativar modo claro" [ref=f6e20] [cursor=pointer]
+  - generic [ref=f6e23]:
+    - main [ref=f6e24]:
+      - generic [ref=f6e26]:
+        - navigation "Trilha de navegação" [ref=f6e28]:
+          - link "Início" [ref=f6e29] [cursor=pointer]:
+            - /url: /
+          - generic [aria-hidden] [ref=f6e30]: /
+          - link "Enciclopédia" [ref=f6e31] [cursor=pointer]:
+            - /url: /plantas
+          - generic [aria-hidden] [ref=f6e32]: /
+          - generic [ref=f6e33]: Ginkgo
+        - generic [ref=f6e34]:
+          - generic [ref=f6e35]:
+            - link "circulatória" [ref=f6e37] [cursor=pointer]:
+              - /url: /plantas?categoria=circulat%C3%B3ria
+            - heading "Ginkgo" [level=1] [ref=f6e40]
+            - paragraph [ref=f6e41]: Ginkgo biloba
+            - paragraph [ref=f6e42]: Usado na melhora do comprometimento cognitivo associado à idade e da qualidade de vida na demência leve. Usado tradicionalmente no alívio da sensação de peso nas pernas e de mãos e pés frios…
+            - generic [ref=f6e43]: Folhas
+            - generic [ref=f6e47]:
+              - link "Ver modo de preparo" [ref=f6e48] [cursor=pointer]:
+                - /url: "#preparo"
+              - link "Todas as plantas" [ref=f6e53] [cursor=pointer]:
+                - /url: /plantas
+          - img "Ginkgo" [ref=f6e55]
+      - generic [ref=f6e57]:
+        - generic [ref=f6e58]:
+          - generic [ref=f6e59]:
+            - heading "Usos medicinais" [level=2] [ref=f6e64]
+            - paragraph [ref=f6e65]: Usado na melhora do comprometimento cognitivo associado à idade e da qualidade de vida na demência leve. Usado tradicionalmente no alívio da sensação de peso nas pernas e de mãos e pés frios associados a distúrbios circulatórios leves, depois que um médico descartar causas mais graves.
+          - generic [ref=f6e66]:
+            - heading "Partes utilizadas" [level=2] [ref=f6e67]
+            - list [ref=f6e68]:
+              - listitem [ref=f6e69]:
+                - generic [ref=f6e73]: Folhas
+          - generic [ref=f6e74]:
+            - heading "Modo de preparo" [level=2] [ref=f6e79]
+            - paragraph [ref=f6e80]: "Somente em extratos padronizados, para adultos e idosos. Uso cognitivo: 120 a 240 mg por dose, dose diária de 240 mg, por pelo menos 8 semanas; se não houver melhora em 3 meses, o médico deve reavaliar. Uso tradicional (circulação): 250 a 360 mg por dose, até 750 mg ao dia; se persistir por mais de 2 semanas, procurar um profissional de saúde."
+          - note [ref=f6e81]:
+            - heading "Contraindicações" [level=2] [ref=f6e86]
+            - paragraph [ref=f6e87]: "Contraindicado na gravidez e em caso de hipersensibilidade. Pode aumentar o risco de sangramento: quem usa anticoagulantes (como varfarina) ou antiplaquetários (como AAS e clopidogrel) só deve usar com orientação médica, e o produto deve ser suspenso 3 a 4 dias antes de cirurgias. Pode favorecer convulsões em pessoas com epilepsia. Não usar com efavirenz; cautela com nifedipina. Não recomendado para menores de 18 anos."
+        - complementary "Ficha da planta" [ref=f6e89]:
+          - paragraph [ref=f6e90]: Ficha da planta
+          - heading "Ginkgo" [level=2] [ref=f6e91]
+          - paragraph [ref=f6e92]: Ginkgo biloba
+          - generic [ref=f6e94]:
+            - generic [ref=f6e95]:
+              - term [ref=f6e96]: Nome popular
+              - definition [ref=f6e99]: Ginkgo
+            - generic [ref=f6e100]:
+              - term [ref=f6e101]: Nome científico
+              - definition [ref=f6e104]: Ginkgo biloba
+            - generic [ref=f6e105]:
+              - term [ref=f6e106]: Categoria
+              - definition [ref=f6e109]: circulatória
+            - generic [ref=f6e110]:
+              - term [ref=f6e111]: Partes usadas
+              - definition [ref=f6e114]: Folhas
+          - link "Pesquisar outras plantas" [ref=f6e115] [cursor=pointer]:
+            - /url: /plantas
+          - paragraph [ref=f6e118]: As informações aqui presentes têm caráter exclusivamente educativo e não substituem orientação médica ou farmacêutica profissional.
+      - region [ref=f6e119]:
+        - generic [ref=f6e120]:
+          - generic [ref=f6e122]:
+            - heading "Continue explorando" [level=2] [ref=f6e123]
+            - link "Ver enciclopédia" [ref=f6e124] [cursor=pointer]:
+              - /url: /plantas
+          - generic [ref=f6e125]:
+            - link [ref=f6e127] [cursor=pointer]:
+              - /url: /plantas/guaco
+              - generic [ref=f6e129]:
+                - paragraph [ref=f6e130]: Planta anterior
+                - heading "Guaco" [level=3] [ref=f6e131]
+                - paragraph [ref=f6e132]: Mikania glomerata
+            - link [ref=f6e137] [cursor=pointer]:
+              - /url: /plantas/castanha-da-india
+              - generic [ref=f6e139]:
+                - paragraph [ref=f6e140]: Próxima planta
+                - heading "Castanha-da-índia" [level=3] [ref=f6e141]
+                - paragraph [ref=f6e142]: Aesculus hippocastanum
+      - generic [ref=f6e148]:
+        - generic [ref=f6e149]:
+          - heading "Quer entender melhor a fitoterapia?" [level=2] [ref=f6e150]
+          - paragraph [ref=f6e151]: Nos artigos do blog você encontra a história, o preparo e o que a ciência diz sobre as plantas da enciclopédia.
+        - link "Ler os artigos" [ref=f6e153] [cursor=pointer]:
+          - /url: /blog
+    - contentinfo [ref=f6e158]:
+      - generic [ref=f6e159]:
+        - generic [ref=f6e160]:
+          - paragraph [ref=f6e161]: Conhecimento que brota da terra
+          - heading "Cuidar da saúde começa por conhecer as plantas." [level=2] [ref=f6e162]: Cuidar da saúde começapor conhecer as plantas.
+        - generic [ref=f6e163]:
+          - link "Explorar enciclopédia" [ref=f6e164] [cursor=pointer]:
+            - /url: /plantas
+          - link "Ler artigos" [ref=f6e169] [cursor=pointer]:
+            - /url: /blog
+      - generic [ref=f6e172]:
+        - generic [ref=f6e173]:
+          - link "Broto da Natureza" [ref=f6e174] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=f6e180]: Um arquivo vivo de conhecimento sobre plantas medicinais, reunido com cuidado e baseado em fontes históricas e científicas.
+        - navigation "Categorias" [ref=f6e181]:
+          - paragraph [ref=f6e182]: Categorias
+          - list [ref=f6e183]:
+            - listitem [ref=f6e184]:
+              - link "Digestiva" [ref=f6e185] [cursor=pointer]:
+                - /url: /plantas?categoria=Digestiva
+            - listitem [ref=f6e186]:
+              - link "Calmante" [ref=f6e187] [cursor=pointer]:
+                - /url: /plantas?categoria=Calmante
+            - listitem [ref=f6e188]:
+              - link "Anti-inflamatória" [ref=f6e189] [cursor=pointer]:
+                - /url: /plantas?categoria=Anti-inflamat%C3%B3ria
+            - listitem [ref=f6e190]:
+              - link "Imunológica" [ref=f6e191] [cursor=pointer]:
+                - /url: /plantas?categoria=Imunol%C3%B3gica
+            - listitem [ref=f6e192]:
+              - link "Circulatória" [ref=f6e193] [cursor=pointer]:
+                - /url: /plantas?categoria=Circulat%C3%B3ria
+            - listitem [ref=f6e194]:
+              - link "Respiratória" [ref=f6e195] [cursor=pointer]:
+                - /url: /plantas?categoria=Respirat%C3%B3ria
+        - navigation "Explorar" [ref=f6e196]:
+          - paragraph [ref=f6e197]: Explorar
+          - list [ref=f6e198]:
+            - listitem [ref=f6e199]:
+              - link "Enciclopédia" [ref=f6e200] [cursor=pointer]:
+                - /url: /plantas
+            - listitem [ref=f6e201]:
+              - link "Artigos" [ref=f6e202] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=f6e203]:
+              - link "Dashboard" [ref=f6e204] [cursor=pointer]:
+                - /url: /dashboard
+        - generic [ref=f6e205]:
+          - paragraph [ref=f6e206]: Aviso
+          - paragraph [ref=f6e207]: As informações aqui presentes têm caráter exclusivamente educativo e não substituem orientação médica ou farmacêutica profissional.
+      - generic [ref=f6e210]:
+        - paragraph [ref=f6e211]: © 2026 Broto da Natureza — fins educativos.
+        - paragraph [ref=f6e212]: feito com cuidado
+  - button "Open Next.js Dev Tools" [ref=f6e218] [cursor=pointer]
+  - alert [ref=f6e222]

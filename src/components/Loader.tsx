@@ -58,7 +58,7 @@ export default function Loader() {
       <div className="loader__glow" style={{ left: `calc(50% - 370px + ${(pct / 100) * 320}px)`, opacity: leaving ? 0 : 1 }} />
       <div className="loader__box" style={{ opacity: leaving ? 0 : 1, transform: leaving ? "translate3d(0,-14px,0)" : "none", transition: `opacity .45s ease, transform .6s ${EASE}` }}>
         <div className="loader__row">
-          <span className="loader__word">Broto da Natureza</span>
+          <span className="loader__word">Brota da Natureza</span>
           <span className="loader__pct">{String(pct).padStart(3, "0")}%</span>
         </div>
         <div className="loader__track"><div className="loader__bar" style={{ width: `${pct}%` }} /></div>

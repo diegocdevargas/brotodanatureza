@@ -1,10 +1,12 @@
 import '@/styles/catalog.scss'
 import { Suspense } from 'react'
 import type { Metadata } from 'next'
+import { redirect } from 'next/navigation'
 import { PlantIcon, CookingPotIcon, WarningIcon, LeafIcon, SquaresFourIcon, MagnifyingGlassIcon } from '@phosphor-icons/react/dist/ssr'
-import { getPlants } from '@/lib/wordpress'
+import { getPlantCount, getPlantsPage } from '@/lib/wordpress'
 import { categories } from '@/lib/site'
 import SearchPlants from '@/components/SearchPlants'
+import PlantPagination from '@/components/catalog/PlantPagination'
 import { CaHero, CaHead, FeaturedPlant, PlantGrid, Included, CenterCta } from '@/components/catalog/parts'
 import { Reveal } from '@/components/motion'
 import Link from 'next/link'
@@ -17,49 +19,66 @@ export const metadata: Metadata = {
 export const revalidate = 3600
 
 const CATEGORY_NAMES = categories.map((c) => c.name)
+const PLANTS_PER_PAGE = 24
 
 interface Props {
-  searchParams: Promise<{ busca?: string; categoria?: string }>
+  searchParams: Promise<{ busca?: string; categoria?: string; pagina?: string }>
 }
 
 export default async function PlantasPage({ searchParams }: Props) {
-  const { busca: buscaRaw, categoria: categoriaRaw } = await searchParams
-  const allPlants = await getPlants({ perPage: 100 })
-
-  const busca = buscaRaw?.toLowerCase().trim() ?? ''
-  const categoria = categoriaRaw ?? 'Todas'
+  const { busca: buscaRaw, categoria: categoriaRaw, pagina: paginaRaw } = await searchParams
+  const busca = buscaRaw?.trim() ?? ''
+  const categoria = categoriaRaw?.toLowerCase() === 'todas' || !categoriaRaw ? 'Todas' : categoriaRaw.toLowerCase()
+  const requestedPage = Number.parseInt(paginaRaw ?? '1', 10)
+  const page = Number.isSafeInteger(requestedPage) && requestedPage > 0 ? requestedPage : 1
   const filtering = Boolean(busca) || categoria !== 'Todas'
+  const query = {
+    search: busca,
+    category: filtering && categoria !== 'Todas' ? categoria : undefined,
+    perPage: PLANTS_PER_PAGE,
+  }
+  const pageHref = (target: number) => {
+    const queryParams = new URLSearchParams()
+    if (buscaRaw?.trim()) queryParams.set('busca', buscaRaw.trim())
+    if (categoria !== 'Todas') queryParams.set('categoria', categoria)
+    queryParams.set('pagina', String(target))
+    return `/plantas?${queryParams.toString()}`
+  }
+  const [{ items: firstPageItems, total, totalPages: filteredTotalPages }, totalPlants] = await Promise.all([
+    getPlantsPage({ ...query, page: 1, perPage: PLANTS_PER_PAGE + (filtering ? 0 : 1) }),
+    getPlantCount(),
+  ])
+  const totalPages = filtering
+    ? filteredTotalPages
+    : total === 0 ? 0 : 1 + Math.ceil(Math.max(0, total - PLANTS_PER_PAGE - 1) / PLANTS_PER_PAGE)
+  const lastPage = Math.max(1, totalPages)
+  if (page > lastPage) redirect(pageHref(lastPage))
+  const items = page === 1
+    ? firstPageItems
+    : (await getPlantsPage(filtering
+      ? { ...query, page }
+      : { ...query, offset: PLANTS_PER_PAGE + 1 + (page - 2) * PLANTS_PER_PAGE }
+    )).items
+  const [featured, ...rest] = items
+  const showFeatured = !filtering && page === 1 && featured && rest.length > 0
+  const gridPlants = showFeatured ? rest : items
+  const count = `${total} ${total === 1 ? 'planta encontrada' : 'plantas encontradas'}`
 
-  const filtered = allPlants.filter((p) => {
-    const matchBusca =
-      !busca ||
-      p.title.rendered.toLowerCase().includes(busca) ||
-      p.acf?.popular_name?.toLowerCase().includes(busca) ||
-      p.acf?.scientific_name?.toLowerCase().includes(busca) ||
-      p.acf?.medicinal_uses?.toLowerCase().includes(busca) ||
-      p.acf?.used_parts?.toLowerCase().includes(busca) ||
-      p.acf?.preparation_method?.toLowerCase().includes(busca)
-
-    const matchCategoria = categoria === 'Todas' || p.acf?.category?.toLowerCase() === categoria.toLowerCase()
-
-    return matchBusca && matchCategoria
-  })
-
-  const [featured, ...rest] = filtered
-  const showFeatured = !filtering && featured && rest.length > 0
-  const gridPlants = showFeatured ? rest : filtered
-  const count = `${filtered.length} ${filtered.length === 1 ? 'planta encontrada' : 'plantas encontradas'}`
+  const visiblePages = Array.from(
+    new Set([1, page - 1, page, page + 1, totalPages])
+  ).filter((value) => value >= 1 && value <= totalPages).sort((a, b) => a - b)
 
   return (
     <main className="page-main">
       <CaHero
+        className="ca-hero--encyclopedia"
         image="https://images.unsplash.com/photo-1761464644390-3e8615093ce7?auto=format&fit=crop&w=2400&q=75" // Rosemary (alecrim) — Susana Bartolome
         eyebrow="Enciclopédia"
         line1="Plantas medicinais,"
         line2="do campo à sua saúde."
         copy="Pesquise por nome popular, nome científico, sintoma ou uso. Cada ficha traz o que a tradição e a pesquisa dizem sobre a planta."
         facts={[
-          { icon: <PlantIcon size={16} aria-hidden />, label: `${allPlants.length} plantas catalogadas` },
+          { icon: <PlantIcon size={16} aria-hidden />, label: `${totalPlants} plantas catalogadas` },
           { icon: <SquaresFourIcon size={16} aria-hidden />, label: `${CATEGORY_NAMES.length} categorias` },
           { icon: <WarningIcon size={16} aria-hidden />, label: 'Contraindicações em destaque' },
         ]}
@@ -77,7 +96,7 @@ export default async function PlantasPage({ searchParams }: Props) {
         </section>
       )}
 
-      <section className={`ca-sec ${showFeatured ? 'ca-sec--all' : 'ca-sec--featured'}`} aria-labelledby="resultados" aria-live="polite">
+      <section className={`ca-sec ${showFeatured ? 'ca-sec--all' : 'ca-sec--featured'} ca-sec--results`} aria-labelledby="resultados" aria-live="polite">
         <div className="ca-sec__wrap ca-stack36">
           <Reveal y={28}>
             <CaHead
@@ -95,6 +114,15 @@ export default async function PlantasPage({ searchParams }: Props) {
               <p className="t-15">Tente outro termo — um sintoma como “insônia”, um uso como “digestão” ou o nome científico.</p>
               <Link href="/plantas" className="ca-pill ca-pill--sm">Ver todas as plantas</Link>
             </div>
+          )}
+          {totalPages > 1 && (
+            <PlantPagination
+              page={page}
+              totalPages={totalPages}
+              links={visiblePages.map((pageNumber) => ({ page: pageNumber, href: pageHref(pageNumber) }))}
+              previousHref={page > 1 ? pageHref(page - 1) : undefined}
+              nextHref={page < totalPages ? pageHref(page + 1) : undefined}
+            />
           )}
         </div>
       </section>

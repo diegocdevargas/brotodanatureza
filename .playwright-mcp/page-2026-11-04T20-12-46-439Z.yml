@@ -1,0 +1,195 @@
+- generic [active] [ref=f5e1]:
+  - link "Pular para o conteúdo" [ref=f5e2] [cursor=pointer]:
+    - /url: "#conteudo"
+  - navigation "Principal" [ref=f5e3]:
+    - link "Broto da Natureza — página inicial" [ref=f5e4] [cursor=pointer]:
+      - /url: /
+      - generic [ref=f5e9]: Broto
+    - generic [ref=f5e10]:
+      - link "Início" [ref=f5e11] [cursor=pointer]:
+        - /url: /
+      - link "Enciclopédia" [ref=f5e13] [cursor=pointer]:
+        - /url: /plantas
+      - link "Blog" [ref=f5e16] [cursor=pointer]:
+        - /url: /blog
+      - link "Dashboard" [ref=f5e17] [cursor=pointer]:
+        - /url: /dashboard
+    - generic [ref=f5e18]:
+      - link "Pesquisar planta" [ref=f5e19] [cursor=pointer]:
+        - /url: /plantas
+      - button "Alternar tema" [ref=f5e20] [cursor=pointer]
+  - generic [ref=f5e22]:
+    - main [ref=f5e23]:
+      - generic [ref=f5e28]:
+        - generic [ref=f5e29]: Enciclopédia
+        - heading "Plantas medicinais, do campo à sua saúde." [level=1] [ref=f5e31]:
+          - generic [ref=f5e32]: Plantas medicinais,
+          - generic [ref=f5e33]: do campo à sua saúde.
+        - paragraph [ref=f5e34]: Pesquise por nome popular, nome científico, sintoma ou uso. Cada ficha traz o que a tradição e a pesquisa dizem sobre a planta.
+        - search [ref=f5e36]:
+          - generic [ref=f5e37]:
+            - generic [ref=f5e38]: Buscar plantas
+            - searchbox "Buscar plantas" [ref=f5e39]
+          - group "Filtrar por categoria" [ref=f5e40]:
+            - button "Todas" [ref=f5e41] [cursor=pointer]
+            - button "Digestiva" [ref=f5e42] [cursor=pointer]
+            - button "Calmante" [pressed] [ref=f5e43] [cursor=pointer]
+            - button "Anti-inflamatória" [ref=f5e44] [cursor=pointer]
+            - button "Imunológica" [ref=f5e45] [cursor=pointer]
+            - button "Circulatória" [ref=f5e46] [cursor=pointer]
+            - button "Respiratória" [ref=f5e47] [cursor=pointer]
+        - generic [ref=f5e48]:
+          - generic [ref=f5e49]: 21 plantas catalogadas
+          - generic [ref=f5e52]: 6 categorias
+          - generic [ref=f5e55]: Contraindicações em destaque
+      - region [ref=f5e58]:
+        - generic [ref=f5e59]:
+          - generic [ref=f5e61]:
+            - heading "Calmante" [level=2] [ref=f5e62]
+            - paragraph [ref=f5e63]: 6 plantas encontradas
+          - list [ref=f5e65]:
+            - listitem [ref=f5e66]:
+              - 'link "calmante Valeriana Valeriana officinalis Usada no alívio da tensão nervosa leve e de sintomas leves de estresse mental e como auxiliar do sono. Partes: Raiz Ver" [ref=f5e67] [cursor=pointer]':
+                - /url: /plantas/valeriana
+                - generic [ref=f5e68]: calmante
+                - generic [ref=f5e70]:
+                  - heading "Valeriana" [level=3] [ref=f5e71]
+                  - paragraph [ref=f5e72]: Valeriana officinalis
+                  - paragraph [ref=f5e73]: Usada no alívio da tensão nervosa leve e de sintomas leves de estresse mental e como auxiliar do sono.
+                  - generic [ref=f5e75]:
+                    - generic [ref=f5e76]: "Partes: Raiz"
+                    - generic [ref=f5e77]: Ver
+            - listitem [ref=f5e81]:
+              - 'link "calmante Lavanda Lavandula angustifolia Usada tradicionalmente no alívio de sintomas leves de estresse mental e exaustão e como auxiliar do sono. Partes: Flores Ver" [ref=f5e82] [cursor=pointer]':
+                - /url: /plantas/lavanda
+                - generic [ref=f5e83]: calmante
+                - generic [ref=f5e85]:
+                  - heading "Lavanda" [level=3] [ref=f5e86]
+                  - paragraph [ref=f5e87]: Lavandula angustifolia
+                  - paragraph [ref=f5e88]: Usada tradicionalmente no alívio de sintomas leves de estresse mental e exaustão e como auxiliar do sono.
+                  - generic [ref=f5e90]:
+                    - generic [ref=f5e91]: "Partes: Flores"
+                    - generic [ref=f5e92]: Ver
+            - listitem [ref=f5e96]:
+              - 'link "calmante Maracujá Passiflora incarnata Usado tradicionalmente no alívio de sintomas leves de estresse mental e como auxiliar do sono. Partes: Partes aéreas (folhas e flores) Ver" [ref=f5e97] [cursor=pointer]':
+                - /url: /plantas/maracuja
+                - generic [ref=f5e98]: calmante
+                - generic [ref=f5e100]:
+                  - heading "Maracujá" [level=3] [ref=f5e101]
+                  - paragraph [ref=f5e102]: Passiflora incarnata
+                  - paragraph [ref=f5e103]: Usado tradicionalmente no alívio de sintomas leves de estresse mental e como auxiliar do sono.
+                  - generic [ref=f5e105]:
+                    - generic [ref=f5e106]: "Partes: Partes aéreas (folhas e flores)"
+                    - generic [ref=f5e107]: Ver
+            - listitem [ref=f5e111]:
+              - 'link "calmante Melissa Melissa officinalis Usada tradicionalmente no alívio de sintomas leves de estresse mental, como auxiliar do sono, e no tratamento sintomático de queixas… Partes: Folhas Ver" [ref=f5e112] [cursor=pointer]':
+                - /url: /plantas/melissa
+                - generic [ref=f5e113]: calmante
+                - generic [ref=f5e115]:
+                  - heading "Melissa" [level=3] [ref=f5e116]
+                  - paragraph [ref=f5e117]: Melissa officinalis
+                  - paragraph [ref=f5e118]: Usada tradicionalmente no alívio de sintomas leves de estresse mental, como auxiliar do sono, e no tratamento sintomático de queixas…
+                  - generic [ref=f5e120]:
+                    - generic [ref=f5e121]: "Partes: Folhas"
+                    - generic [ref=f5e122]: Ver
+            - listitem [ref=f5e126]:
+              - 'link "calmante Capim-cidreira Cymbopogon citratus Utilizada para ansiedade leve, irritabilidade, insônia e palpitações de origem nervosa. Possui ação antiviral comprovada contra o vírus do… Partes: Folhas e talos jovens Ver" [ref=f5e127] [cursor=pointer]':
+                - /url: /plantas/capim-cidreira
+                - generic [ref=f5e128]: calmante
+                - generic [ref=f5e130]:
+                  - heading "Capim-cidreira" [level=3] [ref=f5e131]
+                  - paragraph [ref=f5e132]: Cymbopogon citratus
+                  - paragraph [ref=f5e133]: Utilizada para ansiedade leve, irritabilidade, insônia e palpitações de origem nervosa. Possui ação antiviral comprovada contra o vírus do…
+                  - generic [ref=f5e135]:
+                    - generic [ref=f5e136]: "Partes: Folhas e talos jovens"
+                    - generic [ref=f5e137]: Ver
+            - listitem [ref=f5e141]:
+              - 'link "calmante Camomila Matricaria chamomilla Amplamente utilizada para aliviar ansiedade, insônia e tensão nervosa. Possui propriedades anti-inflamatórias e antiespasmódicas, sendo… Partes: Flores Ver" [ref=f5e142] [cursor=pointer]':
+                - /url: /plantas/asdasdasd
+                - generic [ref=f5e143]: calmante
+                - generic [ref=f5e145]:
+                  - heading "Camomila" [level=3] [ref=f5e146]
+                  - paragraph [ref=f5e147]: Matricaria chamomilla
+                  - paragraph [ref=f5e148]: Amplamente utilizada para aliviar ansiedade, insônia e tensão nervosa. Possui propriedades anti-inflamatórias e antiespasmódicas, sendo…
+                  - generic [ref=f5e150]:
+                    - generic [ref=f5e151]: "Partes: Flores"
+                    - generic [ref=f5e152]: Ver
+      - region "O que toda ficha da enciclopédia traz" [ref=f5e156]:
+        - generic [ref=f5e157]:
+          - heading "O que toda ficha da enciclopédia traz" [level=2] [ref=f5e159]
+          - generic [ref=f5e160]:
+            - generic [ref=f5e161]:
+              - heading "Identificação" [level=3] [ref=f5e165]
+              - paragraph [ref=f5e166]: Nome popular e científico, para não confundir espécies parecidas.
+            - generic [ref=f5e167]:
+              - heading "Usos medicinais" [level=3] [ref=f5e171]
+              - paragraph [ref=f5e172]: Para que a planta é tradicionalmente usada e quais partes se aproveitam.
+            - generic [ref=f5e173]:
+              - heading "Modo de preparo" [level=3] [ref=f5e177]
+              - paragraph [ref=f5e178]: Infusão, decocção, compressa ou tintura — e como fazer cada uma.
+            - generic [ref=f5e179]:
+              - heading "Contraindicações" [level=3] [ref=f5e183]
+              - paragraph [ref=f5e184]: Quem deve evitar, interações conhecidas e cuidados com a dose.
+      - generic [ref=f5e185]:
+        - heading "Não encontrou o que procurava?" [level=2] [ref=f5e186]
+        - paragraph [ref=f5e187]: A enciclopédia cresce continuamente. Enquanto isso, os artigos do blog aprofundam preparo, história e pesquisa sobre as plantas.
+        - generic [ref=f5e188]:
+          - link "Ler os artigos" [ref=f5e189] [cursor=pointer]:
+            - /url: /blog
+          - link "Ver todas as plantas" [ref=f5e194] [cursor=pointer]:
+            - /url: /plantas
+    - contentinfo [ref=f5e195]:
+      - generic [ref=f5e196]:
+        - generic [ref=f5e197]:
+          - paragraph [ref=f5e198]: Conhecimento que brota da terra
+          - heading "Cuidar da saúde começa por conhecer as plantas." [level=2] [ref=f5e199]: Cuidar da saúde começapor conhecer as plantas.
+        - generic [ref=f5e200]:
+          - link "Explorar enciclopédia" [ref=f5e201] [cursor=pointer]:
+            - /url: /plantas
+          - link "Ler artigos" [ref=f5e206] [cursor=pointer]:
+            - /url: /blog
+      - generic [ref=f5e209]:
+        - generic [ref=f5e210]:
+          - link "Broto da Natureza" [ref=f5e211] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=f5e217]: Um arquivo vivo de conhecimento sobre plantas medicinais, reunido com cuidado e baseado em fontes históricas e científicas.
+        - navigation "Categorias" [ref=f5e218]:
+          - paragraph [ref=f5e219]: Categorias
+          - list [ref=f5e220]:
+            - listitem [ref=f5e221]:
+              - link "Digestiva" [ref=f5e222] [cursor=pointer]:
+                - /url: /plantas?categoria=Digestiva
+            - listitem [ref=f5e223]:
+              - link "Calmante" [ref=f5e224] [cursor=pointer]:
+                - /url: /plantas?categoria=Calmante
+            - listitem [ref=f5e225]:
+              - link "Anti-inflamatória" [ref=f5e226] [cursor=pointer]:
+                - /url: /plantas?categoria=Anti-inflamat%C3%B3ria
+            - listitem [ref=f5e227]:
+              - link "Imunológica" [ref=f5e228] [cursor=pointer]:
+                - /url: /plantas?categoria=Imunol%C3%B3gica
+            - listitem [ref=f5e229]:
+              - link "Circulatória" [ref=f5e230] [cursor=pointer]:
+                - /url: /plantas?categoria=Circulat%C3%B3ria
+            - listitem [ref=f5e231]:
+              - link "Respiratória" [ref=f5e232] [cursor=pointer]:
+                - /url: /plantas?categoria=Respirat%C3%B3ria
+        - navigation "Explorar" [ref=f5e233]:
+          - paragraph [ref=f5e234]: Explorar
+          - list [ref=f5e235]:
+            - listitem [ref=f5e236]:
+              - link "Enciclopédia" [ref=f5e237] [cursor=pointer]:
+                - /url: /plantas
+            - listitem [ref=f5e238]:
+              - link "Artigos" [ref=f5e239] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=f5e240]:
+              - link "Dashboard" [ref=f5e241] [cursor=pointer]:
+                - /url: /dashboard
+        - generic [ref=f5e242]:
+          - paragraph [ref=f5e243]: Aviso
+          - paragraph [ref=f5e244]: As informações aqui presentes têm caráter exclusivamente educativo e não substituem orientação médica ou farmacêutica profissional.
+      - generic [ref=f5e247]:
+        - paragraph [ref=f5e248]: © 2026 Broto da Natureza — fins educativos.
+        - paragraph [ref=f5e249]: feito com cuidado
+  - button "Open Next.js Dev Tools" [ref=f5e255] [cursor=pointer]

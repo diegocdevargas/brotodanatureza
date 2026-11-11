@@ -14,15 +14,15 @@
   &--image {
     justify-content: center;
     min-height: 640px;
-    padding: 136px 48px 88px;
+    padding: 120px 48px 96px;
 
     @include below(tablet) {
-      padding: 128px 40px 80px;
+      padding: 112px 32px 80px;
     }
 
     @include below(phone) {
       min-height: 0;
-      padding: 104px 20px 56px;
+      padding: 92px 20px 64px;
     }
   }
 

@@ -34,7 +34,7 @@ export default async function PostPage({ params }: Params) {
   const [post, recent] = await Promise.all([getPost(slug), getPosts(1, 20)])
   if (!post) notFound()
 
-  const { image, author, category } = postMeta(post)
+  const { image, imageAlt, imageCaption, author, category } = postMeta(post)
   const title = decodeEntities(post.title.rendered)
   const i = recent.findIndex((p) => p.slug === post.slug)
   const newer = i > 0 ? recent[i - 1] : undefined
@@ -59,7 +59,12 @@ export default async function PostPage({ params }: Params) {
               <Meta post={post} withAuthor className="jo-meta--center jo-meta--stack" />
             </Reveal>
           </div>
-          {image && <Reveal y={26} delay={0.26} className="jo-ahead__cover"><PlantImage src={image} alt="" /></Reveal>}
+          {image && (
+            <Reveal y={26} delay={0.26} className="jo-ahead__cover">
+              <PlantImage src={image} alt={imageAlt || ''} />
+              {imageCaption && <div className="jo-ahead__credit" dangerouslySetInnerHTML={{ __html: sanitizeHtml(imageCaption) }} />}
+            </Reveal>
+          )}
           <div className="jo-ahead__spacer" />
         </section>
 
@@ -73,7 +78,7 @@ export default async function PostPage({ params }: Params) {
                 <span className="jo-author__av"><PenNibIcon size={22} aria-hidden /></span>
                 <div className="jo-author__copy">
                   <p className="jo-author__name">{author}</p>
-                  <p className="t-13 muted">Autor no Broto da Natureza</p>
+                  <p className="t-13 muted">Autor na Brota da Natureza</p>
                 </div>
               </Reveal>
             )}

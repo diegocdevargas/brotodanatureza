@@ -5,7 +5,7 @@
 .jo-ahead {
   @include stack(36px);
   align-items: center;
-  padding: 116px 48px 0;
+  padding: 130px 48px 0;
   background: var(--cream);
 
   @include below(tablet) {
@@ -29,6 +29,7 @@
   }
 
   &__cover {
+    position: relative;
     width: 100%;
     max-width: 1080px;
     height: 500px;
@@ -37,6 +38,23 @@
 
     @include below(tablet) {
       height: 420px;
+    }
+
+    &__credit {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      width: fit-content;
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      font-size: rem(11px);
+      line-height: 1.4;
+
+      p { margin: 0; }
+      a { color: inherit; text-decoration: underline; }
     }
 
     @include below(phone) {

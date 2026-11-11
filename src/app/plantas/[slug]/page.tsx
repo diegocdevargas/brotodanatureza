@@ -5,12 +5,14 @@ import { notFound } from 'next/navigation'
 import {
   PlantIcon, CookingPotIcon, WarningIcon, LeafIcon, BookOpenIcon, TagIcon, FlaskIcon, CheckIcon, ArrowUpRightIcon,
 } from '@phosphor-icons/react/dist/ssr'
-import { getAllPlantSlugs, getPlant, getPlants, sanitizeHtml, type Plant } from '@/lib/wordpress'
-import { categoryIcon, categoryHref, disclaimer } from '@/lib/site'
-import { decodeEntities, summary } from '@/lib/format'
-import { Button, CategoryIcon, PlantImage } from '@/components/ui'
+import { getAdjacentPlants, getPlant, sanitizeHtml, type Plant } from '@/lib/wordpress'
+import { categoryIcon, categoryHref } from '@/lib/site'
+import { decodeEntities, plainText, summary } from '@/lib/format'
+import { CategoryIcon, PlantImage } from '@/components/ui'
 import { Reveal } from '@/components/motion'
 import { CaHead, RoundArrow } from '@/components/catalog/parts'
+import PlantScrollToTop from '@/components/catalog/PlantScrollToTop'
+import PreparationLink from '@/components/catalog/PreparationLink'
 import CtaCard from '@/components/shared/CtaCard'
 
 export const dynamicParams = true
@@ -21,8 +23,7 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  const slugs = await getAllPlantSlugs()
-  return slugs.map((slug) => ({ slug }))
+  return []
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const plant = await getPlant(slug)
   if (!plant) return {}
   const name = decodeEntities(plant.title.rendered)
-  const description = summary(plant.acf?.medicinal_uses, 155)
+  const description = summary(plant.content?.rendered || plant.acf?.medicinal_uses, 155)
   return {
     title: plant.acf?.scientific_name ? `${name} (${plant.acf.scientific_name})` : name,
     description,
@@ -42,17 +43,15 @@ const splitList = (text = '') => text.split(/[,;]|\s+e\s+/).map((s) => s.trim())
 
 export default async function PlantaPage({ params }: Props) {
   const { slug } = await params
-  const [plant, all] = await Promise.all([getPlant(slug), getPlants({ perPage: 100 })])
+  const plant = await getPlant(slug)
   if (!plant) notFound()
+  const { previous: prev, next } = await getAdjacentPlants(plant)
 
   const { acf, content } = plant
   const name = decodeEntities(plant.title.rendered)
   const icon = categoryIcon(acf?.category)
   const parts = splitList(acf?.used_parts)
-
-  const i = all.findIndex((p) => p.slug === plant.slug)
-  const prev = i > 0 ? all[i - 1] : undefined
-  const next = i >= 0 && i < all.length - 1 ? all[i + 1] : undefined
+  const description = plainText(content?.rendered)
 
   const rows = [
     { icon: <LeafIcon size={15} aria-hidden />, label: 'Nome popular', value: acf?.popular_name || name },
@@ -63,6 +62,7 @@ export default async function PlantaPage({ params }: Props) {
 
   return (
     <main className="page-main ca-detail ca-detail--service">
+      <PlantScrollToTop slug={slug} />
       {/* ---------- Hero ---------- */}
       <section className="ca-dhero">
         <div className="ca-dhero__wrap">
@@ -82,19 +82,24 @@ export default async function PlantaPage({ params }: Props) {
               )}
               <Reveal as="h1" y={28} delay={0.08} className="ca-h78">{name}</Reveal>
               {acf?.scientific_name && <Reveal as="p" y={24} delay={0.12} className="ca-sci">{acf.scientific_name}</Reveal>}
-              {acf?.medicinal_uses && <Reveal as="p" y={24} delay={0.16} className="ca-lede soft ca-dhero__p">{summary(acf.medicinal_uses, 200)}</Reveal>}
+              {description && <Reveal as="p" y={24} delay={0.16} className="ca-lede soft ca-dhero__p">{summary(description, 200)}</Reveal>}
               {parts.length > 0 && (
                 <Reveal y={20} delay={0.22} className="ca-dmeta">
                   {parts.slice(0, 3).map((p) => <span key={p} className="ca-dmeta__fact"><LeafIcon size={15} aria-hidden />{p}</span>)}
                 </Reveal>
               )}
               <Reveal y={20} delay={0.28} className="ca-dhero__btns">
-                {acf?.preparation_method && <Button href="#preparo" kind="dark" className="ca-btn64">Ver modo de preparo</Button>}
+                {acf?.preparation_method && <PreparationLink />}
                 <Link href="/plantas" className="ca-pill">Todas as plantas</Link>
               </Reveal>
             </div>
             <Reveal y={26} delay={0.1} className="ca-dhero__img">
               <PlantImage src={acf?.illustrative_image} alt={name} icon={icon} />
+              {acf?.illustrative_image && acf.image_source_url && acf.image_credit && (
+                <a className="ca-dhero__credit" href={acf.image_source_url} target="_blank" rel="noopener noreferrer">
+                  {acf.image_credit} — imagem original
+                </a>
+              )}
             </Reveal>
           </div>
         </div>
@@ -134,7 +139,7 @@ export default async function PlantaPage({ params }: Props) {
               </Reveal>
             )}
 
-            {content?.rendered && (
+            {description.length > 200 && (
               <Reveal y={24} className="ca-block">
                 <div className="ca-block__head"><span className="ca-block__icon"><BookOpenIcon size={20} aria-hidden /></span><h2 className="ca-h40">Sobre a planta</h2></div>
                 <div className="wp-content" dangerouslySetInnerHTML={{ __html: sanitizeHtml(content.rendered) }} />
@@ -157,7 +162,6 @@ export default async function PlantaPage({ params }: Props) {
                 ))}
               </dl>
               <Link href="/plantas" className="ca-side__btn">Pesquisar outras plantas<ArrowUpRightIcon size={16} aria-hidden /></Link>
-              <p className="t-13 ca-side__note">{disclaimer}</p>
             </aside>
           </Reveal>
         </div>

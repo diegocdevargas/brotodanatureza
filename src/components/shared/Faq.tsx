@@ -9,7 +9,7 @@ import { Reveal } from "../motion";
 export type FaqItem = { q: string; a: string };
 
 export const faqItems: FaqItem[] = [
-  { q: "As informações do Broto substituem uma consulta médica?",
+  { q: "As informações da Brota substituem uma consulta médica?",
     a: "Não. O conteúdo tem caráter educativo: reúne usos tradicionais e o que a pesquisa científica já investigou. Antes de usar qualquer planta com fins terapêuticos — principalmente se você toma medicamentos, está grávida ou amamentando — converse com um médico, farmacêutico ou fitoterapeuta." },
   { q: "De onde vêm as informações sobre cada planta?",
     a: "De fontes históricas (farmacopeias, tratados de botânica e registros de uso popular) e de publicações científicas. Cada ficha reúne usos medicinais, partes utilizadas, modo de preparo e as contraindicações conhecidas." },

@@ -182,3 +182,40 @@
     color: var(--ink-70);
   }
 }
+
+.pl-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 24px;
+
+  .ca-pill:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  &__status {
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  &__page {
+    display: grid;
+    place-items: center;
+    min-width: 42px;
+    height: 42px;
+    border: 1px solid var(--ink-10);
+    border-radius: 50%;
+    color: var(--ink);
+    font-size: rem(13px);
+    font-weight: 600;
+
+    &[aria-current="page"] {
+      border-color: var(--ink-bg);
+      background: var(--ink-bg);
+      color: var(--white);
+    }
+  }
+}

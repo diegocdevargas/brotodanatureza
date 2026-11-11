@@ -1,0 +1,55 @@
+[
+  {
+    "title": "Alecrim",
+    "slug": "alecrim",
+    "post_status": "publish",
+    "content": "O alecrim é um arbusto aromático de folhas estreitas e pequenas flores, pertencente à família Lamiaceae. É cultivado em hortas e jardins e apreciado como tempero.",
+    "acf": {
+      "popular_name": "Alecrim",
+      "scientific_name": "Salvia rosmarinus Spenn. (sin. Rosmarinus officinalis L.)",
+      "category": "digestiva",
+      "medicinal_uses": "As folhas são usadas tradicionalmente para aliviar má digestão e espasmos leves do trato gastrointestinal.",
+      "preparation_method": "Infusão: coloque 2 g de folhas secas em 150 mL de água fervente. Tampe, deixe em repouso por 10 a 15 minutos e coe. Para adultos e adolescentes a partir de 12 anos, a preparação tradicional é de uma xícara, 2 a 3 vezes ao dia.",
+      "used_parts": "Folhas",
+      "contraindications": "Não usar durante a gestação ou a amamentação, em menores de 12 anos, em caso de alergia ao alecrim, gastroenterite ou histórico de convulsões. O uso oral é contraindicado em obstrução das vias biliares, inflamação da vesícula, cálculos biliares ou doença do fígado.",
+      "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/rosmarini-folium"
+    }
+  },
+  {
+    "title": "Louro",
+    "slug": "louro",
+    "post_status": "publish",
+    "content": "O loureiro é uma árvore aromática de folhas persistentes e brilhantes. Produz pequenas flores e frutos que escurecem ao amadurecer; suas folhas são conhecidas como tempero.",
+    "acf": {
+      "popular_name": "Louro",
+      "scientific_name": "Laurus nobilis L.",
+      "category": "digestiva",
+      "medicinal_uses": "As folhas são usadas tradicionalmente para estimular o apetite e aliviar má digestão, gases e cólicas.",
+      "preparation_method": "Infusão: coloque uma colher de sobremesa de folhas picadas em uma xícara de água fervente. Tampe, deixe em repouso por 10 a 15 minutos e coe. O preparo tradicional é de uma xícara antes das refeições.",
+      "used_parts": "Folhas",
+      "contraindications": "O uso medicinal é contraindicado durante a gestação e a amamentação, em crianças menores de 6 anos e em pessoas com gastrite, úlceras, colite ulcerativa, doença de Crohn, doenças do fígado, epilepsia ou doença de Parkinson. Pode causar alergia.",
+      "plant_source": "https://hortodidatico.ufsc.br/louro/",
+      "illustrative_image": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Laurus_nobilis_002.JPG",
+      "image_credit": "H. Zell — CC BY-SA 3.0",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Laurus_nobilis_002.JPG"
+    }
+  },
+  {
+    "title": "Araucária",
+    "slug": "araucaria",
+    "post_status": "publish",
+    "content": "A araucária, ou pinheiro-do-paraná, é uma árvore nativa da América do Sul e característica das florestas do Sul do Brasil. Sua pinha contém pinhões, que são sementes, não frutos.",
+    "acf": {
+      "popular_name": "Araucária",
+      "scientific_name": "Araucaria angustifolia (Bertol.) Kuntze",
+      "category": "outros",
+      "medicinal_uses": "Na medicina popular, há registros do uso de folhas e casca em infusões e da resina em xaropes para queixas respiratórias.",
+      "used_parts": "Sementes, folhas, casca e resina",
+      "contraindications": "A araucária é uma espécie ameaçada; evite retirar casca, resina ou outras partes de árvores nativas. Não ingira resina ou preparações de identidade e composição desconhecidas.",
+      "plant_source": "https://organic-inorganic.imedpub.com/chemical-constituents-and-biologicalactivities-of-araucaria-angustifolia-bertolo-kuntze-a-review.php?aid=8964",
+      "illustrative_image": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Araucaria_angustifolia.jpg",
+      "image_credit": "Eurico Zimbres — CC BY-SA 2.5",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Araucaria_angustifolia.jpg"
+    }
+  }
+]

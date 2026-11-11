@@ -1,0 +1,542 @@
+[
+    {
+        "title": "Tanchagem-de-folha-estreita",
+        "slug": "tanchagem-de-folha-estreita",
+        "acf": {
+            "popular_name": "Tanchagem-de-folha-estreita",
+            "scientific_name": "Plantago lanceolata L.",
+            "category": "respiratória",
+            "medicinal_uses": "As folhas são usadas tradicionalmente para aliviar irritação da boca e garganta e tosse seca associada a resfriados. Esse uso tradicional não comprova eficácia para todas as preparações ou sintomas.",
+            "preparation_method": "As folhas secas são usadas em preparações orais, incluindo infusão e extratos. A forma e a posologia dependem do produto; siga a bula e a orientação de profissional de saúde.",
+            "used_parts": "Folhas",
+            "contraindications": "Não usar em caso de alergia à planta. Procurar avaliação se a tosse durar mais de uma semana, piorar, vier com febre ou falta de ar. Gestação, amamentação e uso em crianças requerem orientação.",
+            "illustrative_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Plantago_lanceolata-Plantain_lanc%C3%A9ol%C3%A9-20210329.jpg/1280px-Plantago_lanceolata-Plantain_lanc%C3%A9ol%C3%A9-20210329.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/plantaginis-lanceolatae-folium",
+            "image_credit": "Daniel VILLAFRUELA — CC BY-SA 4.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:Plantago%20lanceolata-Plantain%20lanc%C3%A9ol%C3%A9-20210329.jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Malva-branca",
+        "slug": "malva-branca",
+        "acf": {
+            "popular_name": "Malva-branca",
+            "scientific_name": "Althaea officinalis L.",
+            "category": "respiratória",
+            "medicinal_uses": "A raiz é usada tradicionalmente para irritação da boca ou garganta com tosse seca e para desconforto gastrointestinal leve. Esse uso tradicional não comprova eficácia para qualquer condição.",
+            "preparation_method": "As preparações incluem raiz fragmentada, maceração, chá, xaropes ou extratos. Produtos com diferentes solventes não são intercambiáveis; siga a bula.",
+            "used_parts": "Raiz",
+            "contraindications": "Pode interferir na absorção de medicamentos orais; confirme o intervalo com farmacêutico. Procurar avaliação se tosse persistir por uma semana ou desconforto digestivo por duas semanas. Idade mínima varia conforme a preparação.",
+            "illustrative_image": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Althaea_officinalis_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-008.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/althaeae-radix",
+            "image_credit": "Franz Eugen Köhler — domínio público",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:Althaea%20officinalis%20-%20K%C3%B6hler%E2%80%93s%20Medizinal-Pflanzen-008.jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Tomilho",
+        "slug": "tomilho",
+        "acf": {
+            "popular_name": "Tomilho",
+            "scientific_name": "Thymus vulgaris L.",
+            "category": "respiratória",
+            "medicinal_uses": "Preparações de tomilho são usadas tradicionalmente para tosse com expectoração associada a resfriados.",
+            "preparation_method": "Folhas e flores secas podem ser usadas em infusão ou em preparações e extratos padronizados. Não confundir o chá com óleo essencial; seguir a bula e a faixa etária do produto.",
+            "used_parts": "Folhas e flores",
+            "contraindications": "Não usar em caso de alergia ao tomilho ou a outras plantas da família Lamiaceae. Podem ocorrer desconfortos gástricos. Consultar profissional se a tosse durar mais de uma semana ou piorar.",
+            "illustrative_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/THYMUS_VULGARIS_-_AGUDA_-_IB-910_%28Tim%C3%B3%29.JPG/1280px-THYMUS_VULGARIS_-_AGUDA_-_IB-910_%28Tim%C3%B3%29.JPG",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/thymi-herba",
+            "image_credit": "Isidre Blanc — CC BY-SA 4.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:THYMUS%20VULGARIS%20-%20AGUDA%20-%20IB-910%20(Tim%C3%B3).JPG"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Sálvia",
+        "slug": "salvia",
+        "acf": {
+            "popular_name": "Sálvia",
+            "scientific_name": "Salvia officinalis L.",
+            "category": "digestiva",
+            "medicinal_uses": "As folhas são usadas tradicionalmente para desconfortos digestivos leves e inflamações leves da boca e garganta. Os efeitos e a segurança dependem da preparação.",
+            "preparation_method": "A infusão pode ser usada por via oral ou em bochechos e gargarejos; também existem preparações específicas. Não ingerir óleo essencial nem usar preparações concentradas sem orientação profissional.",
+            "used_parts": "Folhas",
+            "contraindications": "Alergia à sálvia. Gestantes, lactantes, pessoas com epilepsia e quem usa medicamentos devem consultar profissional antes de usar; o óleo essencial pode apresentar riscos distintos da folha.",
+            "illustrative_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Sage_plant_in_Castel_Beseno.JPG/1280px-Sage_plant_in_Castel_Beseno.JPG",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/salviae-officinalis-folium",
+            "image_credit": "Syrio — CC BY-SA 4.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:Sage%20plant%20in%20Castel%20Beseno.JPG"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Urtiga",
+        "slug": "urtiga",
+        "acf": {
+            "popular_name": "Urtiga",
+            "scientific_name": "Urtica dioica L.",
+            "category": "anti-inflamatória",
+            "medicinal_uses": "Preparações da erva de urtiga são usadas tradicionalmente para dores articulares leves, queixas urinárias menores e feridas superficiais. O uso depende da preparação.",
+            "preparation_method": "As partes aéreas podem integrar infusões ou preparações padronizadas; o uso externo e o oral não são intercambiáveis. Seguir instruções do produto e não aplicar planta fresca sobre a pele.",
+            "used_parts": "Partes aéreas",
+            "contraindications": "Não usar em caso de alergia. Para uso voltado ao aumento do fluxo urinário, não usar sem avaliação em doença cardíaca/renal ou quando houver restrição de líquidos. Procurar atendimento para sintomas urinários ou articulares persistentes.",
+            "illustrative_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Brandnetel%2C_Urtica_dioica%2C_Locatie%2C_Famberhorst.jpg/1280px-Brandnetel%2C_Urtica_dioica%2C_Locatie%2C_Famberhorst.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/urticae-herba",
+            "image_credit": "Dominicus Johannes Bergsma — CC BY-SA 4.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:Brandnetel%2C%20Urtica%20dioica%2C%20Locatie%2C%20Famberhorst.jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Dente-de-leão",
+        "slug": "dente-de-leao",
+        "acf": {
+            "popular_name": "Dente-de-leão",
+            "scientific_name": "Taraxacum officinale Weber ex Wigg.",
+            "category": "outros",
+            "medicinal_uses": "As folhas são usadas tradicionalmente para queixas urinárias menores. Esse uso não trata infecção urinária.",
+            "preparation_method": "As folhas secas podem ser usadas em preparações orais, incluindo infusão. Não usar como substituto de avaliação clínica nem de tratamento prescrito.",
+            "used_parts": "Folhas",
+            "contraindications": "Evitar sem avaliação em doenças biliares, renais ou cardíacas e quando houver restrição de líquidos. Alergia à família Asteraceae também exige cautela. Dor, febre ou sangue na urina requerem atendimento.",
+            "illustrative_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Dwarsdoorsnede_van_een_gesloten_bloem_van_een_paardenbloem_%28Taraxacum_officinale%29_08-05-2022._%28d.j.b%29.jpg/1280px-Dwarsdoorsnede_van_een_gesloten_bloem_van_een_paardenbloem_%28Taraxacum_officinale%29_08-05-2022._%28d.j.b%29.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/taraxaci-folium",
+            "image_credit": "Dominicus Johannes Bergsma — CC BY-SA 4.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:Dwarsdoorsnede%20van%20een%20gesloten%20bloem%20van%20een%20paardenbloem%20(Taraxacum%20officinale)%2008-05-2022.%20(d.j.b).jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Mil-folhas",
+        "slug": "mil-folhas",
+        "acf": {
+            "popular_name": "Mil-folhas",
+            "scientific_name": "Achillea millefolium L.",
+            "category": "digestiva",
+            "medicinal_uses": "As partes aéreas são usadas tradicionalmente para perda temporária do apetite, desconfortos digestivos leves, cólicas menstruais leves e pequenas feridas superficiais.",
+            "preparation_method": "A infusão pode ser usada por via oral e, para pequenas feridas, aplicada externamente. As indicações e a duração variam conforme o uso e o produto.",
+            "used_parts": "Partes aéreas floridas",
+            "contraindications": "Não usar em caso de alergia à mil-folhas ou a outras Asteraceae. As preparações descritas são destinadas a adultos e adolescentes acima de 12 anos; procurar avaliação se os sintomas persistirem.",
+            "illustrative_image": "https://upload.wikimedia.org/wikipedia/commons/3/37/Achillea_millefolium_%28Flora_of_Tajikistan%29.png",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/millefolii-herba",
+            "image_credit": "Arkadiusz Nowak et al. — CC BY 4.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:Achillea%20millefolium%20(Flora%20of%20Tajikistan).png"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Erva-de-são-joão",
+        "slug": "erva-de-sao-joao",
+        "acf": {
+            "popular_name": "Erva-de-são-joão",
+            "scientific_name": "Hypericum perforatum L.",
+            "category": "calmante",
+            "medicinal_uses": "Preparações específicas de hipérico são utilizadas para determinados sintomas depressivos leves a moderados e em outros usos tradicionais. Não é uma indicação para automedicação ou substituição de acompanhamento em saúde mental.",
+            "preparation_method": "Existem preparações e extratos padronizados da parte aérea florida, que não equivalem a uma receita caseira. Uso somente após avaliação profissional e conforme a bula.",
+            "used_parts": "Partes aéreas floridas",
+            "contraindications": "Pode reduzir ou alterar o efeito de muitos medicamentos, incluindo anticoncepcionais, anticoagulantes, imunossupressores e antivirais. Não combinar com medicamentos sem orientação médica; pode causar fotossensibilidade. Procurar ajuda em sintomas depressivos graves ou pensamentos de autoagressão.",
+            "illustrative_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/%28MHNT%29_Hypericum_perforatum_flower_and_buttons.jpg/1280px-%28MHNT%29_Hypericum_perforatum_flower_and_buttons.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/hyperici-herba-0",
+            "image_credit": "Didier Descouens — CC BY-SA 4.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:(MHNT)%20Hypericum%20perforatum%20flower%20and%20buttons.jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Psyllium",
+        "slug": "psyllium",
+        "acf": {
+            "popular_name": "Psyllium",
+            "scientific_name": "Plantago ovata Forssk.",
+            "category": "digestiva",
+            "medicinal_uses": "As sementes são usadas para constipação habitual e para amolecer as fezes em situações como fissuras anais e hemorroidas.",
+            "preparation_method": "As sementes inteiras ou trituradas devem ser ingeridas com bastante líquido. Não tomar imediatamente antes de dormir e manter intervalo de pelo menos 30 a 60 minutos de outros medicamentos, conforme a bula.",
+            "used_parts": "Sementes e tegumento da semente",
+            "contraindications": "Não usar com dificuldade para engolir, obstrução intestinal ou dor abdominal sem diagnóstico. Ingestão sem líquido suficiente pode causar impactação ou obstrução. Procure avaliação se a constipação persistir por mais de três dias.",
+            "illustrative_image": "https://upload.wikimedia.org/wikipedia/commons/1/14/Desert_indianwheat_%28Plantago_Ovata%29_%2814395740991%29.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/plantaginis-ovatae-semen",
+            "image_credit": "Stacy Manson / National Park Service — domínio público; CC BY 2.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:Desert%20indianwheat%20(Plantago%20Ovata)%20(14395740991).jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Sene",
+        "slug": "sene",
+        "acf": {
+            "popular_name": "Sene",
+            "scientific_name": "Senna alexandrina Mill.",
+            "category": "digestiva",
+            "medicinal_uses": "Preparações padronizadas de sene são usadas para constipação ocasional, por curto prazo.",
+            "preparation_method": "Há produtos de folhas secas e preparações padronizadas em chá ou formas orais. O uso não deve exceder uma semana e deve seguir a bula; não é indicado para emagrecimento ou uso contínuo.",
+            "used_parts": "Folhas",
+            "contraindications": "Pode causar cólicas e diarreia; uso prolongado pode causar desequilíbrio de sais e dependência de laxantes. Não usar em obstrução intestinal, doença inflamatória intestinal, desidratação ou dor abdominal sem causa conhecida. Gestantes, lactantes, menores de 12 anos e usuários de medicamentos devem consultar profissional.",
+            "illustrative_image": "https://upload.wikimedia.org/wikipedia/commons/9/99/Cassia_senna_Ypey80-cropped.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/sennae-folium",
+            "image_credit": "Adolphus Ypey — domínio público",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:Cassia%20senna%20Ypey80-cropped.jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Hamamélis",
+        "slug": "hamamelis",
+        "acf": {
+            "popular_name": "Hamamélis",
+            "scientific_name": "Hamamelis virginiana L.",
+            "category": "circulatória",
+            "medicinal_uses": "Preparações de folhas e casca são usadas tradicionalmente para irritações leves da pele e desconforto circulatório superficial. A indicação depende da parte e da preparação.",
+            "preparation_method": "Existem preparações tópicas, como infusões e extratos. Não ingerir destilados ou extratos destinados apenas ao uso externo.",
+            "used_parts": "Folhas",
+            "contraindications": "Uso externo: interromper se ocorrer irritação ou alergia. Hemorroidas com sangramento, dor intensa ou sintomas persistentes precisam de avaliação. Uso oral e tópico não são intercambiáveis.",
+            "illustrative_image": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Hamamelis_virginiana_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-070.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/hamamelidis-folium",
+            "image_credit": "Franz Eugen Köhler — domínio público",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:Hamamelis%20virginiana%20-%20K%C3%B6hler%E2%80%93s%20Medizinal-Pflanzen-070.jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Cavalinha",
+        "slug": "cavalinha",
+        "acf": {
+            "popular_name": "Cavalinha",
+            "scientific_name": "Equisetum arvense L.",
+            "category": "outros",
+            "medicinal_uses": "As partes aéreas são usadas tradicionalmente para queixas urinárias menores, com o objetivo de aumentar o fluxo de urina, e em feridas superficiais. Não trata infecção urinária.",
+            "preparation_method": "As partes aéreas secas podem ser usadas em chá e preparações específicas; algumas aplicações são externas. Usar apenas conforme a bula e manter hidratação adequada.",
+            "used_parts": "Partes aéreas",
+            "contraindications": "O uso descrito é destinado a maiores de 12 anos. Não usar para aumentar a diurese em doença cardíaca ou renal grave ou quando houver restrição de líquidos. Procurar avaliação se sintomas urinários persistirem por uma semana ou piorarem.",
+            "illustrative_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Equisetum_arvense-271.JPG/1280px-Equisetum_arvense-271.JPG",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/equiseti-herba",
+            "image_credit": "Danny S. — CC BY-SA 3.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:Equisetum%20arvense-271.JPG"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Bétula",
+        "slug": "betula",
+        "acf": {
+            "popular_name": "Bétula",
+            "scientific_name": "Betula pendula Roth",
+            "category": "outros",
+            "medicinal_uses": "As folhas são usadas tradicionalmente para queixas urinárias menores, a fim de aumentar a produção de urina e promover a lavagem do trato urinário.",
+            "preparation_method": "As folhas secas são usadas em infusão ou em preparações orais, por períodos limitados. Seguir a bula e a orientação profissional.",
+            "used_parts": "Folhas",
+            "contraindications": "Não usar em caso de alergia a bétula ou quando houver restrição de líquidos por doença cardíaca ou renal. As preparações descritas são destinadas a maiores de 12 anos; buscar orientação se os sintomas persistirem.",
+            "illustrative_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/7_Haapastensyrj%C3%A4_forestry_research_centre_Betula_pendula_grafts_2021.jpg/1280px-7_Haapastensyrj%C3%A4_forestry_research_centre_Betula_pendula_grafts_2021.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/betulae-folium",
+            "image_credit": "PyhäjärviLab — CC BY-SA 4.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:7%20Haapastensyrj%C3%A4%20forestry%20research%20centre%20Betula%20pendula%20grafts%202021.jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Chá-de-Java",
+        "slug": "cha-de-java",
+        "acf": {
+            "popular_name": "Chá-de-Java",
+            "scientific_name": "Orthosiphon aristatus (Blume) Miq.",
+            "category": "outros",
+            "medicinal_uses": "As folhas são usadas tradicionalmente para aumentar o fluxo urinário em queixas menores do trato urinário.",
+            "preparation_method": "As folhas secas podem ser usadas em infusão e preparações padronizadas. Não usar como tratamento de infecção ou para substituir avaliação médica.",
+            "used_parts": "Folhas",
+            "contraindications": "Não usar para promover diurese em doença cardíaca ou renal grave ou quando houver restrição de líquidos. Procurar atendimento para febre, dor lombar, sangue na urina ou sintomas persistentes.",
+            "illustrative_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Kumis_Kucing_%28Orthosiphon_aristatus%29.jpg/1280px-Kumis_Kucing_%28Orthosiphon_aristatus%29.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/orthosiphonis-folium",
+            "image_credit": "Adrina Aknes — CC BY-SA 4.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:Kumis%20Kucing%20(Orthosiphon%20aristatus).jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Uva-ursina",
+        "slug": "uva-ursina",
+        "acf": {
+            "popular_name": "Uva-ursina",
+            "scientific_name": "Arctostaphylos uva-ursi (L.) Spreng.",
+            "category": "outros",
+            "medicinal_uses": "As folhas são usadas tradicionalmente para alívio de sintomas leves e recorrentes do trato urinário inferior em mulheres adultas, somente após exclusão de condições graves por profissional.",
+            "preparation_method": "As folhas inteiras, trituradas ou em extratos são descritas em preparações específicas. Uso restrito a curto prazo e conforme bula; não preparar ou usar por conta própria.",
+            "used_parts": "Folhas",
+            "contraindications": "Não usar em doença renal, gestação, lactação, homens ou crianças sem avaliação. O uso é restrito a mulheres adultas e a no máximo uma semana; procurar atendimento se durar mais de quatro dias ou piorar.",
+            "illustrative_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/ArctostaphUva3.jpg/1280px-ArctostaphUva3.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/uvae-ursi-folium",
+            "image_credit": "Douglas Goldman — CC BY-SA 4.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:ArctostaphUva3.jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Vara-de-ouro",
+        "slug": "vara-de-ouro",
+        "acf": {
+            "popular_name": "Vara-de-ouro",
+            "scientific_name": "Solidago virgaurea L.",
+            "category": "outros",
+            "medicinal_uses": "As partes aéreas são usadas tradicionalmente em queixas urinárias menores para aumentar a produção de urina e promover a lavagem do trato urinário.",
+            "preparation_method": "As partes aéreas podem ser usadas em preparações orais, incluindo infusão e extratos. A indicação não abrange o tratamento de infecções urinárias.",
+            "used_parts": "Partes aéreas floridas",
+            "contraindications": "Não usar em caso de alergia a Asteraceae, doença cardíaca ou renal grave, edema ou restrição de líquidos. Sintomas urinários persistentes, febre ou dor lombar requerem atendimento.",
+            "illustrative_image": "https://upload.wikimedia.org/wikipedia/commons/9/93/S._virgaurea2015-10-10.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/solidaginis-virgaureae-herba",
+            "image_credit": "Victor M. Vicente Selvas — CC BY-SA 4.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:S.%20virgaurea2015-10-10.jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Alcaçuz",
+        "slug": "alcacuz",
+        "acf": {
+            "popular_name": "Alcaçuz",
+            "scientific_name": "Glycyrrhiza glabra L.",
+            "category": "respiratória",
+            "medicinal_uses": "Preparações de raiz são usadas tradicionalmente para tosse e resfriado e para desconfortos digestivos leves. Não substitui investigação de tosse ou doença gastrointestinal persistente.",
+            "preparation_method": "A raiz pode integrar infusões ou extratos padronizados. O teor de glicirrizina varia; não fazer uso prolongado nem associar a suplementos sem orientação.",
+            "used_parts": "Raiz",
+            "contraindications": "Pode causar retenção de líquidos, aumento da pressão e redução de potássio, especialmente com uso prolongado. Evitar em hipertensão, doença cardíaca/renal, hipocalemia, gestação e ao usar medicamentos sem avaliação profissional.",
+            "illustrative_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Camerarius_S%C3%BC%C3%9Fholz.jpg/1280px-Camerarius_S%C3%BC%C3%9Fholz.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/liquiritiae-radix",
+            "image_credit": "Autor não identificado — domínio público",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:Camerarius%20S%C3%BC%C3%9Fholz.jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Hera",
+        "slug": "hera",
+        "acf": {
+            "popular_name": "Hera",
+            "scientific_name": "Hedera helix L.",
+            "category": "respiratória",
+            "medicinal_uses": "Preparações específicas de folha de hera são usadas como expectorantes para tosse produtiva.",
+            "preparation_method": "São descritos extratos padronizados em formas líquidas ou sólidas. Folhas frescas e preparações caseiras não são equivalentes e podem ser tóxicas; usar apenas produto adequado conforme bula.",
+            "used_parts": "Folhas (extratos padronizados)",
+            "contraindications": "Não ingerir folhas ou frutos in natura. Alergia à planta; consultar profissional para crianças pequenas, gestação, lactação ou uso de outros medicamentos. Procurar avaliação se a tosse piorar ou persistir por mais de uma semana.",
+            "illustrative_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/%28MHNT%29_Hedera_helix_-_immature_inflorescences.jpg/1280px-%28MHNT%29_Hedera_helix_-_immature_inflorescences.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/hederae-helicis-folium",
+            "image_credit": "Didier Descouens — CC BY-SA 4.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:(MHNT)%20Hedera%20helix%20-%20immature%20inflorescences.jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Pelargônio",
+        "slug": "pelargonio",
+        "acf": {
+            "popular_name": "Pelargônio",
+            "scientific_name": "Pelargonium sidoides DC.",
+            "category": "respiratória",
+            "medicinal_uses": "Preparações da raiz são usadas tradicionalmente para aliviar sintomas do resfriado comum. A evidência clínica disponível não permite concluir que todas as preparações tenham o mesmo efeito.",
+            "preparation_method": "Existem extratos líquidos e secos da raiz. Não há equivalência estabelecida com chá ou raiz in natura; usar apenas produto padronizado conforme a bula.",
+            "used_parts": "Raiz (extratos)",
+            "contraindications": "Os produtos descritos são destinados a pessoas a partir de 6 anos. Foram relatados efeitos raros, inclusive hepáticos; interromper e buscar atendimento diante de pele ou olhos amarelados, urina escura ou dor abdominal. Consultar em caso de uso de anticoagulantes ou doença hepática.",
+            "illustrative_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Pelargonium_sidoides_kz04.jpg/960px-Pelargonium_sidoides_kz04.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/pelargonii-radix",
+            "image_credit": "Krzysztof Ziarnek, Kenraiz — CC BY-SA 4.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:Pelargonium_sidoides_kz04.jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Agnocasto",
+        "slug": "agnocasto",
+        "acf": {
+            "popular_name": "Agnocasto",
+            "scientific_name": "Vitex agnus-castus L.",
+            "category": "outros",
+            "medicinal_uses": "Preparações específicas do fruto são usadas para sintomas pré-menstruais, como irritabilidade, alterações de humor, cefaleia e sensação de tensão mamária. Isso não se aplica automaticamente a qualquer chá ou extrato.",
+            "preparation_method": "Existem extrato seco padronizado e outras preparações tradicionais do fruto. Não há dose universal; usar apenas conforme a bula e a orientação profissional.",
+            "used_parts": "Frutos",
+            "contraindications": "Consultar profissional antes de usar em gravidez, amamentação, histórico de doença hormonal, tratamento de fertilidade ou uso de medicamentos dopaminérgicos/hormonais. Procurar avaliação se sintomas forem intensos ou novos.",
+            "illustrative_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Vitex_agnus-castus%2C_Ametlla_de_Mar.jpg/1280px-Vitex_agnus-castus%2C_Ametlla_de_Mar.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/agni-casti-fructus",
+            "image_credit": "Josep Gesti — CC BY-SA 4.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:Vitex%20agnus-castus%2C%20Ametlla%20de%20Mar.jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Cúrcuma",
+        "slug": "curcuma",
+        "acf": {
+            "popular_name": "Cúrcuma",
+            "scientific_name": "Curcuma longa L.",
+            "category": "digestiva",
+            "medicinal_uses": "O rizoma é usado tradicionalmente para desconfortos digestivos leves, como sensação de plenitude, digestão lenta e flatulência.",
+            "preparation_method": "O rizoma pode ser usado em pó ou fragmentado, em infusões e em extratos específicos. Preparações concentradas não equivalem ao uso culinário; seguir a bula.",
+            "used_parts": "Rizoma",
+            "contraindications": "Não usar sem avaliação em obstrução biliar, cálculos biliares ou doença hepática. Consultar profissional em gestação, amamentação, uso de anticoagulantes ou se sintomas persistirem por mais de duas semanas.",
+            "illustrative_image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Curcuma_longa_%28Haldi%29_Im_IMG_2441.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/curcumae-longae-rhizoma",
+            "image_credit": "J.M.Garg — CC BY 3.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:Curcuma%20longa%20(Haldi)%20Im%20IMG%202441.jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Gilbardeira",
+        "slug": "gilbardeira",
+        "acf": {
+            "popular_name": "Gilbardeira",
+            "scientific_name": "Ruscus aculeatus L.",
+            "category": "circulatória",
+            "medicinal_uses": "Preparações da raiz são usadas tradicionalmente para aliviar sensação de peso e desconforto nas pernas associados a problemas circulatórios leves e sintomas de hemorroidas, após exclusão de condições graves.",
+            "preparation_method": "A raiz é usada em pó e em extratos padronizados em formas orais. Não há recomendação de chá caseiro equivalente; seguir a bula.",
+            "used_parts": "Raiz e rizoma (preparações padronizadas)",
+            "contraindications": "Uso descrito apenas para adultos. Inchaço súbito ou unilateral, dor intensa, falta de ar ou sangramento requerem avaliação imediata. Consultar médico se os sintomas durarem mais de duas semanas ou piorarem.",
+            "illustrative_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Illustration_Ruscus_aculeatus0.jpg/1280px-Illustration_Ruscus_aculeatus0.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/rusci-rhizoma",
+            "image_credit": "Ilustração histórica — domínio público",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:Illustration%20Ruscus%20aculeatus0.jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Fumária",
+        "slug": "fumaria",
+        "acf": {
+            "popular_name": "Fumária",
+            "scientific_name": "Fumaria officinalis L.",
+            "category": "digestiva",
+            "medicinal_uses": "Preparações da parte aérea são usadas tradicionalmente para desconfortos digestivos leves. A indicação e o modo de uso dependem da preparação.",
+            "preparation_method": "As partes aéreas são usadas em formas orais e extratos definidos. Não preparar ou combinar com outras plantas sem orientação profissional.",
+            "used_parts": "Partes aéreas",
+            "contraindications": "Evitar automedicação em doença hepática ou biliar, dor abdominal sem diagnóstico, gestação, amamentação ou uso de medicamentos. Procurar avaliação se houver piora ou persistência.",
+            "illustrative_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/%28MHNT%29_Fumaria_officinalis_-_Habit.jpg/1280px-%28MHNT%29_Fumaria_officinalis_-_Habit.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/fumariae-herba",
+            "image_credit": "Didier Descouens — CC BY-SA 4.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:(MHNT)%20Fumaria%20officinalis%20-%20Habit.jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Linhaça",
+        "slug": "linhaca",
+        "acf": {
+            "popular_name": "Linhaça",
+            "scientific_name": "Linum usitatissimum L.",
+            "category": "digestiva",
+            "medicinal_uses": "As sementes são usadas para constipação habitual, para amolecer as fezes e, tradicionalmente, para desconforto gastrointestinal leve.",
+            "preparation_method": "As sementes são ingeridas por via oral com líquido suficiente; ao contato com água formam mucilagem. Manter intervalo de medicamentos conforme bula e não usar imediatamente antes de dormir.",
+            "used_parts": "Sementes maduras",
+            "contraindications": "Não usar em obstrução intestinal, dificuldade para engolir ou dor abdominal sem diagnóstico. A ingestão sem líquido suficiente pode piorar a obstrução; procurar avaliação se constipação durar mais de três dias.",
+            "illustrative_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Illustration_Linum_usitatissimum0.jpg/1280px-Illustration_Linum_usitatissimum0.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/lini-semen",
+            "image_credit": "Ilustração histórica — domínio público",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:Illustration%20Linum%20usitatissimum0.jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Espinheiro-alvar",
+        "slug": "espinheiro-alvar",
+        "acf": {
+            "popular_name": "Espinheiro-alvar",
+            "scientific_name": "Crataegus monogyna Jacq.",
+            "category": "circulatória",
+            "medicinal_uses": "Folhas e flores são usadas tradicionalmente para sintomas leves de estresse e como auxílio ao sono. Preparações para palpitações só devem ser consideradas após avaliação médica que exclua causa grave.",
+            "preparation_method": "Folhas e flores são usadas em infusões e extratos padronizados. Não usar para tratar doença cardíaca nem substituir medicamentos prescritos.",
+            "used_parts": "Folhas e flores",
+            "contraindications": "Palpitações, dor no peito, desmaio, falta de ar ou edema exigem avaliação médica. Consultar profissional antes de combinar com medicamentos cardíacos, pressão arterial ou sedativos.",
+            "illustrative_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/%28MHNT%29_Crataegus_monogyna_-_flowers_and_buds.jpg/1280px-%28MHNT%29_Crataegus_monogyna_-_flowers_and_buds.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/crataegi-folium-cum-flore",
+            "image_credit": "Didier Descouens — CC BY-SA 4.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:(MHNT)%20Crataegus%20monogyna%20-%20flowers%20and%20buds.jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Zimbro",
+        "slug": "zimbro",
+        "acf": {
+            "popular_name": "Zimbro",
+            "scientific_name": "Juniperus communis L.",
+            "category": "digestiva",
+            "medicinal_uses": "Os frutos são usados tradicionalmente em desconfortos digestivos leves e queixas urinárias menores. O uso urinário não trata infecções.",
+            "preparation_method": "Os frutos secos podem ser usados em preparações orais, inclusive infusão e extratos específicos. Não usar óleo essencial por via oral nem prolongar o uso.",
+            "used_parts": "Frutos (gálbulos)",
+            "contraindications": "Evitar em gestação, doença renal ou inflamação dos rins; não usar para diurese quando houver restrição de líquidos. Dor, febre ou sangue na urina exigem atendimento médico.",
+            "illustrative_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Branched_juniper_twig_with_shots.jpg/1280px-Branched_juniper_twig_with_shots.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/juniperi-galbulus-pseudo-fructus",
+            "image_credit": "W. Carter — CC BY-SA 4.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:Branched%20juniper%20twig%20with%20shots.jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Tormentila",
+        "slug": "tormentila",
+        "acf": {
+            "popular_name": "Tormentila",
+            "scientific_name": "Potentilla erecta (L.) Raeusch.",
+            "category": "digestiva",
+            "medicinal_uses": "O rizoma é usado tradicionalmente para diarreia leve e, em algumas preparações, inflamação menor da mucosa da boca.",
+            "preparation_method": "O rizoma seco pode ser preparado em infusão para uso oral ou bucal, conforme a bula do produto. Não usar para diarreia com sangue ou febre.",
+            "used_parts": "Rizoma",
+            "contraindications": "Uso descrito para adultos. Procurar atendimento se a diarreia piorar ou persistir por mais de três dias, ou se houver desidratação; inflamação bucal persistente também requer avaliação.",
+            "illustrative_image": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Kwiat_2006.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/tormentillae-rhizoma",
+            "image_credit": "Pleple2000 — CC BY-SA 3.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:Kwiat%202006.jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Cimicífuga",
+        "slug": "cimicifuga",
+        "acf": {
+            "popular_name": "Cimicífuga",
+            "scientific_name": "Actaea racemosa L. (sin. Cimicifuga racemosa)",
+            "category": "outros",
+            "medicinal_uses": "Preparações específicas da raiz são usadas para queixas da menopausa, como ondas de calor e suor excessivo. Não se aplica a qualquer chá ou extrato caseiro.",
+            "preparation_method": "Há extratos padronizados em formas orais. O uso deve seguir a bula e o acompanhamento profissional; não preparar a raiz por conta própria.",
+            "used_parts": "Rizoma e raízes (extratos)",
+            "contraindications": "Há relatos de lesão hepática. Não usar em doença do fígado; interromper e procurar atendimento diante de icterícia, urina escura, cansaço intenso ou dor abdominal. Uso por mais de seis meses exige avaliação médica.",
+            "illustrative_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Actaea_racemosa_Pluskwica_groniasta_2019-07-20_01.jpg/1280px-Actaea_racemosa_Pluskwica_groniasta_2019-07-20_01.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/cimicifugae-rhizoma",
+            "image_credit": "Agnieszka Kwiecień, Nova — CC BY-SA 4.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:Actaea%20racemosa%20Pluskwica%20groniasta%202019-07-20%2001.jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Garra-do-diabo",
+        "slug": "garra-do-diabo",
+        "acf": {
+            "popular_name": "Garra-do-diabo",
+            "scientific_name": "Harpagophytum procumbens DC.",
+            "category": "anti-inflamatória",
+            "medicinal_uses": "A raiz é usada tradicionalmente para alívio de dores articulares leves, desconfortos digestivos leves e perda temporária do apetite.",
+            "preparation_method": "A raiz é usada fragmentada ou em pó e em extratos específicos em formas orais. Seguir a bula; não há dose universal para preparações caseiras.",
+            "used_parts": "Raízes secundárias tuberosas",
+            "contraindications": "Consultar profissional em úlcera gástrica/duodenal, cálculos biliares, gestação, amamentação ou uso de medicamentos. Não usar para adiar avaliação de dor articular intensa ou persistente.",
+            "illustrative_image": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Harpagophytum_procumbens.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/harpagophyti-radix",
+            "image_credit": "Furukama — CC BY-SA 3.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:Harpagophytum%20procumbens.jpg"
+        },
+        "post_status": "draft"
+    },
+    {
+        "title": "Cardo-mariano",
+        "slug": "cardo-mariano",
+        "acf": {
+            "popular_name": "Cardo-mariano",
+            "scientific_name": "Silybum marianum (L.) Gaertn.",
+            "category": "digestiva",
+            "medicinal_uses": "Os frutos são usados tradicionalmente para sintomas de desconforto digestivo e sensação de plenitude e como apoio à função hepática, depois que condições graves tenham sido excluídas por médico.",
+            "preparation_method": "Os frutos secos ou triturados e extratos padronizados são usados em preparações orais. Não substitui avaliação ou tratamento de doenças do fígado.",
+            "used_parts": "Frutos",
+            "contraindications": "Não usar como tratamento de doença hepática. Consultar profissional em caso de doença do fígado, gestação, amamentação, alergia a Asteraceae ou uso de medicamentos; procurar avaliação se sintomas persistirem por mais de duas semanas.",
+            "illustrative_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Mediterranean_Milk_Thistle_02.jpg/1280px-Mediterranean_Milk_Thistle_02.jpg",
+            "plant_source": "https://www.ema.europa.eu/en/medicines/herbal/silybi-mariani-fructus",
+            "image_credit": "SuperJew — CC BY-SA 3.0",
+            "image_source_url": "https://commons.wikimedia.org/wiki/File:Mediterranean%20Milk%20Thistle%2002.jpg"
+        },
+        "post_status": "draft"
+    }
+]

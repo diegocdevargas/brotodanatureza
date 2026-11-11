@@ -2,7 +2,18 @@
 
 const WP_API =
   process.env.NEXT_PUBLIC_WP_API_URL ||
-  'http://broto.local/wp-json/wp/v2'
+  'http://localhost/broto/wp-json/wp/v2'
+
+const WP_REVALIDATE_SECONDS = 300
+const WP_PLANT_CATEGORIES = [
+  'digestiva',
+  'calmante',
+  'anti-inflamatória',
+  'imunológica',
+  'circulatória',
+  'respiratória',
+  'outros',
+]
 
 // ───────────────────────────────────────────────────────────────
 // Types
@@ -11,6 +22,7 @@ const WP_API =
 export interface Plant {
   id: number
   slug: string
+  date: string
   title: { rendered: string }
   content: { rendered: string }
   excerpt: { rendered: string }
@@ -24,6 +36,9 @@ export interface Plant {
     used_parts: string
     contraindications: string
     illustrative_image: string
+    plant_source?: string
+    image_credit?: string
+    image_source_url?: string
   }
 }
 
@@ -39,6 +54,7 @@ export interface Post {
     'wp:featuredmedia'?: Array<{
       source_url: string
       alt_text: string
+      caption?: { rendered: string }
     }>
     author?: Array<{ name: string }>
     'wp:term'?: Array<Array<{ name: string; taxonomy: string }>>
@@ -51,6 +67,8 @@ export function postMeta(post: Post) {
   const category = post._embedded?.['wp:term']?.flat().find((t) => t.taxonomy === 'category')?.name
   return {
     image: media?.source_url,
+    imageAlt: media?.alt_text,
+    imageCaption: media?.caption?.rendered,
     author: post._embedded?.author?.[0]?.name,
     category: category && category !== 'Uncategorized' && category !== 'Sem categoria' ? category : undefined,
   }
@@ -68,14 +86,20 @@ export interface DashboardStats {
   categories: Record<string, number>
 }
 
+export interface WPPage<T> {
+  items: T[]
+  total: number
+  totalPages: number
+}
+
 // ───────────────────────────────────────────────────────────────
 // Generic Fetch
 // ───────────────────────────────────────────────────────────────
 
-async function fetchWP<T>(
+async function fetchWPResponse(
   endpoint: string,
   params: Record<string, string> = {}
-): Promise<T> {
+): Promise<Response> {
   const url = new URL(`${WP_API}/${endpoint}`)
 
   Object.entries(params).forEach(([key, value]) => {
@@ -83,13 +107,37 @@ async function fetchWP<T>(
   })
 
   const res = await fetch(url.toString(), {
-    cache: 'no-store',
+    next: {
+      revalidate: WP_REVALIDATE_SECONDS,
+      tags: [`wordpress-${endpoint.split('/')[0]}`],
+    },
   })
 
   if (!res.ok) {
     throw new Error(`WP API Error ${res.status}: ${endpoint}`)
   }
 
+  return res
+}
+
+async function fetchWPPage<T>(
+  endpoint: string,
+  params: Record<string, string> = {}
+): Promise<WPPage<T>> {
+  const res = await fetchWPResponse(endpoint, params)
+  const items = await res.json() as T[]
+  return {
+    items,
+    total: Number(res.headers.get('X-WP-Total') ?? items.length),
+    totalPages: Number(res.headers.get('X-WP-TotalPages') ?? 1),
+  }
+}
+
+async function fetchWP<T>(
+  endpoint: string,
+  params: Record<string, string> = {}
+): Promise<T> {
+  const res = await fetchWPResponse(endpoint, params)
   return res.json()
 }
 
@@ -110,6 +158,11 @@ async function safeFetchWP<T>(
 // Plantas
 // ───────────────────────────────────────────────────────────────
 
+function normalizePlantCategory(plant: Plant): Plant {
+  if (!plant.acf?.category) return plant
+  return { ...plant, acf: { ...plant.acf, category: plant.acf.category.toLowerCase() } }
+}
+
 export async function getPlants(params?: {
   search?: string
   category?: string
@@ -119,20 +172,54 @@ export async function getPlants(params?: {
   const query: Record<string, string> = {
     per_page: String(params?.perPage ?? 24),
     page: String(params?.page ?? 1),
-    _fields: 'id,slug,title,excerpt,featured_media,acf',
+    _fields: 'id,slug,date,title,excerpt,featured_media,acf',
     orderby: 'date',
     order: 'desc',
   }
 
   if (params?.search) {
-    query.search = params.search
+    query.plant_search = params.search
   }
 
   if (params?.category) {
-    query['filter[acf_categoria]'] = params.category
+    query.plant_category = params.category.toLowerCase()
   }
 
-  return safeFetchWP('plants', query, [])
+  const plants = await safeFetchWP<Plant[]>('plants', query, [])
+  return plants.map(normalizePlantCategory)
+}
+
+export async function getPlantsPage(params?: {
+  search?: string
+  category?: string
+  page?: number
+  perPage?: number
+  offset?: number
+}): Promise<WPPage<Plant>> {
+  const perPage = Math.max(1, Math.min(100, Math.floor(params?.perPage ?? 24)))
+  const page = Math.max(1, Math.floor(params?.page ?? 1))
+  const query: Record<string, string> = {
+    per_page: String(perPage),
+    page: String(page),
+    _fields: 'id,slug,date,title,excerpt,featured_media,acf',
+    orderby: 'date',
+    order: 'desc',
+  }
+
+  if (params?.search?.trim()) query.plant_search = params.search.trim()
+  if (params?.category) query.plant_category = params.category.toLowerCase()
+  if (params?.offset !== undefined) query.offset = String(Math.max(0, Math.floor(params.offset)))
+
+  const result = await fetchWPPage<Plant>('plants', query)
+  return { ...result, items: result.items.map(normalizePlantCategory) }
+}
+
+export async function getPlantCount(): Promise<number> {
+  const result = await fetchWPPage<{ id: number }>(
+    'plants',
+    { per_page: '1', _fields: 'id' }
+  )
+  return result.total
 }
 
 export async function getPlant(
@@ -142,25 +229,40 @@ export async function getPlant(
     'plants',
     {
       slug,
-      _embed: '1',
+      _fields: 'id,slug,date,title,content,excerpt,featured_media,acf',
     },
     []
   )
 
-  return plants[0] ?? null
+  return plants[0] ? normalizePlantCategory(plants[0]) : null
 }
 
-export async function getAllPlantSlugs(): Promise<string[]> {
-  const plants = await safeFetchWP<Plant[]>(
-    'plants',
-    {
-      per_page: '100',
-      _fields: 'slug',
-    },
-    []
-  )
+export async function getAdjacentPlants(plant: Plant): Promise<{
+  previous?: Plant
+  next?: Plant
+}> {
+  const fields = 'id,slug,date,title,excerpt,featured_media,acf'
+  const [newer, older] = await Promise.all([
+    fetchWP<Plant[]>('plants', {
+      per_page: '1',
+      after: plant.date,
+      orderby: 'date',
+      order: 'asc',
+      _fields: fields,
+    }),
+    fetchWP<Plant[]>('plants', {
+      per_page: '1',
+      before: plant.date,
+      orderby: 'date',
+      order: 'desc',
+      _fields: fields,
+    }),
+  ])
 
-  return plants.map((plant) => plant.slug)
+  return {
+    previous: newer[0] ? normalizePlantCategory(newer[0]) : undefined,
+    next: older[0] ? normalizePlantCategory(older[0]) : undefined,
+  }
 }
 
 // ───────────────────────────────────────────────────────────────
@@ -180,7 +282,7 @@ export async function getPosts(
       order: 'desc',
       _embed: '1',
       _fields:
-        'id,slug,title,excerpt,content,date,featured_media,_embedded',
+        'id,slug,title,excerpt,content,date,featured_media,_links,_embedded',
     },
     []
   )
@@ -220,38 +322,26 @@ export async function getMedia(
 // ───────────────────────────────────────────────────────────────
 
 export async function getDashboardStats(): Promise<DashboardStats> {
-  const plants = await safeFetchWP<Plant[]>(
-    'plants',
-    {
-      per_page: '100',
-      _fields: 'id,acf',
-    },
-    []
-  )
-
-  const postsResponse = await fetch(
-    `${WP_API}/posts?per_page=1`,
-    {
-      cache: 'no-store',
-    }
-  )
-
-  const totalPosts = Number(
-    postsResponse.headers.get('X-WP-Total') ?? 0
-  )
-
-  const categories = plants.reduce<Record<string, number>>(
-    (acc, plant) => {
-      const category = plant.acf?.category || 'Outros'
-      acc[category] = (acc[category] ?? 0) + 1
-      return acc
-    },
-    {}
+  const [plants, posts, ...plantCategories] = await Promise.all([
+    fetchWPPage<{ id: number }>('plants', { per_page: '1', _fields: 'id' }),
+    fetchWPPage<{ id: number }>('posts', { per_page: '1', _fields: 'id' }),
+    ...WP_PLANT_CATEGORIES.map((category) =>
+      fetchWPPage<{ id: number }>('plants', {
+        per_page: '1',
+        plant_category: category,
+        _fields: 'id',
+      })
+    ),
+  ])
+  const categories = Object.fromEntries(
+    WP_PLANT_CATEGORIES
+      .map((category, index) => [category, plantCategories[index].total] as const)
+      .filter(([, count]) => count > 0)
   )
 
   return {
-    totalPlants: plants.length,
-    totalPosts,
+    totalPlants: plants.total,
+    totalPosts: posts.total,
     categories,
   }
 }

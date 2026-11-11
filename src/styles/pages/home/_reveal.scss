@@ -1,12 +1,12 @@
 @use "../../abstracts" as *;
 
-// Scroll-driven brand reveal: a 400vh track whose viewport-sized stage is pinned by GSAP ScrollTrigger.
+// Scroll-driven brand reveal: a 600vh track with a viewport-sized stage.
 // Heights stay in `vh` on purpose — BrandReveal.tsx maps scroll progress against them,
 // and `dvh` would make the track resize while the mobile toolbar shows/hides.
 .ho-reveal {
   position: relative;
   width: 100%;
-  height: 400vh;
+  height: 600vh;
 
   &__stick {
     width: 100%;
@@ -15,6 +15,14 @@
     overflow: hidden;
     background: rgb(169 184 174);
     isolation: isolate;
+
+    // Native sticky avoids pin repositioning during touch scrolling.
+    @include below(phone) {
+      @media (hover: none) {
+        position: sticky;
+        top: 0;
+      }
+    }
   }
 
   &__video {

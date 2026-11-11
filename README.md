@@ -1,2 +1,2 @@
-# brotodanatureza
+# Brota da Natureza
 Herbário Digital

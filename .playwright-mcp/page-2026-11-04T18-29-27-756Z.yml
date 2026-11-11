@@ -1,0 +1,174 @@
+- generic [active] [ref=f1e1]:
+  - link "Pular para o conteúdo" [ref=f1e2] [cursor=pointer]:
+    - /url: "#conteudo"
+  - navigation "Principal" [ref=f1e3]:
+    - link "Broto da Natureza — página inicial" [ref=f1e4] [cursor=pointer]:
+      - /url: /
+      - generic [ref=f1e9]: Broto
+    - generic [ref=f1e10]:
+      - link "Início" [ref=f1e11] [cursor=pointer]:
+        - /url: /
+      - link "Enciclopédia" [ref=f1e13] [cursor=pointer]:
+        - /url: /plantas
+      - link "Blog" [ref=f1e16] [cursor=pointer]:
+        - /url: /blog
+      - link "Dashboard" [ref=f1e17] [cursor=pointer]:
+        - /url: /dashboard
+    - generic [ref=f1e18]:
+      - link "Pesquisar planta" [ref=f1e19] [cursor=pointer]:
+        - /url: /plantas
+      - button "Alternar tema" [ref=f1e20] [cursor=pointer]
+  - generic [ref=f1e22]:
+    - main [ref=f1e23]:
+      - generic [ref=f1e28]:
+        - generic [ref=f1e29]: Enciclopédia
+        - heading "Plantas medicinais, do campo à sua saúde." [level=1] [ref=f1e31]:
+          - generic [ref=f1e32]: Plantas medicinais,
+          - generic [ref=f1e33]: do campo à sua saúde.
+        - paragraph [ref=f1e34]: Pesquise por nome popular, nome científico, sintoma ou uso. Cada ficha traz o que a tradição e a pesquisa dizem sobre a planta.
+        - search [ref=f1e36]:
+          - generic [ref=f1e37]:
+            - generic [ref=f1e38]: Buscar plantas
+            - searchbox "Buscar plantas" [ref=f1e39]
+          - group "Filtrar por categoria" [ref=f1e40]:
+            - button "Todas" [pressed] [ref=f1e41] [cursor=pointer]
+            - button "Digestiva" [ref=f1e42] [cursor=pointer]
+            - button "Calmante" [ref=f1e43] [cursor=pointer]
+            - button "Anti-inflamatória" [ref=f1e44] [cursor=pointer]
+            - button "Imunológica" [ref=f1e45] [cursor=pointer]
+            - button "Circulatória" [ref=f1e46] [cursor=pointer]
+            - button "Respiratória" [ref=f1e47] [cursor=pointer]
+        - generic [ref=f1e48]:
+          - generic [ref=f1e49]: 4 plantas catalogadas
+          - generic [ref=f1e52]: 6 categorias
+          - generic [ref=f1e55]: Contraindicações em destaque
+      - link "respiratória Em destaque Produto de teste asdasd asdasdasd Partes usadas asdasd Ver ficha completa" [ref=f1e60] [cursor=pointer]:
+        - /url: /plantas/produto-de-teste
+        - generic [ref=f1e61]: respiratória
+        - generic [ref=f1e66]:
+          - generic [ref=f1e67]: Em destaque
+          - heading "Produto de teste" [level=3] [ref=f1e68]
+          - paragraph [ref=f1e69]: asdasd
+          - paragraph [ref=f1e70]: asdasdasd
+          - generic [ref=f1e71]:
+            - generic [ref=f1e72]: Partes usadas
+            - generic [ref=f1e74]: asdasd
+          - generic [ref=f1e75]: Ver ficha completa
+      - region [ref=f1e80]:
+        - generic [ref=f1e81]:
+          - generic [ref=f1e83]:
+            - heading "Todas as plantas" [level=2] [ref=f1e84]
+            - paragraph [ref=f1e85]: 4 plantas encontradas
+          - list [ref=f1e87]:
+            - listitem [ref=f1e88]:
+              - 'link "calmante Capim-cidreira Cymbopogon citratus Utilizada para ansiedade leve, irritabilidade, insônia e palpitações de origem nervosa. Possui ação antiviral comprovada contra o vírus do… Partes: Folhas e talos jovens Ver" [ref=f1e89] [cursor=pointer]':
+                - /url: /plantas/capim-cidreira
+                - generic [ref=f1e90]: calmante
+                - generic [ref=f1e92]:
+                  - heading "Capim-cidreira" [level=3] [ref=f1e93]
+                  - paragraph [ref=f1e94]: Cymbopogon citratus
+                  - paragraph [ref=f1e95]: Utilizada para ansiedade leve, irritabilidade, insônia e palpitações de origem nervosa. Possui ação antiviral comprovada contra o vírus do…
+                  - generic [ref=f1e97]:
+                    - generic [ref=f1e98]: "Partes: Folhas e talos jovens"
+                    - generic [ref=f1e99]: Ver
+            - listitem [ref=f1e103]:
+              - 'link "digestiva Boldo Peumus boldus Indicado para distúrbios hepáticos e digestivos, como má digestão, náuseas e sensação de peso após refeições. Estimula a produção de bile,… Partes: Folhas Ver" [ref=f1e104] [cursor=pointer]':
+                - /url: /plantas/boldo
+                - generic [ref=f1e105]: digestiva
+                - generic [ref=f1e107]:
+                  - heading "Boldo" [level=3] [ref=f1e108]
+                  - paragraph [ref=f1e109]: Peumus boldus
+                  - paragraph [ref=f1e110]: Indicado para distúrbios hepáticos e digestivos, como má digestão, náuseas e sensação de peso após refeições. Estimula a produção de bile,…
+                  - generic [ref=f1e112]:
+                    - generic [ref=f1e113]: "Partes: Folhas"
+                    - generic [ref=f1e114]: Ver
+            - listitem [ref=f1e118]:
+              - 'link "calmante Camomila Matricaria chamomilla Amplamente utilizada para aliviar ansiedade, insônia e tensão nervosa. Possui propriedades anti-inflamatórias e antiespasmódicas, sendo… Partes: Flores Ver" [ref=f1e119] [cursor=pointer]':
+                - /url: /plantas/asdasdasd
+                - generic [ref=f1e120]: calmante
+                - generic [ref=f1e122]:
+                  - heading "Camomila" [level=3] [ref=f1e123]
+                  - paragraph [ref=f1e124]: Matricaria chamomilla
+                  - paragraph [ref=f1e125]: Amplamente utilizada para aliviar ansiedade, insônia e tensão nervosa. Possui propriedades anti-inflamatórias e antiespasmódicas, sendo…
+                  - generic [ref=f1e127]:
+                    - generic [ref=f1e128]: "Partes: Flores"
+                    - generic [ref=f1e129]: Ver
+      - region "O que toda ficha da enciclopédia traz" [ref=f1e133]:
+        - generic [ref=f1e134]:
+          - heading "O que toda ficha da enciclopédia traz" [level=2] [ref=f1e136]
+          - generic [ref=f1e137]:
+            - generic [ref=f1e138]:
+              - heading "Identificação" [level=3] [ref=f1e142]
+              - paragraph [ref=f1e143]: Nome popular e científico, para não confundir espécies parecidas.
+            - generic [ref=f1e144]:
+              - heading "Usos medicinais" [level=3] [ref=f1e148]
+              - paragraph [ref=f1e149]: Para que a planta é tradicionalmente usada e quais partes se aproveitam.
+            - generic [ref=f1e150]:
+              - heading "Modo de preparo" [level=3] [ref=f1e154]
+              - paragraph [ref=f1e155]: Infusão, decocção, compressa ou tintura — e como fazer cada uma.
+            - generic [ref=f1e156]:
+              - heading "Contraindicações" [level=3] [ref=f1e160]
+              - paragraph [ref=f1e161]: Quem deve evitar, interações conhecidas e cuidados com a dose.
+      - generic [ref=f1e162]:
+        - heading "Não encontrou o que procurava?" [level=2] [ref=f1e163]
+        - paragraph [ref=f1e164]: A enciclopédia cresce continuamente. Enquanto isso, os artigos do blog aprofundam preparo, história e pesquisa sobre as plantas.
+        - generic [ref=f1e165]:
+          - link "Ler os artigos" [ref=f1e166] [cursor=pointer]:
+            - /url: /blog
+          - link "Ver todas as plantas" [ref=f1e171] [cursor=pointer]:
+            - /url: /plantas
+    - contentinfo [ref=f1e172]:
+      - generic [ref=f1e173]:
+        - generic [ref=f1e174]:
+          - paragraph [ref=f1e175]: Conhecimento que brota da terra
+          - heading "Cuidar da saúde começa por conhecer as plantas." [level=2] [ref=f1e176]: Cuidar da saúde começapor conhecer as plantas.
+        - generic [ref=f1e177]:
+          - link "Explorar enciclopédia" [ref=f1e178] [cursor=pointer]:
+            - /url: /plantas
+          - link "Ler artigos" [ref=f1e183] [cursor=pointer]:
+            - /url: /blog
+      - generic [ref=f1e186]:
+        - generic [ref=f1e187]:
+          - link "Broto da Natureza" [ref=f1e188] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=f1e194]: Um arquivo vivo de conhecimento sobre plantas medicinais, reunido com cuidado e baseado em fontes históricas e científicas.
+        - navigation "Categorias" [ref=f1e195]:
+          - paragraph [ref=f1e196]: Categorias
+          - list [ref=f1e197]:
+            - listitem [ref=f1e198]:
+              - link "Digestiva" [ref=f1e199] [cursor=pointer]:
+                - /url: /plantas?categoria=Digestiva
+            - listitem [ref=f1e200]:
+              - link "Calmante" [ref=f1e201] [cursor=pointer]:
+                - /url: /plantas?categoria=Calmante
+            - listitem [ref=f1e202]:
+              - link "Anti-inflamatória" [ref=f1e203] [cursor=pointer]:
+                - /url: /plantas?categoria=Anti-inflamat%C3%B3ria
+            - listitem [ref=f1e204]:
+              - link "Imunológica" [ref=f1e205] [cursor=pointer]:
+                - /url: /plantas?categoria=Imunol%C3%B3gica
+            - listitem [ref=f1e206]:
+              - link "Circulatória" [ref=f1e207] [cursor=pointer]:
+                - /url: /plantas?categoria=Circulat%C3%B3ria
+            - listitem [ref=f1e208]:
+              - link "Respiratória" [ref=f1e209] [cursor=pointer]:
+                - /url: /plantas?categoria=Respirat%C3%B3ria
+        - navigation "Explorar" [ref=f1e210]:
+          - paragraph [ref=f1e211]: Explorar
+          - list [ref=f1e212]:
+            - listitem [ref=f1e213]:
+              - link "Enciclopédia" [ref=f1e214] [cursor=pointer]:
+                - /url: /plantas
+            - listitem [ref=f1e215]:
+              - link "Artigos" [ref=f1e216] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=f1e217]:
+              - link "Dashboard" [ref=f1e218] [cursor=pointer]:
+                - /url: /dashboard
+        - generic [ref=f1e219]:
+          - paragraph [ref=f1e220]: Aviso
+          - paragraph [ref=f1e221]: As informações aqui presentes têm caráter exclusivamente educativo e não substituem orientação médica ou farmacêutica profissional.
+      - generic [ref=f1e224]:
+        - paragraph [ref=f1e225]: © 2026 Broto da Natureza — fins educativos.
+        - paragraph [ref=f1e226]: feito com cuidado
+  - button "Open Next.js Dev Tools" [ref=f1e232] [cursor=pointer]

@@ -11,12 +11,12 @@ export type Category = {
 };
 
 export const categories: Category[] = [
-  { name: "Digestiva", icon: "bowl", blurb: "Estômago, fígado e intestino" },
-  { name: "Calmante", icon: "moon", blurb: "Ansiedade, sono e tensão" },
-  { name: "Anti-inflamatória", icon: "fire", blurb: "Dores, inchaços e inflamações" },
-  { name: "Imunológica", icon: "shield", blurb: "Defesas do organismo" },
-  { name: "Circulatória", icon: "heart", blurb: "Coração e circulação" },
-  { name: "Respiratória", icon: "wind", blurb: "Tosse, gripe e vias aéreas" },
+  { name: "digestiva", icon: "bowl", blurb: "Estômago, fígado e intestino" },
+  { name: "calmante", icon: "moon", blurb: "Ansiedade, sono e tensão" },
+  { name: "anti-inflamatória", icon: "fire", blurb: "Dores, inchaços e inflamações" },
+  { name: "imunológica", icon: "shield", blurb: "Defesas do organismo" },
+  { name: "circulatória", icon: "heart", blurb: "Coração e circulação" },
+  { name: "respiratória", icon: "wind", blurb: "Tosse, gripe e vias aéreas" },
 ];
 
 export const categoryByName = (name?: string) =>

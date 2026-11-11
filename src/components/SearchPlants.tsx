@@ -15,7 +15,8 @@ export default function SearchPlants({ categories }: { categories: string[] }) {
   const [pending, startTransition] = useTransition()
 
   const searchQuery = params.get('busca') ?? ''
-  const category = params.get('categoria') ?? ALL
+  const categoryParam = params.get('categoria')
+  const category = !categoryParam || categoryParam.toLowerCase() === 'todas' ? ALL : categoryParam.toLowerCase()
 
   useEffect(() => () => { if (timerRef.current) clearTimeout(timerRef.current) }, [])
 

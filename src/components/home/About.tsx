@@ -15,10 +15,10 @@ export default function About({ stats, storyImage }: { stats: { value: number; l
   return (
     <section className="ho ho-narrow ho-about" aria-labelledby="about-title">
       <Reveal className="ho-about__intro" y={32} amount={0.3}>
-        <div className="ho-about__label"><span className="eyebrow">Sobre o Broto</span></div>
+        <div className="ho-about__label"><span className="eyebrow">Sobre a Brota</span></div>
         <h2 id="about-title" className="d-40">
           Durante séculos, o conhecimento sobre plantas que curam passou de mão em mão — e muito dele{" "}
-          <span className="accent">se perdeu pelo caminho.</span> <span className="muted">O Broto existe para reunir, organizar e explicar esse saber.</span>
+          <span className="accent">se perdeu pelo caminho.</span> <span className="muted">A Brota existe para reunir, organizar e explicar esse saber.</span>
         </h2>
       </Reveal>
       <div className="ho-about__body">

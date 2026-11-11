@@ -1,4 +1,4 @@
-// Why the Broto: three reasons + comparison table against a typical web search.
+// Why Brota: three reasons + comparison table against a typical web search.
 import { CheckIcon, XIcon } from "@phosphor-icons/react/dist/ssr";
 import { Reveal } from "@/components/motion";
 import { LogoMark } from "@/components/ui";
@@ -9,21 +9,21 @@ const reasons = [
   { n: "03", title: "Segurança em primeiro lugar", copy: "Contraindicações e alertas aparecem com destaque, porque saber quando não usar é tão importante quanto saber usar." },
 ];
 
-const comparison: { label: string; broto: true; typical: string | false }[] = [
-  { label: "Nome científico em cada planta", broto: true, typical: "Às vezes" },
-  { label: "Partes utilizadas indicadas", broto: true, typical: "Raramente" },
-  { label: "Modo de preparo detalhado", broto: true, typical: "Varia" },
-  { label: "Contraindicações em destaque", broto: true, typical: false },
-  { label: "Busca por sintoma e categoria", broto: true, typical: false },
+const comparison: { label: string; brota: true; typical: string | false }[] = [
+  { label: "Nome científico em cada planta", brota: true, typical: "Às vezes" },
+  { label: "Partes utilizadas indicadas", brota: true, typical: "Raramente" },
+  { label: "Modo de preparo detalhado", brota: true, typical: "Varia" },
+  { label: "Contraindicações em destaque", brota: true, typical: false },
+  { label: "Busca por sintoma e categoria", brota: true, typical: false },
 ];
 
 export default function Why() {
   return (
     <section className="ho ho-narrow ho-why" aria-labelledby="why-title">
       <Reveal className="ho-why__head" y={32} amount={0.3}>
-        <span className="eyebrow">Por que o Broto</span>
+        <span className="eyebrow">Por que a Brota</span>
         <h2 id="why-title" className="d-60">Menos achismo, mais clareza<br />e <span className="accent">mais cuidado.</span></h2>
-        <p>Receitas soltas na internet raramente dizem de qual planta estão falando, nem quando ela pode fazer mal. O Broto reúne tudo em um só lugar, com método.</p>
+        <p>Receitas soltas na internet raramente dizem de qual planta estão falando, nem quando ela pode fazer mal. A Brota reúne tudo em um só lugar, com método.</p>
       </Reveal>
       <div className="ho-why__body">
         <Reveal className="ho-why__reasons" delay={0.1} y={32}>
@@ -39,11 +39,11 @@ export default function Why() {
         </Reveal>
         <Reveal className="ho-why__cmp" delay={0.2} y={32}>
           <table className="ho-table">
-            <caption className="sr-only">Comparação entre o Broto e uma busca comum na internet</caption>
+            <caption className="sr-only">Comparação entre a Brota e uma busca comum na internet</caption>
             <thead>
               <tr>
                 <th scope="col" className="ho-table__head ho-table__head--labels"><span className="ho-label">O que você encontra</span></th>
-                <th scope="col" className="ho-table__head ho-table__head--broto"><LogoMark size={28} /><span className="d-25">Broto</span></th>
+                <th scope="col" className="ho-table__head ho-table__head--brota"><LogoMark size={28} /><span className="d-25">Brota</span></th>
                 <th scope="col" className="ho-table__head">Busca comum</th>
               </tr>
             </thead>
@@ -51,7 +51,7 @@ export default function Why() {
               {comparison.map((r) => (
                 <tr key={r.label}>
                   <th scope="row" className="ho-table__cell ho-table__cell--label">{r.label}</th>
-                  <td className="ho-table__cell ho-table__cell--broto">
+                  <td className="ho-table__cell ho-table__cell--brota">
                     <span className="ho-table__check"><CheckIcon size={16} aria-label="Sim" /></span>
                   </td>
                   <td className="ho-table__cell">

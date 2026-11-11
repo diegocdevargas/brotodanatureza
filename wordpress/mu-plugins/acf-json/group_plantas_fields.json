@@ -1,0 +1,260 @@
+{
+    "key": "group_plantas_fields",
+    "title": "Dados da Planta",
+    "fields": [
+        {
+            "key": "field_nome_popular",
+            "label": "Nome Popular",
+            "name": "popular_name",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "ex: Camomila",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_nome_cientifico",
+            "label": "Nome Científico",
+            "name": "scientific_name",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "ex: Matricaria chamomilla",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_categoria",
+            "label": "Categoria",
+            "name": "category",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "digestiva": "Digestiva",
+                "calmante": "Calmante",
+                "anti-inflamatória": "Anti-inflamatória",
+                "imunológica": "Imunológica",
+                "circulatória": "Circulatória",
+                "respiratória": "Respiratória",
+                "outros": "Outros"
+            },
+            "default_value": "outros",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_usos_medicinais",
+            "label": "Usos Medicinais",
+            "name": "medicinal_uses",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "rows": 5,
+            "placeholder": "Descreva os usos medicinais comprovados desta planta...",
+            "new_lines": ""
+        },
+        {
+            "key": "field_modo_de_preparo",
+            "label": "Modo de Preparo",
+            "name": "preparation_method",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "rows": 4,
+            "placeholder": "ex: Chá: 1 colher de sopa das flores secas em 200ml de água fervente. Infusão por 10 minutos.",
+            "new_lines": ""
+        },
+        {
+            "key": "field_partes_utilizadas",
+            "label": "Partes Utilizadas",
+            "name": "used_parts",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "ex: Flores, folhas, raízes",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_contraindicacoes",
+            "label": "Contraindicações",
+            "name": "contraindications",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "rows": 3,
+            "placeholder": "ex: Não recomendado para gestantes. Pode causar reações alérgicas em pessoas sensíveis a plantas da família Asteraceae.",
+            "new_lines": ""
+        },
+        {
+            "key": "field_imagem_ilustrativa",
+            "label": "Imagem Ilustrativa",
+            "name": "illustrative_image",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_referencia_planta",
+            "label": "Fonte da informação",
+            "name": "plant_source",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Link para a monografia ou referência usada na ficha.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_credito_imagem",
+            "label": "Crédito da imagem",
+            "name": "image_credit",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Atribuição e licença exigidas pela fonte da imagem.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_fonte_imagem",
+            "label": "Fonte da imagem",
+            "name": "image_source_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Página da imagem original, com autoria e licença.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "plants"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 1,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": ""
+}

@@ -278,7 +278,7 @@
 // ---------- CtaCard overrides ----------
 .jo-cta {
   .ctaband {
-    padding: 0 48px 96px;
+    padding: 48px 96px;
 
     @include below(tablet) {
       padding: 0 32px 80px;

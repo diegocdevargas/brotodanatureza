@@ -5,3 +5,21 @@
 @use "pages/catalog/listing";
 @use "pages/catalog/bands";
 @use "pages/catalog/detail";
+@use "abstracts" as *;
+
+.ca-hero--encyclopedia,
+.ca-dhero {
+  padding-top: 190px;
+
+  @include below(tablet) {
+    padding-top: 168px;
+  }
+
+  @include below(phone) {
+    padding-top: 136px;
+  }
+}
+
+.ca-hero--encyclopedia {
+  justify-content: flex-start;
+}
