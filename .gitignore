@@ -42,3 +42,7 @@ next-env.d.ts
 
 # template source used during the redesign
 /_incoming
+
+# local WordPress and documentation files
+/wordpress/
+/docs/

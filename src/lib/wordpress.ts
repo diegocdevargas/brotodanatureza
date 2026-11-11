@@ -1,5 +1,7 @@
 // src/lib/wordpress.ts
 
+import sanitizeHtmlImpl from 'sanitize-html'
+
 const WP_API =
   process.env.NEXT_PUBLIC_WP_API_URL ||
   'http://localhost/broto/wp-json/wp/v2'
@@ -350,13 +352,16 @@ export async function getDashboardStats(): Promise<DashboardStats> {
 // Utilities
 // ───────────────────────────────────────────────────────────────
 
-/**
- * Sanitizes HTML by removing script tags and other dangerous content
- * to prevent React warnings about script execution
- */
 export function sanitizeHtml(html: string): string {
-  return html
-    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
-    .replace(/on\w+\s*=\s*["'][^"']*["']/gi, '')
-    .replace(/on\w+\s*=\s*{[^}]*}/gi, '')
+  return sanitizeHtmlImpl(html, {
+    allowedTags: [...sanitizeHtmlImpl.defaults.allowedTags, 'figure', 'figcaption', 'img'],
+    allowedAttributes: {
+      ...sanitizeHtmlImpl.defaults.allowedAttributes,
+      '*': ['class'],
+      a: ['href', 'name', 'target', 'rel', 'class'],
+      img: ['src', 'srcset', 'alt', 'title', 'width', 'height', 'loading', 'class'],
+    },
+    allowedSchemes: ['http', 'https', 'mailto', 'tel'],
+    allowProtocolRelative: false,
+  })
 }
