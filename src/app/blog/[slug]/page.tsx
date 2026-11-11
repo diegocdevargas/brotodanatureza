@@ -78,7 +78,7 @@ export default async function PostPage({ params }: Params) {
                 <span className="jo-author__av"><PenNibIcon size={22} aria-hidden /></span>
                 <div className="jo-author__copy">
                   <p className="jo-author__name">{author}</p>
-                  <p className="t-13 muted">Autor na Brota da Natureza</p>
+                  <p className="t-13 muted">Autor no Broto da Natureza</p>
                 </div>
               </Reveal>
             )}

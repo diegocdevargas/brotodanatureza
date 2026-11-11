@@ -80,7 +80,7 @@
     @include stack(28px);
     align-items: flex-start;
     position: relative;
-    top: 3rem;
+    top: 4rem;
     @include below(phone) {
       padding-top: 40px;
     }

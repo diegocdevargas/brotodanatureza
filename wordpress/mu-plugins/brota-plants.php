@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Brota da Natureza - Plantas
+ * Plugin Name: Broto da Natureza - Plantas
  * Description: Registers the plants content type independently of the active theme.
  * Version: 1.0.0
  */

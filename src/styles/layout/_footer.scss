@@ -73,6 +73,11 @@
       width: 100%;
 
       .btn { justify-content: flex-start; }
+      .btn--lime {
+        white-space: normal;
+        text-align: left;
+      }
+      .btn--lime .btn__arrow { margin-left: auto; }
       .btn--ghost { justify-content: center; }
     }
   }

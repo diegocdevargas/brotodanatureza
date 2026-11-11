@@ -98,19 +98,20 @@
       height: 100%;
     }
 
-    &__credit {
-      position: absolute;
-      right: 12px;
-      bottom: 12px;
-      left: 12px;
-      width: fit-content;
-      padding: 6px 10px;
-      border-radius: 8px;
-      background: rgba(0, 0, 0, 0.75);
-      color: #fff;
-      font-size: rem(11px);
-      line-height: 1.4;
-    }
+  }
+
+  &__credit {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    width: fit-content;
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    font-size: rem(11px);
+    line-height: 1.4;
   }
 }
 

@@ -36,7 +36,7 @@ export function CategoryIcon({ icon, size = 24 }: { icon: CategoryIconName; size
   return <I size={size} weight="regular" aria-hidden />;
 }
 
-/** The Brota da Natureza mark in a lime circle. */
+/** The Broto da Natureza mark in a lime circle. */
 export function LogoMark({ size = 70 }: { size?: number }) {
   return (
     <span className="logo-mark" style={{ width: size, height: size }}>

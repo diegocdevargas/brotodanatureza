@@ -36,9 +36,9 @@ export default function Nav() {
   return (
     <>
       <nav className="nav" aria-label="Principal">
-        <Link href="/" className="nav__logo" aria-label="Brota da Natureza — página inicial" onClick={closeAll}>
+        <Link href="/" className="nav__logo" aria-label="Broto da Natureza — página inicial" onClick={closeAll}>
           <LogoMark />
-          <span className="nav__word">Brota da Natureza</span>
+          <span className="nav__word">Broto da Natureza</span>
         </Link>
         <div className="nav__links">
           {navLinks.map((l) =>
@@ -124,7 +124,7 @@ export default function Nav() {
                 <Link href="/plantas" className="mmenu__book" onClick={closeAll}><span className="mono">Pesquisar planta</span><span className="mmenu__arrow"><Arrow size={14} /></span></Link>
               </div>
             </motion.div>
-            <p className="mmenu__copy t-13">© <CurrentYear /> Brota da Natureza</p>
+            <p className="mmenu__copy t-13">© <CurrentYear /> Broto da Natureza</p>
           </motion.div>
         )}
       </AnimatePresence>

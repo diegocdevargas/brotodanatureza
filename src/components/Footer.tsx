@@ -22,8 +22,8 @@ export default function Footer() {
       <div className="footer__sep" />
       <div className="footer__cols">
         <div className="footer__brand">
-          <Link href="/" className="footer__logo"><LogoMark /><span className="d-32">Brota da Natureza</span></Link>
-          <p className="t-15 soft">Um arquivo vivo de conhecimento sobre plantas medicinais, reunido com cuidado e baseado em fontes históricas e científicas.</p>
+          <Link href="/" className="footer__logo"><LogoMark /><span className="d-32">Broto da Natureza</span></Link>
+          <p className="t-15 soft">Um arquivo vivo de conhecimento sobre plantas medicinais, reunido com cuidado e baseado em fontes ancestrais, históricas e científicas.</p>
         </div>
         <nav className="footer__col" aria-label="Categorias">
           <p className="caps muted">Categorias</p>
@@ -43,7 +43,7 @@ export default function Footer() {
       <div className="footer__bottom">
         <div className="footer__sep" />
         <div className="footer__legal">
-          <p className="t-13 muted">© <CurrentYear /> Brota da Natureza — fins educativos.</p>
+          <p className="t-13 muted">© <CurrentYear /> Broto da Natureza — fins educativos.</p>
           <p className="t-13 muted">feito com cuidado</p>
         </div>
       </div>

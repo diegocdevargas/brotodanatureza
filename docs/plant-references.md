@@ -69,6 +69,19 @@ original 17 records have since had references added.
 
 ## General sources
 
+### Four native plants (2026-11-11)
+
+The pitangueira record was completed using the 2026 Brazilian herbal formulary
+as transcribed by [FitoFinder](https://fitofinder.com.br/planta/eugenia-uniflora);
+its botanical description is supported by [UFSC](https://hortodidatico.ufsc.br/pitanga/).
+The [UFSC guaçatonga](https://hortodidatico.ufsc.br/guacatonga/) and
+[arnica-da-praia](https://hortodidatico.ufsc.br/arnica-da-praia-i/) records
+provide their traditional preparations and precautions. The
+[ANVISA erva-baleeira assessment](https://www.gov.br/anvisa/pt-br/setorregulado/regularizacao/medicamentos/fitoterapicos-dinamizados-e-especificos/registro-simplificado-de-fitoterapicos/relatorios-de-avaliacao/relatorio_cordia_verbenacea.pdf/@@download/file)
+describes the external infusion and precautions; general infusion steps use
+the Goiás guide linked above. Photos are attributed in the records; iNaturalist
+community identifications should not be used alone for plant identification.
+
 ### Alecrim, louro and araucária (2026-11-10)
 
 The additional plant records are in `wordpress/seed/plants-gerais.json`; the

@@ -2,20 +2,21 @@
     {
         "title": "Pitangueira",
         "slug": "pitangueira",
+        "content": "A pitangueira é uma árvore nativa de folhas aromáticas, flores brancas e frutos conhecidos como pitangas, que amadurecem em tons de vermelho a roxo.",
         "acf": {
             "popular_name": "Pitangueira",
             "scientific_name": "Eugenia uniflora L.",
             "category": "digestiva",
-            "medicinal_uses": "As folhas são usadas popularmente em preparações para diarreia. O uso tradicional não comprova eficácia para todas as preparações nem substitui avaliação de saúde.",
-            "preparation_method": "As folhas são usadas em infusão. A identificação da espécie e a escolha da preparação devem ser orientadas por profissional de saúde.",
+            "medicinal_uses": "As folhas são usadas tradicionalmente para auxiliar no alívio de diarreia leve não infecciosa.",
+            "preparation_method": "Infusão para adultos: coloque 3 g de folhas secas em 150 mL de água fervente. Tampe, deixe em repouso por 10 a 15 minutos e coe. A preparação tradicional é de 30 mL após cada episódio de diarreia, até 10 vezes ao dia; utilize a infusão no dia do preparo.",
             "used_parts": "Folhas",
-            "contraindications": "O uso interno é contraindicado para gestantes, lactantes e crianças menores de três anos. Diarreia persistente, com sangue, sinais de desidratação ou febre exige avaliação de saúde.",
+            "contraindications": "Contraindicada durante a gestação e a amamentação e para menores de 18 anos. Pode causar prisão de ventre; pessoas com arritmia ou insuficiência cardíaca devem consultar um profissional de saúde. Diarreia persistente, com sangue, sinais de desidratação ou febre exige avaliação de saúde e hidratação.",
             "illustrative_image": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Pitanga-eugenia-uniflora.jpg",
-            "plant_source": "https://www.fcf.unicamp.br/wp-content/uploads/sites/91/2025/05/Pitangueira.pdf",
+            "plant_source": "https://fitofinder.com.br/planta/eugenia-uniflora",
             "image_credit": "Miguel Axcar — CC BY-SA 4.0",
             "image_source_url": "https://commons.wikimedia.org/wiki/File:Pitanga-eugenia-uniflora.jpg"
         },
-        "post_status": "draft"
+        "post_status": "publish"
     },
     {
         "title": "Pata-de-vaca",

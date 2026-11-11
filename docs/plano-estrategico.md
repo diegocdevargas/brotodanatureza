@@ -1,4 +1,4 @@
-# Plano Estratégico — Brota da Natureza
+# Plano Estratégico — Broto da Natureza
 
 > Documento vivo. Atualizar conforme as fases avançam e as hipóteses forem validadas.
 > Última atualização: 2026-10-03
@@ -60,7 +60,7 @@ Principal: **Health → Wellness** · Secundárias: **Publishing → Blogs**, **
 
 ## Fase 2 — Marketplace curado
 
-**Objetivo:** validar que existe demanda para comprar produtos naturais e artesanais via Brota.
+**Objetivo:** validar que existe demanda para comprar produtos naturais e artesanais via Broto.
 
 ### Estratégia
 - **Começar pequeno e curado:** poucos vendedores selecionados a dedo, garantindo qualidade e conformidade.
@@ -126,7 +126,7 @@ Principal: **Health → Wellness** · Secundárias: **Publishing → Blogs**, **
 - Política de privacidade, consentimento para cookies/ads e tratamento adequado dos dados de vendedores e compradores.
 
 ### Mercado
-- Concorrência direta: Elo7, Mercado Livre, Shopee. **Diferencial da Brota:** nicho focado + conteúdo educativo + comunidade.
+- Concorrência direta: Elo7, Mercado Livre, Shopee. **Diferencial do Broto:** nicho focado + conteúdo educativo + comunidade.
 
 ---
 
@@ -149,4 +149,4 @@ Principal: **Health → Wellness** · Secundárias: **Publishing → Blogs**, **
 - Quais categorias de produto entram primeiro? (Começar só com artesanato e produtos sem alegação terapêutica reduz o risco regulatório.)
 - Vendedores pessoa física serão aceitos, ou só CNPJ/MEI?
 - Comunidade: fórum, grupo externo (WhatsApp/Telegram) ou recurso dentro da plataforma?
-- Nome e marca: o marketplace fica sob "Brota da Natureza" ou ganha uma marca própria?
+- Nome e marca: o marketplace fica sob "Broto da Natureza" ou ganha uma marca própria?

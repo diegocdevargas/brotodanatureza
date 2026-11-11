@@ -14,14 +14,14 @@ const serif = Instrument_Serif({ subsets: ['latin'], weight: '400', style: ['nor
 
 export const metadata: Metadata = {
   title: {
-    default: 'Brota da Natureza — Enciclopédia de plantas medicinais',
-    template: '%s | Brota da Natureza',
+    default: 'Broto da Natureza — Enciclopédia de plantas medicinais',
+    template: '%s | Broto da Natureza',
   },
-  description: 'Portal de plantas medicinais com enciclopédia, artigos e pesquisa. Baseado em fontes históricas e científicas.',
+  description: 'Portal de plantas medicinais com enciclopédia, artigos e pesquisa. Baseado em fontes ancestrais, históricas e científicas.',
   openGraph: {
-    title: 'Brota da Natureza',
-    description: 'Enciclopédia de plantas medicinais baseada em fontes históricas e científicas.',
-    siteName: 'Brota da Natureza',
+    title: 'Broto da Natureza',
+    description: 'Enciclopédia de plantas medicinais baseada em fontes ancestrais, históricas e científicas.',
+    siteName: 'Broto da Natureza',
     locale: 'pt_BR',
     type: 'website',
   },

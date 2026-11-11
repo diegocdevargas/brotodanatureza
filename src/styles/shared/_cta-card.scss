@@ -52,6 +52,15 @@
       .btn {
         justify-content: center;
       }
+
+      .btn--lime {
+        white-space: normal;
+        text-align: left;
+
+        .btn__arrow {
+          margin-left: auto;
+        }
+      }
     }
   }
 }

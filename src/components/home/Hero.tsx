@@ -23,7 +23,7 @@ export default function Hero({ stats, featured }: {
         <LoadIn delay={0.1} className="ho-hero__intro">
           <span className="ho-hero__eyebrow">
             <span className="ho-hero__badge"><SealCheckIcon size={14} aria-hidden /></span>
-            {"Fontes históricas e científicas  ·  Acesso livre"}
+            {"Fontes ancestrais, históricas e científicas  ·  Acesso livre"}
           </span>
           <h1 className="d-78">O saber das plantas,<br />ao seu <span className="lime">alcance.</span></h1>
           <p className="ho-hero__lede">Uma enciclopédia de plantas medicinais com usos, modo de preparo e contraindicações — do campo à sua saúde, com responsabilidade.</p>
